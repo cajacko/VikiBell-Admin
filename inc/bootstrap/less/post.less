@@ -1,0 +1,186 @@
+/* -----------------------------
+POST
+----------------------------- */	
+	#post-loop {
+		max-width: @post-loop-width;
+		width: 100%;
+	}
+	
+	/* Needed to allow the sidebar to move smoothly as it changes from fixed to absolute positions */
+	@media (min-width: @wrap-max-width-min) {	
+		#post-loop {
+			float: left;
+		}
+	}
+	
+	/* Center the post loop when the banner is hidden */
+	@media (max-width: @wrap-max-width-min) {
+		#post-loop {
+			margin: 0 auto;
+		}
+	}
+	
+	.article-container, .loading-img, #portfolio-nav, #post-query-title {
+		margin-bottom: @global-padding;
+	}
+	
+	.article-container, #portfolio-nav, #post-query-title {
+		background-color: white;
+		border: 1px solid @content-border-color;
+		border-radius: 3px;
+		overflow: hidden;
+		width: 100%;
+	}
+	
+	#post-query-title h1{
+		font-size: 1.5em;
+		margin: @global-padding 0;
+		
+		small {
+			color: #636262;	
+		}
+	}
+	
+	#portfolio-nav {
+		text-align: center;
+		
+		#portfolio-nav-middle {
+			border-right: solid;
+		    border-left: solid;
+		    border-color: @content-border-color;
+		    border-width: 1px;
+		}
+		
+		a {
+			padding: @global-padding/2 0;
+			font-size: 0.9em;
+		}	
+		
+		a:hover {
+			background-color: #F7F7F7
+		}
+		
+		.active-portfolio {
+			background-color: @charliejackson-link;
+			color: white;	
+		}
+		
+		.active-portfolio:hover {
+			background-color: @charliejackson-link-hover;
+		}
+	}
+	
+	.article-container {
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+		
+		.gallery {
+			padding: @global-padding / 4;
+			background-color: @charliejackson-primary;
+			
+			figure {
+				width: 33.3333%;
+				float: left;
+				padding: @global-padding / 4;
+			}
+		}
+			
+		header {
+			.post-featured-image {
+				width: 100%;
+				height: auto;
+			}
+			
+			h2 {
+				margin: 0;
+				-ms-word-wrap: break-word;
+				word-wrap: break-word;
+			}
+			
+			.header-title {
+				margin-top: @global-padding;
+			}
+		}
+		
+		.post-body {
+			margin-bottom: @content-padding;
+			margin-top: @content-padding;
+			
+			h1 {
+				font-size: 2em;	
+			}
+			
+			h2 {
+				font-size: 1.8em;	
+			}
+			
+			h3 {
+				font-size: 1.6em;	
+			}
+			
+			h4 {
+				font-size: 1.4em;	
+			}
+			
+			h5 {
+				font-size: 1.2em;	
+			}
+			
+			h6 {
+				font-size: 1em;	
+			}
+			
+			blockquote {
+			    font-size: 1.2em;
+			    font-style: italic;
+			    margin: 0 @global-padding/2;
+			    padding: 0 @global-padding/2;
+			    border-left: 5px solid #E6E6E6;
+			    
+			    cite {
+				 	margin-left: 0; 
+				}
+			}
+			
+			cite {
+				margin-left: @global-padding/2;
+				font-size: initial;
+				font-style: initial; 
+			}
+
+			a {
+				text-decoration: underline;	
+			}
+			
+			.caption {
+				width: 100%;
+				
+				.caption-text {
+					font-style: italic;
+				    text-align: center;
+				    margin: 0.5em 0 2em 0;
+				    font-size: 0.8em;
+				}
+			}
+		}
+		
+		footer {
+			padding-bottom: @content-padding;
+		    padding-top: @content-padding;
+		    border-top: 1px solid @content-border-color;
+		    background-color: #FCFCFC;
+		    margin-top: @global-padding;
+		}
+	}
+	
+	.next-page-link {
+		 display: none;
+	}
+	
+	.loading-img {
+		margin-right: auto;
+	    display: none;
+	    margin-left: auto;
+	}

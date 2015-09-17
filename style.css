@@ -1,0 +1,15 @@
+/*
+Theme Name: Charlie Jackson
+Theme URI: http://charliejackson.com/
+Author: Charlie Jackson
+Author URI: http://charliejackson.com
+Description: Site version 0.0.1 for Charlie Jackson
+Version: 0.0.1
+Text Domain: charliejackson
+*/
+
+/*
+ Known Issues:
+ 	- For content-projects.php need to wrap portfolio images in the responsive div
+ 		- Do this and then check each project page and remove featured image as necessary
+ */

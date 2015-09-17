@@ -1,0 +1,55 @@
+/* -----------------------------
+PROJECTS-PAGE
+----------------------------- */
+	#page-projects {
+		
+		#main-wrap {
+			padding-left: @global-padding;
+			padding-right: @global-padding;
+		}
+		
+		@media (max-width: @mobile-width) {
+			#main-wrap {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+		
+		#projects-loop {
+			article {
+				max-width: 33.33333%;
+				width: 100%;
+				padding: 0 @global-padding/2;
+				float: left;
+			}	
+			
+			@media (max-width: @mobile-width) {
+				article {
+					padding-left: 0;
+					padding-right: 0;
+				}
+			}
+		}
+	}
+	
+	//For small screens
+	@media (max-width: 900px) {
+		#page-projects {
+			#projects-loop {
+				article {
+					max-width: 50%;
+				}	
+			}
+		}
+	}
+	
+	//For small screens
+	@media (max-width: 650px) {
+		#page-projects {
+			#projects-loop {
+				article {
+					max-width: 100%;
+				}	
+			}
+		}
+	}
