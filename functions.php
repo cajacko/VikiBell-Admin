@@ -24,7 +24,7 @@ TERRY PRATCHETT HEADER
 /* -----------------------------
 ADD/REMOVE THEME SUPPORT
 ----------------------------- */	
-	function charliejackson_setup() {
+	function vikibell_setup() {
 		add_filter( 'show_admin_bar', '__return_false' ); // Always hide admin bar
 		
 		add_theme_support( 'post-thumbnails' );
@@ -55,61 +55,61 @@ ADD/REMOVE THEME SUPPORT
 		add_theme_support( 'post-formats', array( 'image', 'video', 'gallery', 'link', 'aside', 'quote', 'status', 'audio', 'chat' ) );
 	}
 	
-	add_action( 'after_setup_theme', 'charliejackson_setup' );
+	add_action( 'after_setup_theme', 'vikibell_setup' );
 
 /* -----------------------------
 ADD STYLES AND SCRIPTS
 ----------------------------- */
-	function charliejackson_scripts() {
+	function vikibell_scripts() {
 		/*
 		 * Add the bootstrap stylesheet and JavaScript
 		 */
-		wp_enqueue_style( 'charliejackson-bootstrap-style',  get_template_directory_uri()  . '/inc/bootstrap/css/bootstrap.min.css' );
-		wp_enqueue_script( 'charliejackson-bootstrap-script', get_template_directory_uri()  . '/inc/bootstrap/js/bootstrap.min.js', array( 'jquery' ) );
+		wp_enqueue_style( 'vikibell-bootstrap-style',  get_template_directory_uri()  . '/inc/bootstrap/css/bootstrap.min.css' );
+		wp_enqueue_script( 'vikibell-bootstrap-script', get_template_directory_uri()  . '/inc/bootstrap/js/bootstrap.min.js', array( 'jquery' ) );
 		
 		/*
 		 * Add the template.js file which provides global functions used by other JavaScript files.
 		 */
-		wp_enqueue_script( 'charliejackson-template-script', get_template_directory_uri()  . '/js/template.js', array( 'jquery' ) );
+		wp_enqueue_script( 'vikibell-template-script', get_template_directory_uri()  . '/js/template.js', array( 'jquery' ) );
 		
 		/*
 		 * Add the core setup.js file which is used on every page.
 		 */
-		wp_enqueue_script( 'charliejackson-setup-script', get_template_directory_uri()  . '/js/setup.js', array( 'jquery' ) );
+		wp_enqueue_script( 'vikibell-setup-script', get_template_directory_uri()  . '/js/setup.js', array( 'jquery' ) );
 		
 		/*
 		 * Add specific JavaScript for the banner element.
 		 */
 		if( is_front_page_showing() ) {
-			wp_enqueue_script( 'charliejackson-banner-script', get_template_directory_uri()  . '/js/banner.js', array( 'jquery' ) );
+			wp_enqueue_script( 'vikibell-banner-script', get_template_directory_uri()  . '/js/banner.js', array( 'jquery' ) );
 		}
 		
 		/*
 		 * Add JavaScript that acts on a loop of posts e.g. Infinite scroll
 		 */
 		if( !is_single() ) {
-			wp_enqueue_script( 'charliejackson-not-single-script', get_template_directory_uri()  . '/js/not-single.js', array( 'jquery' ) );
+			wp_enqueue_script( 'vikibell-not-single-script', get_template_directory_uri()  . '/js/not-single.js', array( 'jquery' ) );
 		}
 		
 		/*
 		 * Add specific JavaScript for the Portfolio page.
 		 */
 		if( is_page( 'portfolio' ) ) {
-			wp_enqueue_script( 'charliejackson-portfolio-script', get_template_directory_uri()  . '/js/portfolio.js', array( 'jquery' ) );
+			wp_enqueue_script( 'vikibell-portfolio-script', get_template_directory_uri()  . '/js/portfolio.js', array( 'jquery' ) );
 		}
 		
 		/*
 		 * Add specific JavaScript for the projects page otherwise include JavaScript for the sidebar on all other pages.
 		 */
 		if( is_page( 'projects' ) ) {
-			wp_enqueue_script( 'charliejackson-projects-script', get_template_directory_uri()  . '/js/projects.js', array( 'jquery' ) );
-			wp_enqueue_script( 'charliejackson-masonry-script', get_template_directory_uri()  . '/js/masonry.js', array( 'jquery' ) );
+			wp_enqueue_script( 'vikibell-projects-script', get_template_directory_uri()  . '/js/projects.js', array( 'jquery' ) );
+			wp_enqueue_script( 'vikibell-masonry-script', get_template_directory_uri()  . '/js/masonry.js', array( 'jquery' ) );
 		} else {
-			wp_enqueue_script( 'charliejackson-sidebar-script', get_template_directory_uri()  . '/js/sidebar.js', array( 'jquery' ) );
+			wp_enqueue_script( 'vikibell-sidebar-script', get_template_directory_uri()  . '/js/sidebar.js', array( 'jquery' ) );
 		}
 	}
 	
-	add_action( 'wp_enqueue_scripts', 'charliejackson_scripts' );
+	add_action( 'wp_enqueue_scripts', 'vikibell_scripts' );
 
 /* -----------------------------
 IS THE FRONT PAGE SHOWING
@@ -125,7 +125,7 @@ IS THE FRONT PAGE SHOWING
 /* -----------------------------
 GET THE SYNCED URL
 ----------------------------- */
-	function charliejackson_cross_site_sync_url() {
+	function vikibell_cross_site_sync_url() {
 		$url = get_post_meta( get_the_ID(), 'cross_site_sync_original_url', true );
 		
 		if( $url == '' ) {
@@ -138,7 +138,7 @@ GET THE SYNCED URL
 /* -----------------------------
 GET THE SYNCED FEATURED IMAGE
 ----------------------------- */
-	function charliejackson_cross_site_sync_featured_image() {
+	function vikibell_cross_site_sync_featured_image() {
 		$url = get_post_meta( get_the_ID(), 'cross_site_sync_featured_image', true );
 		
 		if( $url == '' ) {
@@ -151,8 +151,8 @@ GET THE SYNCED FEATURED IMAGE
 /* -----------------------------
 THE POST TITLE AND LINK
 ----------------------------- */
-	function charliejackson_the_title() {
-		$cross_site_sync_url = charliejackson_cross_site_sync_url();
+	function vikibell_the_title() {
+		$cross_site_sync_url = vikibell_cross_site_sync_url();
 		
 		if( $cross_site_sync_url ) {
 			echo '<a href="' . $cross_site_sync_url . '" target="_blank">';
@@ -168,8 +168,8 @@ THE POST TITLE AND LINK
 /* -----------------------------
 CROSS SITE SYNC MESSAGE
 ----------------------------- */
-	function charliejackson_cross_site_sync_message() {	
-		$cross_site_sync_url = charliejackson_cross_site_sync_url();
+	function vikibell_cross_site_sync_message() {	
+		$cross_site_sync_url = vikibell_cross_site_sync_url();
 		
 		if( $cross_site_sync_url ) {
 
@@ -187,7 +187,7 @@ CROSS SITE SYNC MESSAGE
 /* -----------------------------
 FILTER OEMBED OUTPUT
 ----------------------------- */	
-	function charliejackson_filter_oembed( $html, $url, $attr, $post_id ) {
+	function vikibell_filter_oembed( $html, $url, $attr, $post_id ) {
 		/**
 		 * If the embed is a youTube video then 
 		 * return the embed within a fixed aspect 
@@ -203,12 +203,12 @@ FILTER OEMBED OUTPUT
 		return $html;
 	}
 	
-	add_filter( 'embed_oembed_html', 'charliejackson_filter_oembed', 99, 4 );
+	add_filter( 'embed_oembed_html', 'vikibell_filter_oembed', 99, 4 );
 	
 /* -----------------------------
 REGISTER PAGE CATEGORIES	
 ----------------------------- */	
-	function charliejackson_page_cat() {
+	function vikibell_page_cat() {
 		register_taxonomy(
 			'project-categories',
 			'page',
@@ -220,12 +220,12 @@ REGISTER PAGE CATEGORIES
 		);
 	}
 	
-	add_action( 'init', 'charliejackson_page_cat' );
+	add_action( 'init', 'vikibell_page_cat' );
 	
 /* -----------------------------
 REGISTER IMAGE SIZE SELECTIONS	
 ----------------------------- */
-	function charliejackson_new_image_sizes( $sizes ) {
+	function vikibell_new_image_sizes( $sizes ) {
 		return array_merge( $sizes, array(
 	        'inline-image' => __( 'Inline Image' ),
 	        'width-500' => __( 'Width 500' ),
@@ -239,7 +239,7 @@ REGISTER IMAGE SIZE SELECTIONS
 	    ) );
 	}
 	
-	add_filter( 'image_size_names_choose', 'charliejackson_new_image_sizes' );
+	add_filter( 'image_size_names_choose', 'vikibell_new_image_sizes' );
 
 /* -----------------------------
 INCREASE MAX UPLOAD SIZE	
@@ -254,7 +254,7 @@ DISPLAY PORTFOLIO META BOXES
 	/**
 	 * Add a 'Portfolio Content' meta box to the edit/add page acreen 
 	 */
-	function charliejackson_add_custom_box() {
+	function vikibell_add_custom_box() {
 		if( $_GET['post_type'] == 'page' || get_post_type( $_GET['post'] ) == 'page' ) {
 			add_meta_box( 'portfolio-meta-box', 'Portfolio Content', 'wp_editor_meta_box' );
 		}
@@ -264,19 +264,19 @@ DISPLAY PORTFOLIO META BOXES
 	 * Show the existing 'Portfolio Content' in the meta box
 	 */
 	function wp_editor_meta_box( $post ) {				
-		wp_nonce_field( plugin_basename( __FILE__ ), 'charliejackson_noncename' ); // Use nonce for verification
+		wp_nonce_field( plugin_basename( __FILE__ ), 'vikibell_noncename' ); // Use nonce for verification
 		
 		$field_value = get_post_meta( $post->ID, 'portfolio_content', false ); 
 		wp_editor( $field_value[0], 'portfolio_content' );
 	}
 	
-	add_action( 'add_meta_boxes', 'charliejackson_add_custom_box' );
+	add_action( 'add_meta_boxes', 'vikibell_add_custom_box' );
 	
 	
 	/**
 	 * When the post is saved, also save the 'Portfolio Content'
 	 */
-	function charliejackson_save_postdata( $post_id ) {
+	function vikibell_save_postdata( $post_id ) {
 		/**
 		 * Don't save the 'Portfolio Content' on an autosave
 		 */
@@ -289,7 +289,7 @@ DISPLAY PORTFOLIO META BOXES
 		 * and with the proper authorisation. As save_post can be 
 		 * triggered at other times.
 		 */
-		if ( ( isset ( $_POST['charliejackson_noncename'] ) ) && ( !wp_verify_nonce( $_POST['charliejackson_noncename'], plugin_basename( __FILE__ ) ) ) ) {
+		if ( ( isset ( $_POST['vikibell_noncename'] ) ) && ( !wp_verify_nonce( $_POST['vikibell_noncename'], plugin_basename( __FILE__ ) ) ) ) {
 			return;
 		}
 		
@@ -314,7 +314,7 @@ DISPLAY PORTFOLIO META BOXES
 		}		
 	}
 	
-	add_action( 'save_post', 'charliejackson_save_postdata' );
+	add_action( 'save_post', 'vikibell_save_postdata' );
 
 /* -----------------------------
 DISPLAY PORTFOLIO IMAGE 
@@ -332,11 +332,11 @@ DISPLAY PORTFOLIO IMAGE
 /* -----------------------------
 EDIT THE MORE TEXT TAG
 ----------------------------- */		
-	function charliejackson_read_more_link() {
+	function vikibell_read_more_link() {
 		return '<a class="more-link" href="' . get_permalink() . '">Read more...</a>';
 	}
 	
-	add_filter( 'the_content_more_link', 'charliejackson_read_more_link' );
+	add_filter( 'the_content_more_link', 'vikibell_read_more_link' );
 	
 /* -----------------------------
 FILTER MEDIA BY QUERY
@@ -344,7 +344,7 @@ FILTER MEDIA BY QUERY
 	/**
 	 * Show sketchwork which is not in Pinterest
 	 */
-	function charliejackson_filter_media_by_query( $query ) {		
+	function vikibell_filter_media_by_query( $query ) {		
 		if( $_GET['pinterest-media'] == 'pinterest-sketchbook' ) {
 	        $query->set( 'tax_query', 
 	        	array(
@@ -365,12 +365,12 @@ FILTER MEDIA BY QUERY
 		}    
 	}
 	
-	add_action( 'pre_get_posts', 'charliejackson_filter_media_by_query' );
+	add_action( 'pre_get_posts', 'vikibell_filter_media_by_query' );
 		
 /* -----------------------------
 ADD PINTEREST MENU ITEM
 ----------------------------- */
-	function charliejackson_add_sketch_pinterest_menu( $wp_admin_bar ) {
+	function vikibell_add_sketch_pinterest_menu( $wp_admin_bar ) {
 		$args = array(
 			'id'    => 'sketch_pinterest',
 			'title' => 'Sketchbook not in Pinterest',
@@ -381,12 +381,12 @@ ADD PINTEREST MENU ITEM
 		$wp_admin_bar->add_node( $args );
 	}
 	
-	add_action( 'admin_bar_menu', 'charliejackson_add_sketch_pinterest_menu', 999 );
+	add_action( 'admin_bar_menu', 'vikibell_add_sketch_pinterest_menu', 999 );
 
 /* -----------------------------
 EDIT ATTACHMENT CAPTION HTML
 ----------------------------- */
-	function charliejackson_attachment_caption_html( $current_html, $attr, $content ) {
+	function vikibell_attachment_caption_html( $current_html, $attr, $content ) {
 	    /**
 		 * Get the attributes of the attachment as variables
 		 */
@@ -405,34 +405,46 @@ EDIT ATTACHMENT CAPTION HTML
 	    return '<div class="caption">' . do_shortcode( $content ) . '<p class="caption-text">' . $caption . '</p></div>';
 	}
 	
-	add_filter( 'img_caption_shortcode', 'charliejackson_attachment_caption_html', 10, 3 );
+	add_filter( 'img_caption_shortcode', 'vikibell_attachment_caption_html', 10, 3 );
 
 /* -----------------------------
 GET THE CONTENT WITH FORMATTING	
 ----------------------------- */	
-	function charliejackson_get_the_content_with_formatting( $more_link_text = '(more...)', $stripteaser = 0, $more_file = '' ) {
+	function vikibell_get_the_content_with_formatting( $more_link_text = '(more...)', $stripteaser = 0, $more_file = '' ) {
 		$content = get_the_content( $more_link_text, $stripteaser, $more_file );
 		$content = apply_filters( 'the_content', $content );
 		$content = str_replace( ']]>', ']]&gt;', $content ); // Can't remember what this was for, but I must have added it for a reason?...
 		$content = str_replace( '<p>&nbsp;</p>', '', $content ); // Remove empty paragraphs
+		
+		$content = str_replace( '<h5>', '<h6>', $content );
+		$content = str_replace( '</h5>', '</h6>', $content );
+		$content = str_replace( '<h4>', '<h6>', $content );
+		$content = str_replace( '</h4>', '</h6>', $content );
+		$content = str_replace( '<h3>', '<h5>', $content );
+		$content = str_replace( '</h3>', '</h5>', $content );
+		$content = str_replace( '<h2>', '<h4>', $content );
+		$content = str_replace( '</h2>', '</h4>', $content );
+		$content = str_replace( '<h1>', '<h3>', $content );
+		$content = str_replace( '</h1>', '</h3>', $content );
+		
 		return $content;
 	}
 
 /* -----------------------------
 DISPLAY THE SITE NAV CLASSES	
 ----------------------------- */
-	function charliejackson_the_site_nav_classes() {
+	function vikibell_the_site_nav_classes() {
 		if( is_front_page_showing() ) {
-			echo 'absolute-nav'; 
+			//echo 'absolute-nav'; 
 		} else { 
-			echo 'fixed-nav';
+			//echo 'fixed-nav';
 		}
 	}
 
 /* -----------------------------
 DISPLAY THE MAIN ID	
 ----------------------------- */
-	function charliejackson_the_main_id() {
+	function vikibell_the_main_id() {
 		if( is_page( 'projects' ) ) {
 			echo ' id="page-projects"';
 		}
@@ -441,7 +453,7 @@ DISPLAY THE MAIN ID
 /* -----------------------------
 DISPLAY THE PORTFOLIO AFFIX NAV CLASSES	
 ----------------------------- */
-	function charliejackson_portfolio_nav_class( $nav_item ) {
+	function vikibell_portfolio_nav_class( $nav_item ) {
 		if( $_GET['portfolio'] == $nav_item || ( $_GET['portfolio'] != 'web' && $_GET['portfolio'] != 'design' && $nav_item == 'all' ) ) { 
 			echo ' active-portfolio'; 
 		}
@@ -450,7 +462,7 @@ DISPLAY THE PORTFOLIO AFFIX NAV CLASSES
 /* -----------------------------
 DISPLAY THE PORTFOLIO NAV CLASSES
 ----------------------------- */
-	function charliejackson_portfolio_affix_nav_classes( $count ) {
+	function vikibell_portfolio_affix_nav_classes( $count ) {
 		if( $count == 0 ) { 
 			echo ' class="active-portfolio-item"'; 
 		}
@@ -459,7 +471,7 @@ DISPLAY THE PORTFOLIO NAV CLASSES
 /* -----------------------------
 DISPLAY THE QUERY TITLE	
 ----------------------------- */	
-	function charliejackson_the_query_title() {
+	function vikibell_the_query_title() {
 		if( is_category() || is_tag() ) {
 			$string = '';
 			
@@ -485,8 +497,8 @@ POST FORMAT FUNCTION
 	/**
 	 * Get the video from the content and display it
 	 */
-	function charliejackson_the_video() {
-		preg_match ( "/<div class=\"embed-responsive embed-responsive-16by9\"><iframe.*<\/div>/" , charliejackson_get_the_content_with_formatting(), $match );
+	function vikibell_the_video() {
+		preg_match ( "/<div class=\"embed-responsive embed-responsive-16by9\"><iframe.*<\/div>/" , vikibell_get_the_content_with_formatting(), $match );
 		
 		echo $match[0];
 	}
@@ -494,8 +506,8 @@ POST FORMAT FUNCTION
 	/**
 	 * Remove the video from the content and then display the content
 	 */
-	function charliejackson_the_video_content() {
-		$content = preg_replace ( "/<p><div class=\"embed-responsive embed-responsive-16by9\"><iframe.*<\/div><\/p>/" , "" , charliejackson_get_the_content_with_formatting() );
+	function vikibell_the_video_content() {
+		$content = preg_replace ( "/<p><div class=\"embed-responsive embed-responsive-16by9\"><iframe.*<\/div><\/p>/" , "" , vikibell_get_the_content_with_formatting() );
 		$content = preg_replace ( "/<div class=\"embed-responsive embed-responsive-16by9\"><iframe.*<\/div>/" , "" , $content );
 		echo $content;	
 	}
@@ -503,8 +515,8 @@ POST FORMAT FUNCTION
 	/**
 	 * Get the gallery from the content and display it
 	 */
-	function charliejackson_the_gallery() {
-		preg_match ( '/<div class=\"gallery.*?<\/figure><\/div>/' , charliejackson_get_the_content_with_formatting(), $match );
+	function vikibell_the_gallery() {
+		preg_match ( '/<div class=\"gallery.*?<\/figure><\/div>/' , vikibell_get_the_content_with_formatting(), $match );
 		
 		echo $match[0];
 	}
@@ -512,8 +524,8 @@ POST FORMAT FUNCTION
 	/**
 	 * Remove the gallery from the content and then display the content
 	 */
-	function charliejackson_the_gallery_content() {
-		echo preg_replace ( '/<div class=\"gallery.*?<\/figure><\/div>/' , "" , charliejackson_get_the_content_with_formatting() );
+	function vikibell_the_gallery_content() {
+		echo preg_replace ( '/<div class=\"gallery.*?<\/figure><\/div>/' , "" , vikibell_get_the_content_with_formatting() );
 	}
 
 /* -----------------------------
@@ -522,7 +534,7 @@ FILTER THE GALLERY
 	/**
 	 * Output the gallery contents
 	 */	
-	function charliejackson_gallery( $output, $attr ) {
+	function vikibell_gallery( $output, $attr ) {
 	    global $post;
 	
 	    if( isset( $attr[ 'orderby' ] ) ) {
@@ -590,7 +602,7 @@ FILTER THE GALLERY
 	    return $output;
 	}
 	
-	add_filter( 'post_gallery', 'charliejackson_gallery', 10, 2 );
+	add_filter( 'post_gallery', 'vikibell_gallery', 10, 2 );
 		
 /* -----------------------------
 DISPLAY THE PAGINATION
@@ -598,7 +610,7 @@ DISPLAY THE PAGINATION
 	/**
 	 * Use the Bootstrap pagination, modified from the standard WordPress pagination
 	 */
-	function charliejackson_pagination( $args = array() ) {	    
+	function vikibell_pagination( $args = array() ) {	    
 	    $defaults = array(
 	        'range'           => 4,
 	        'custom_query'    => FALSE,

@@ -43,21 +43,9 @@ BANNER
 		overflow: hidden;
 		
 		#banner-img {
-			position: absolute;
-			
 			/* Default banner position, so that if that JavaScript doens't load on time, it should still fill the most common screen sizes */
 			height: auto;
 			width: 100%;
-			left: 0px;
-			top: 0px;
-			margin-top: auto;
-			margin-left: auto;
-			
-			/* Default for mobile devices */
-			@media (max-width: 750px) {
-				height: 100%;
-				width: auto;
-			}
 		}
 		
 		#banner-content-container {
@@ -299,11 +287,6 @@ BANNER DESKTOP
 				padding: 100px @banner-padding @banner-padding @banner-padding;
 			}
 		
-		}
-		
-		#banner, #banner-content-container {
-			min-height: 730px;
-			height: 730px;
 		}
 		
 		#banner {

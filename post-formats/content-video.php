@@ -1,23 +1,23 @@
-<article class="new-article">
+<article <?php post_class( 'new-article' ); ?>>
 	<div class="article-container">
 		<a class="anchor" id="post-<?php the_ID(); ?>"></a>
 		
 		<header class="clearfix">
 			
-			<?php charliejackson_the_video(); ?>
+			<?php vikibell_the_video(); ?>
 			
 			<div class="header-title wrap">
 				
-				<h2><?php charliejackson_the_title(); ?></h2>
+				<h2><?php vikibell_the_title(); ?></h2>
 				
-				<?php charliejackson_cross_site_sync_message(); ?>
+				<?php vikibell_cross_site_sync_message(); ?>
 				
 			</div>
 		</header>
 		
 		<section class="post-body wrap">
 			
-			<?php charliejackson_the_video_content(); ?>
+			<?php vikibell_the_video_content(); ?>
 			
 		</section>
 		

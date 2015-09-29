@@ -1,4 +1,4 @@
-<article class="new-article">
+<article <?php post_class( 'new-article' ); ?>>
 	<div class="article-container">
 		<a class="anchor" id="post-<?php the_ID(); ?>"></a>
 		

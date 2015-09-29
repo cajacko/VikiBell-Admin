@@ -2,7 +2,6 @@
 
     $( document ).ready( documentReadyFunction );
     $( window ).resize( windowResizeFunction );
-    $( window ).scroll( positionNav );
 	
     function documentReadyFunction() {
         onPageLoadOrResize();
@@ -14,34 +13,18 @@
     }
 
     function onPageLoad() {
-	   	pulseBlogLink();
+	   	//pulseBlogLink();
 	   	$( '#banner' ).css( 'background-image', 'none' ); // If JavaScript is enabled then remove the CSS background image
     }
 	
     function onPageLoadOrResize () {
-	    positionBannerElements();
-	    positionNav();
-	    imageFillContainer( $( '#banner-img' ) ); //Make the banner image fill it's parent
+	    //positionBannerElements();
+	    //imageFillContainer( $( '#banner-img' ) ); //Make the banner image fill it's parent
     }
 	
 	/* -----------------------------
 	SUPPORT FUNCTIONS
 	----------------------------- */
-		/**
-		 * If the user has scolled to the bottom of the banner then 
-		 * fix the navigation to the top of the screen.
-		 */  
-	    function positionNav() {
-		    var scroll = $( window ).scrollTop();
-		    var bannerHeight = $( "#banner" ).height();
-	
-		    if( scroll >= bannerHeight ) {
-				$( '#site-navigation' ).removeClass( 'absolute-nav' ).addClass( 'fixed-nav' ); 
-			} else {
-				$( '#site-navigation' ).addClass( 'absolute-nav' ).removeClass( 'fixed-nav' );
-			}
-		}
-	    
 	    /**
 		 * If the user has scolled to the bottom of the banner then 
 		 * fix the navigation to the top of the screen.

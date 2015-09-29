@@ -11,15 +11,15 @@
 	<section id="post-loop">
 		<div id="portfolio-nav" class="display-table">
 			<div class="display-table-row">
-				<a class="display-table-cell<?php charliejackson_portfolio_nav_class( 'all' ); ?>" href="<?php echo home_url(); ?>/portfolio">
+				<a class="display-table-cell<?php vikibell_portfolio_nav_class( 'all' ); ?>" href="<?php echo home_url(); ?>/portfolio">
 					All Projects
 				</a>
 				
-				<a id="portfolio-nav-middle" class="display-table-cell<?php charliejackson_portfolio_nav_class( 'web' ); ?>" href="<?php echo home_url(); ?>/portfolio/?portfolio=web">
+				<a id="portfolio-nav-middle" class="display-table-cell<?php vikibell_portfolio_nav_class( 'web' ); ?>" href="<?php echo home_url(); ?>/portfolio/?portfolio=web">
 					Web Portfolio
 				</a>
 				
-				<a class="display-table-cell<?php charliejackson_portfolio_nav_class( 'design' ); ?>" href="<?php echo home_url(); ?>/portfolio/?portfolio=design">
+				<a class="display-table-cell<?php vikibell_portfolio_nav_class( 'design' ); ?>" href="<?php echo home_url(); ?>/portfolio/?portfolio=design">
 					Product Design Portfolio
 				</a>
 			</div>

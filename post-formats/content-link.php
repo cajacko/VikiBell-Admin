@@ -1,4 +1,4 @@
-<article class="new-article">
+<article <?php post_class( 'new-article' ); ?>>
 	<div class="article-container">
 		<a class="anchor" id="post-<?php the_ID(); ?>"></a>
 		
@@ -14,7 +14,7 @@
 				
 				<h2><a target="_blank" href="<?php echo get_the_content(); ?>"><?php the_title(); ?></a></h2>
 				
-				<?php charliejackson_cross_site_sync_message(); ?>
+				<?php vikibell_cross_site_sync_message(); ?>
 				
 			</div>
 		</header>

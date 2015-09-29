@@ -26,6 +26,8 @@
 	    $( '.hide-without-javascript' ).removeClass( 'hide-without-javascript' );
 	    
 	    animateScroll();
+	    
+	    vikibellHoverNav();
     }
 	
     function onPageLoadOrResize () {
@@ -35,6 +37,21 @@
     /* -----------------------------
 	SUPPORT FUNCTIONS
 	----------------------------- */
+		/**
+		 * 
+		 */
+	    function vikibellHoverNav() {
+		    $( '.top-level-nav-link' ).hover( function() {
+			    if( $( this ).find( 'span' ).hasClass( 'hidden' ) ) {
+				    $( this ).find( 'span' ).removeClass( 'hidden' );
+				    $( this ).find( 'i' ).addClass( 'hidden' );
+				} else {
+					$( this ).find( 'span' ).addClass( 'hidden' );
+				    $( this ).find( 'i' ).removeClass( 'hidden' );
+				}
+			} );
+		}
+		
 		/**
 		 * Animate the scroll to the desired anchor
 		 */

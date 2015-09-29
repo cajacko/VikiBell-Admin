@@ -21,14 +21,13 @@ POST
 	}
 	
 	.article-container, .loading-img, #portfolio-nav, #post-query-title {
-		margin-bottom: @global-padding;
+		margin-bottom: 3em;
 	}
 	
 	.article-container, #portfolio-nav, #post-query-title {
 		background-color: white;
 		border: 1px solid @content-border-color;
 		border-radius: 3px;
-		overflow: hidden;
 		width: 100%;
 	}
 	
@@ -69,7 +68,7 @@ POST
 			background-color: @charliejackson-link-hover;
 		}
 	}
-	
+
 	.article-container {
 		img {
 			max-width: 100%;
@@ -154,6 +153,10 @@ POST
 				text-decoration: underline;	
 			}
 			
+			p {
+				font-size: 1em;
+			}
+			
 			.caption {
 				width: 100%;
 				
@@ -172,6 +175,23 @@ POST
 		    border-top: 1px solid @content-border-color;
 		    background-color: #FCFCFC;
 		    margin-top: @global-padding;
+		}
+		
+		.date {
+			width: 4em;
+		    height: 4em;
+		    border-radius: 2em;
+		    background-color: @charliejackson-link;
+		    padding: 0;
+		    text-align: center;
+		    color: white;
+		    padding-top: 1.35em;
+		    line-height: 1;
+		    font-size: 1em;
+		    border: 0.15em solid white;
+		    box-shadow: 0 0 0.3em #989898;
+		    margin: 0 auto;
+		    margin-top: -2em;
 		}
 	}
 	

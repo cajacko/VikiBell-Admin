@@ -1,3 +1,23 @@
+html {
+	font-size: 16px;	
+}
+
+body {
+	font-size: 1em;
+	
+	@media (max-width: 600px ) {
+		font-size: 0.9em;
+	}
+	
+	@media (max-width: 500px ) {
+		font-size: 0.87em;
+	}
+	
+	@media (max-width: 450px ) {
+		font-size: 0.76em;
+	}
+}
+
 #less-vars {
 	height: @min-height-for-fixed-nav;	
 }
@@ -52,7 +72,6 @@ a.anchor {
 CONTENT
 ----------------------------- */	
 	main {
-		padding-top: @default-content-top-padding;
 		padding-bottom: @global-padding;
 		
 		#main-wrap {
@@ -64,5 +83,30 @@ CONTENT
 		#main-wrap {
 			padding-left: 0;
 			padding-right: 0;
+		}
+	}
+
+/* -----------------------------
+FOOTER
+----------------------------- */	
+	#site-footer {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		
+		#scroll-to-top {
+			float: right;
+			margin: @global-padding 0;
+		}
+		
+		a {
+			height: 50px;
+		    width: @wrap-max-width - @post-loop-width - (@global-padding * 3) - 20;	;
+		    vertical-align: middle;
+		    text-align: center;
+		    line-height: 1;
+		    background-color: rgba(255,255,255,0.75);
+		    border: 1px solid #DEDEDE;
+		    border-radius: 3px;
 		}
 	}

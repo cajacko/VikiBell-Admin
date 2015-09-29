@@ -1,14 +1,18 @@
-<article class="new-article">
+<article <?php post_class( 'new-article' ); ?>>
 	<div class="article-container">
 		
 		<?php 
-			$cross_site_sync_url = charliejackson_cross_site_sync_url(); 
-			$cross_site_sync_featured_image = charliejackson_cross_site_sync_featured_image();
+			$cross_site_sync_url = vikibell_cross_site_sync_url(); 
+			$cross_site_sync_featured_image = vikibell_cross_site_sync_featured_image();
 		?>
 		
 		<a class="anchor" id="post-<?php the_ID(); ?>"></a>
 		
 		<header class="clearfix">
+			
+			<div class="date">
+				<span class="post-date"><?php echo get_the_date( 'd.m' ); ?></span>
+			</div>
 			
 			<?php if( has_post_thumbnail() ): ?>
 			
@@ -22,16 +26,16 @@
 			
 			<div class="header-title wrap">
 
-				<h2><?php charliejackson_the_title(); ?></h2>
+				<h2><?php vikibell_the_title(); ?></h2>
 				
-				<?php charliejackson_cross_site_sync_message(); ?>
+				<?php vikibell_cross_site_sync_message(); ?>
 				
 			</div>
 		</header>
 		
 		<section class="post-body wrap">
 			
-			<?php echo charliejackson_get_the_content_with_formatting(); ?>
+			<?php echo vikibell_get_the_content_with_formatting(); ?>
 			
 		</section>
 		

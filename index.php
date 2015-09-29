@@ -9,7 +9,7 @@
 <?php get_header(); ?>
 	
 	<section id="post-loop">
-		<?php charliejackson_the_query_title(); ?>
+		<?php vikibell_the_query_title(); ?>
 	
 		<?php get_template_part( 'sections/post-loop' ); ?>
 		
@@ -20,7 +20,7 @@
 			 * inifinite scroll request
 			 */
 			if( have_posts() ) { 
-				charliejackson_pagination(); 
+				vikibell_pagination(); 
 			}
 		?>
 		

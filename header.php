@@ -21,11 +21,11 @@
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<meta name="author" content="Charlie Jackson">
+			<meta name="author" content="<?php echo get_bloginfo( 'name' ); ?>">
 			<meta property="og:description" content="<?php bloginfo( 'description' ); ?>" />
 			<meta id="less-vars">
-			<title><?php wp_title( '|', true, 'right' ); ?> Charlie Jackson</title>
-			<link rel="author" href="http://charliejackson.com">
+			<title><?php wp_title( '|', true, 'right' ); ?> <?php echo get_bloginfo( 'name' ); ?></title>
+			<link rel="author" href="<?php echo home_url(); ?>">
 			<link rel="profile" href="http://gmpg.org/xfn/11">
 			<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/inc/media/favicon.ico" />
 			<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
@@ -38,18 +38,16 @@
 		<body>
 			<a id="top-of-page"></a>
 			
-			<?php if( is_front_page_showing() ) : ?>
+			<section id="banner" data-banner-mobile-width="850" class="dark-banner" style="background-image: url('<?php echo get_template_directory_uri().'/inc/media/contextual-banner-l.jpg'; ?>');">
+				<img id="banner-img" height="400" width="2500" class="hide-without-javascript" src="http://placehold.it/2500x400">
+			</section>
 			
-				<?php get_template_part( 'sections/banner' ); ?>
-				
-			<?php endif; ?>
-			
-			<header id="site-navigation" class="<?php charliejackson_the_site_nav_classes(); ?>">
+			<header id="site-navigation" class="<?php vikibell_the_site_nav_classes(); ?>">
 				
 				<?php get_template_part( 'sections/site-navigation' ); ?>
 				
 			</header>
 			
-			<main<?php charliejackson_the_main_id(); ?>>
+			<main<?php vikibell_the_main_id(); ?>>
 				
 				<div id="main-wrap" class="wrap clearfix">
