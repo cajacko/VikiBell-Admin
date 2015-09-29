@@ -8,7 +8,9 @@
 			</div>
 		</form>
 		
-		<?php wp_tag_cloud( 'smallest=8&largest=22' ); ?>
+		<div id="tag-cloud" class="wrap">
+			<?php wp_tag_cloud( 'smallest=8&largest=22' ); ?>
+		</div>
 		
 		<a class="twitter-timeline" href="https://twitter.com/charliejackson" data-widget-id="461551137443704833" target="_blank"><div id="twitter-placeholder"><i class="fa fa-twitter"></i> @charliejackson</div></a>
 		

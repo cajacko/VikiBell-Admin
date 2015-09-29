@@ -7,12 +7,16 @@ SITE NAVIGATION
 	@bunting-width: 1.4em;
 	@bunting-height: @bunting-width * 1.75;
 	
-	#site-navigation.absolute-nav {
-		position: absolute;
-		width: 100%;
+	#site-navigation.fixed {
+		position: fixed;
+		top: 0;
 	}
 	
 	#site-navigation {
+		z-index: 9999;
+		position: relative;
+		width: 100%;
+		
 		.display-table-cell {
 			vertical-align: middle;
 		}
@@ -29,7 +33,7 @@ SITE NAVIGATION
 			#site-navigation-list {
 				.top-level-nav-link, h2 a, #mobile-nav-icon{
 					color: white;
-					font-size: 2em;
+					font-size: 1.5em;
 				}
 				
 				.top-level-nav-link:hover, h2 a:hover, #mobile-nav-icon:hover{
@@ -207,7 +211,7 @@ SITE NAVIGATION
 						width: 16%;
 						
 						span {
-							font-size: 0.5em;
+							font-size: 0.75em;
 						}
 					}
 					

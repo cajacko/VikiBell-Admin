@@ -2,6 +2,7 @@
 
     $( document ).ready( documentReadyFunction );
     $( window ).resize( windowResizeFunction );
+    $( window ).scroll( onWindowScroll );
 	
 	var mobileView = false; // Global variable to define if the mobile view is displayed or not
 
@@ -32,11 +33,32 @@
 	
     function onPageLoadOrResize () {
 	    setGlobalVars();
+	    vikibellFixNav();
     }
+    
+    function onWindowScroll() {
+	    vikibellFixNav();
+	}
     
     /* -----------------------------
 	SUPPORT FUNCTIONS
 	----------------------------- */
+		/**
+		 * 
+		 */
+	    function vikibellFixNav() {
+		    var bannerBottom = $( '#banner' ).height();
+		    var scroll = $( window ).scrollTop();
+		    
+		    if( scroll >= bannerBottom ) {
+			 	$( '#site-navigation' ).addClass( 'fixed' ); 
+			 	$( "main" ).css( "padding-top", $( '#site-navigation' ).height() );  
+			} else {
+				$( '#site-navigation' ).removeClass( 'fixed' );
+				$( "main" ).css( "padding-top", "0px" );
+			}
+		}
+		
 		/**
 		 * 
 		 */
