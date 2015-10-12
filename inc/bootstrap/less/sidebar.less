@@ -1,7 +1,7 @@
 /* -----------------------------
 SIDEBAR
 ----------------------------- */
-	.absolute-sidebar {
+	#sidebar.absolute-sidebar {
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -55,14 +55,135 @@ SIDEBAR
 			}
 		}
 		
-		img {
-			width: 100%;
-			height: auto;
+		.wrap {
+			padding: @global-padding / 2;
+			border-top: 2px solid #CACACA;
+		}
+		
+		#search {
+			.form-group {
+				margin: ( @global-padding / 2 ) 0;
+			}
 		}
 		
 		#search-input {
 			height: 2em;
 		}
+		
+		#profile-pic-wrapper {
+			padding-bottom: 100%;
+		}
+		
+		.tweet {
+		    margin: 10px 0;
+		    font-size: 0.9em;
+		    border-bottom: 2px solid #D8D8D8;
+		    padding-bottom: 10px;
+		    
+		    a {
+			    color: #2b7bb9;
+			}
+			
+			a:hover {
+				color: lighten( #2b7bb9, 10% );
+			}
+			
+			.tweet-author-name {
+				color: darken( @charliejackson-primary, 25% );	
+			}
+			
+			.tweet-author-name:hover {
+				color: darken( @charliejackson-primary, 15% );
+			}
+		}
+		
+		.tweet-text {
+			font-style: italic;
+		}
+		
+		.tweet:last-child {
+			border: none;
+		}
+		
+		#twitter-follow {
+			width: 100%;
+			background-color: #2b7bb9;
+			color: white;
+			font-weight: 200;
+		}
+		
+		#twitter-follow:hover {
+			background-color: lighten( #2b7bb9, 10% );
+		}
+		
+		#twitter-link {
+			display: block;
+			text-align: center;
+			height: 2em;
+			line-height: 1;
+			color: #2b7bb9;
+			
+			i {
+				font-size: 2em;
+			}
+			
+			span {
+				margin-top: 0.5em;
+				display: inline-block;
+				text-decoration: underline;
+			}
+		}
+		
+		#tweets-wrap {
+			//max-height: 500px;
+		    overflow-y: scroll;
+		    overflow-x: hidden;
+		}
+		
+		.tweet-text, .tweet-image {
+			margin-top: @global-padding / 2;
+		}
+		
+		.tweet-image {
+			width: 100%;
+			height: auto;
+		}
+		
+		.tweet-user-img-container {
+			max-width: 48px;
+		    max-height: 48px;
+		    width: 12.5%;
+		    border-radius: 20%;
+		    overflow: hidden;
+		    float: left;
+			margin-right: 10px;
+		}
+		
+		.tweet-user-img {
+			height: 100%;
+			width: 100%;	
+		}
+		
+		.tweet-date, .tweet-user-text {
+			line-height: 1.2;
+		}
+		
+		.tweet-date {
+			float: right;
+			display: block;
+			font-size: 0.8em;
+		}
+		
+		.tweet-user-text {
+			display: block;	
+		}
+		
+		.tweet-author-screen-name {
+			color: grey;
+			font-size: 0.9em;
+		}
+		
+		
 	}
 	
 	/* Hide the sidebar to allow the banner to be full centered */
@@ -70,35 +191,4 @@ SIDEBAR
 		#sidebar {
 			display: none;
 		}
-	}
-	
-	.portfolio-sidebar {
-		h1, ul {
-			padding: 0;	
-			margin: @global-padding;
-		}
-		
-		h1 {
-			line-height: 1;
-			font-size: 1.5em;
-		}
-		
-		ul {
-			list-style: none;
-			
-			li {
-				a {
-					color: #0E617D;
-				}
-				
-				a:hover {
-					color: @charliejackson-link-hover;
-				}
-			}
-			
-			.active-portfolio-item a {
-				color: @charliejackson-link-hover;
-				text-decoration: underline;
-			}
-		}	
 	}

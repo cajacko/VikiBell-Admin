@@ -37,6 +37,15 @@
     function onPageLoadOrResize () {
 	    setGlobalVars();
   		positionSidebar();
+  		
+  		$( '#main-wrap' ).css( 'max-width', '1050px' );
+  		
+  		var mainWrapWidth = $( '#main-wrap' ).width();
+  		var postLoopWidth = $( '#post-loop' ).width();
+  		var sidebarWidth = mainWrapWidth - postLoopWidth - 20;
+  		
+  		$( '#sidebar-container' ).width( sidebarWidth );
+  		$( '#sidebar' ).width( sidebarWidth );
     }
     
     function windowScrollFunction() {

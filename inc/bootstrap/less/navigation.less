@@ -84,6 +84,37 @@ SITE NAVIGATION
 			}	
 		}
 		
+		#social-icons {
+			position: relative;
+			display: inline-block;
+			height: 0.9em;
+			
+			i {
+				display: block;
+				position: absolute;
+			    top: 0;
+			    left: 0;
+			}	
+			
+			.social-center {
+				z-index: 3;
+			}
+			
+			.social-left, .social-right {
+				color: #DEDDDD;	
+			}
+			
+			.social-left {
+				margin-left: -0.5em;
+				z-index: 2;
+			}
+			
+			.social-right {
+				margin-left: 0.5em;
+				z-index: 1;
+			}
+		}
+		
 		#bunting {
 			border-top: 2px solid white;
 			width: 100%;
@@ -101,6 +132,7 @@ SITE NAVIGATION
 			    border-right: @bunting-width solid transparent;
 			    float: left;
 			    position: relative;
+			    margin-left: 1.5em;
 			}
 			
 			.colour-1 {
@@ -208,7 +240,7 @@ SITE NAVIGATION
 						width: 	2000px;
 						text-align: center;
 						display: inline-block;
-						width: 16%;
+						width: 13.8%;
 						
 						span {
 							font-size: 0.75em;

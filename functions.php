@@ -72,10 +72,7 @@ ADD STYLES AND SCRIPTS
 		 */
 		wp_enqueue_script( 'vikibell-template-script', get_template_directory_uri()  . '/js/template.js', array( 'jquery' ) );
 		
-		/*
-		 * Add the core setup.js file which is used on every page.
-		 */
-		wp_enqueue_script( 'vikibell-setup-script', get_template_directory_uri()  . '/js/setup.js', array( 'jquery' ) );
+		
 		
 		/*
 		 * Add specific JavaScript for the banner element.
@@ -91,26 +88,35 @@ ADD STYLES AND SCRIPTS
 			wp_enqueue_script( 'vikibell-not-single-script', get_template_directory_uri()  . '/js/not-single.js', array( 'jquery' ) );
 		}
 		
-		/*
-		 * Add specific JavaScript for the Portfolio page.
-		 */
-		if( is_page( 'portfolio' ) ) {
-			wp_enqueue_script( 'vikibell-portfolio-script', get_template_directory_uri()  . '/js/portfolio.js', array( 'jquery' ) );
-		}
+		if( !is_category( 'photo-of-the-day' ) ) {
+			wp_enqueue_script( 'vikibell-sidebar-script', get_template_directory_uri()  . '/js/sidebar.js', array( 'jquery' ) );	
+		} else {
+			wp_enqueue_script( 'vikibell-masonry-script', get_template_directory_uri()  . '/js/masonry.js', array( 'jquery' ) );
+			wp_enqueue_script( 'vikibell-photo-of-the-day-script', get_template_directory_uri()  . '/js/photo-of-the-day.js', array( 'jquery' ) );		
+		}	
 		
 		/*
-		 * Add specific JavaScript for the projects page otherwise include JavaScript for the sidebar on all other pages.
+		 * Add the core setup.js file which is used on every page.
 		 */
-		if( is_page( 'projects' ) ) {
-			wp_enqueue_script( 'vikibell-projects-script', get_template_directory_uri()  . '/js/projects.js', array( 'jquery' ) );
-			wp_enqueue_script( 'vikibell-masonry-script', get_template_directory_uri()  . '/js/masonry.js', array( 'jquery' ) );
-		} else {
-			wp_enqueue_script( 'vikibell-sidebar-script', get_template_directory_uri()  . '/js/sidebar.js', array( 'jquery' ) );
-		}
+		wp_enqueue_script( 'vikibell-setup-script', get_template_directory_uri()  . '/js/setup.js', array( 'jquery' ) );
 	}
 	
 	add_action( 'wp_enqueue_scripts', 'vikibell_scripts' );
 
+/* -----------------------------
+PHOTO OF THE DAY
+----------------------------- */
+	function vikibell_register_photo_of_the_day() {
+		$args = array(
+			'public' => true,
+			'label'  => 'Photo of the Day'
+		);
+		
+		register_post_type( 'photo_of_the_day', $args );
+	}
+	
+	add_action( 'init', 'vikibell_register_photo_of_the_day' );
+	
 /* -----------------------------
 IS THE FRONT PAGE SHOWING
 ----------------------------- */
@@ -429,7 +435,30 @@ GET THE CONTENT WITH FORMATTING
 		
 		return $content;
 	}
+	
+	function vikibell_get_the_photo_of_the_day_content() {
+		$content = get_the_content();
+		
+		$media = get_attached_media( 'image' );
+		
+		//preg_match_all("/\<img.*\>/", $content, $matches);
+		
+		//$content = $matches[ 0 ];
+		
+		print_r( $media );
+		
+		return $content;
+	}
 
+	
+	function vikibell_filter_photo_of_the_day_query( $query ) {
+		$query->set( 'posts_per_page', 50 );
+		
+		return $query;	
+	}
+	
+	add_action( 'pre_get_posts', 'vikibell_filter_photo_of_the_day_query' );
+	
 /* -----------------------------
 DISPLAY THE SITE NAV CLASSES	
 ----------------------------- */
@@ -445,8 +474,10 @@ DISPLAY THE SITE NAV CLASSES
 DISPLAY THE MAIN ID	
 ----------------------------- */
 	function vikibell_the_main_id() {
-		if( is_page( 'projects' ) ) {
-			echo ' id="page-projects"';
+		if( is_category( 'photo-of-the-day' ) ) {
+			echo 'photo-of-the-day';
+		} else {
+			echo 'main';	
 		}
 	}
 	
@@ -696,4 +727,39 @@ DISPLAY THE PAGINATION
 	    if ( isset($echo) ) {
 	        echo $args['before_output'] . $echo . $args['after_output'];
 	    }
+	}
+	
+	require( 'inc/twitteroauth/autoload.php' );	
+	use Abraham\TwitterOAuth\TwitterOAuth;
+		
+	function vikibell_display_tweets() {
+		$connection = new TwitterOAuth( 'DrUAkLKeXRuT0ywejipAbJkTp', 'PNAKfgYr0zHvwAx9Q7ebFAvJo1KFsdeOPtVUNqiqVVrs4qaL6p', '53987352-kGKp3kBVgrMPnriNdgcTbs6AcsWYc7Shrz1YzpQ5l', 'D4twOI82YfPvUBwyw0QOSH8foLu338NZcwq95dbwEMGb1' );
+		$tweets = $connection->get( "statuses/user_timeline", array( "user_id" => "209678272", "count" => 5 ) );	
+		
+		//print_r( $tweets );
+		
+		echo '<div id="tweets" class="widget wrap"><header id="tweets-header"><a id="twitter-link" class="image-to-text" target="_blank" href="http://twitter.com/Vikiibell"><i class="fa fa-twitter"></i><span class="hidden">Twitter</span></a></header><div id="tweets-wrap">';
+		
+		foreach( $tweets as $tweet ) {
+			echo '<article class="tweet">';
+			
+			$date = human_time_diff( strtotime( $tweet->created_at ), current_time('timestamp') );
+			echo '<header class="clearfix"><span class="tweet-date">' . $date . ' ago</span><a class="tweet-user-text tweet-author-name" href="http://twitter.com/' . $tweet->user->screen_name . '" target="_blank"><div class="tweet-user-img-container"><img class="tweet-user-img" src="' . $tweet->user->profile_image_url . '"></div><b class="tweet-user-text tweet-author-name">' . $tweet->user->name . '</b><span class="tweet-user-text tweet-author-screen-name">@' . $tweet->user->screen_name . '</span></a></header>';
+			
+			$text = preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a href="$1" target="_blank">$1</a>', $tweet->text );
+			$text = preg_replace('/(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9]+)/', '<a href="http://twitter.com/$1" target="_blank">@$1</a>', $text );
+			$text = preg_replace('/(?<=^|(?<=[^a-zA-Z0-9-_\.]))#([A-Za-z]+[A-Za-z0-9]+)/', '<a href="http://twitter.com/hashtag/$1" target="_blank">#$1</a>', $text );	
+			
+			echo '<div class="tweet-text">' . $text . '</div>';
+			
+			$img_url = $tweet->entities->media[0]->media_url;
+			
+			if( isset( $img_url ) ) {
+				echo '<img class="tweet-image" src="' . $img_url . '">';
+			}
+			
+			echo '</article>';
+		}
+		
+		echo '</div><footer><a href="http://twitter.com/Vikiibell" target="_blank"><button id="twitter-follow" class="btn btn-default">Follow @vikibell</button></a></footer></div>';
 	}

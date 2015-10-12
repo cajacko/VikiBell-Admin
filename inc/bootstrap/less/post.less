@@ -1,14 +1,14 @@
 /* -----------------------------
 POST
 ----------------------------- */	
-	#post-loop {
+	#main #post-loop {
 		max-width: @post-loop-width;
 		width: 100%;
 	}
 	
 	/* Needed to allow the sidebar to move smoothly as it changes from fixed to absolute positions */
 	@media (min-width: @wrap-max-width-min) {	
-		#post-loop {
+		#main #post-loop {
 			float: left;
 		}
 	}
@@ -204,4 +204,10 @@ POST
 		margin-right: auto;
 	    display: none;
 	    margin-left: auto;
+	}
+	
+	#photo-of-the-day {
+		article {
+			width: 25%;	
+		}	
 	}

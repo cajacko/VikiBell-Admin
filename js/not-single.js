@@ -13,6 +13,7 @@
 
     function windowResizeFunction() {
         onPageLoadOrResize();
+        masonry.masonry( 'layout' );
     }
 
     function onPageLoad() {
@@ -24,6 +25,11 @@
 	    $( "#page-nav" ).remove();
 	    
 	    showLoadingImage();
+	    
+	    masonry = $('#post-loop').masonry({
+			// options
+			itemSelector: 'article',
+		});
     }
 	
     function onPageLoadOrResize () {
@@ -96,6 +102,10 @@
 						setNewArticlesOpacitytoZero();
 						loadingPosts = false;
 						showLoadingImage();
+						
+						
+						masonry.masonry('reloadItems');
+						masonry.masonry('layout');
 				});	
 			}
 		}

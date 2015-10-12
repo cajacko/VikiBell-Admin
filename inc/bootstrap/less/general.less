@@ -42,7 +42,7 @@ a.anchor {
     top: -@default-content-top-padding;
 }
 
-.wrap {
+#main .wrap, #site-navigation .wrap {
 	padding-left: @global-padding + @extra-padding-for-scrollbar;
 	padding-right: @global-padding + @extra-padding-for-scrollbar;
 	margin-left: auto;
@@ -76,6 +76,7 @@ CONTENT
 		
 		#main-wrap {
 			margin-top: @global-padding;
+			position: relative;
 		}
 	}
 	
@@ -84,6 +85,17 @@ CONTENT
 			padding-left: 0;
 			padding-right: 0;
 		}
+	}
+	
+	#post-loop, #sidebar {
+		position: relative;
+		z-index: 2;
+	}
+	
+	.background-image {
+		position: absolute;
+		z-index: 1;	
+		left: -25%;
 	}
 
 /* -----------------------------

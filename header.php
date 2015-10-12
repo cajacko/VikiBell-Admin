@@ -38,9 +38,9 @@
 		<body>
 			<a id="top-of-page"></a>
 			
-			<section id="banner" data-banner-mobile-width="850" class="dark-banner" style="background-image: url('<?php echo get_template_directory_uri().'/inc/media/contextual-banner-l.jpg'; ?>');">
-				<div style="width: 100%; height: 200px;">
-					<img id="banner-img" height="400" width="2500" class="hide-without-javascript" src="http://placehold.it/2500x400">
+			<section id="banner" data-banner-mobile-width="850" style="background-image: url('<?php echo get_template_directory_uri().'/inc/media/contextual-banner-l.jpg'; ?>');">
+				<div id="banner-wrap" class="embed-responsive">
+					<img id="banner-img" height="400" width="2500" class="embed-responsive-item" src="http://placehold.it/2500x400">
 				</div>
 			</section>
 			
@@ -50,6 +50,6 @@
 				
 			</header>
 			
-			<main<?php vikibell_the_main_id(); ?>>
+			<main id="<?php vikibell_the_main_id(); ?>">
 				
 				<div id="main-wrap" class="wrap clearfix">

@@ -1,8 +1,16 @@
 <?php if ( have_posts() ) : ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
+	
+		<?php if( is_category( 'photo-of-the-day' ) ): ?>
 		
-		<?php get_template_part( 'post-formats/content', get_post_format() ); ?>
+			<?php get_template_part( 'post-formats/content', 'photo-of-the-day' ); ?>
+		
+		<?php else: ?>
+		
+			<?php get_template_part( 'post-formats/content', get_post_format() ); ?>
+		
+		<?php endif; ?>
 
 	<?php endwhile; ?>
 	

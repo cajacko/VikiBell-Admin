@@ -63,7 +63,7 @@
 		 * 
 		 */
 	    function vikibellHoverNav() {
-		    $( '.top-level-nav-link' ).hover( function() {
+		    $( '.image-to-text' ).hover( function() {
 			    if( $( this ).find( 'span' ).hasClass( 'hidden' ) ) {
 				    $( this ).find( 'span' ).removeClass( 'hidden' );
 				    $( this ).find( 'i' ).addClass( 'hidden' );

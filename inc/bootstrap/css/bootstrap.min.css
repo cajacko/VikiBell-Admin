@@ -6332,7 +6332,8 @@ a.anchor {
   visibility: hidden;
   top: -70px;
 }
-.wrap {
+#main .wrap,
+#site-navigation .wrap {
   padding-left: 30px;
   padding-right: 30px;
   margin-left: auto;
@@ -6361,12 +6362,23 @@ main {
 }
 main #main-wrap {
   margin-top: 20px;
+  position: relative;
 }
 @media (max-width: 550px) {
   #main-wrap {
     padding-left: 0;
     padding-right: 0;
   }
+}
+#post-loop,
+#sidebar {
+  position: relative;
+  z-index: 2;
+}
+.background-image {
+  position: absolute;
+  z-index: 1;
+  left: -25%;
 }
 /* -----------------------------
 FOOTER
@@ -6457,6 +6469,32 @@ SITE NAVIGATION
   display: block;
   padding: 10px 20px;
 }
+#site-navigation #social-icons {
+  position: relative;
+  display: inline-block;
+  height: 0.9em;
+}
+#site-navigation #social-icons i {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#site-navigation #social-icons .social-center {
+  z-index: 3;
+}
+#site-navigation #social-icons .social-left,
+#site-navigation #social-icons .social-right {
+  color: #DEDDDD;
+}
+#site-navigation #social-icons .social-left {
+  margin-left: -0.5em;
+  z-index: 2;
+}
+#site-navigation #social-icons .social-right {
+  margin-left: 0.5em;
+  z-index: 1;
+}
 #site-navigation #bunting {
   border-top: 2px solid white;
   width: 100%;
@@ -6473,6 +6511,7 @@ SITE NAVIGATION
   border-right: 1.4em solid transparent;
   float: left;
   position: relative;
+  margin-left: 1.5em;
 }
 #site-navigation #bunting .colour-1 {
   border-top: 2.45em solid #ff4c65;
@@ -6555,7 +6594,7 @@ SITE NAVIGATION
     width: 2000px;
     text-align: center;
     display: inline-block;
-    width: 16%;
+    width: 13.8%;
   }
   #site-navigation nav #site-navigation-list .site-navigation-item span {
     font-size: 0.75em;
@@ -6617,13 +6656,13 @@ SITE NAVIGATION
 /* -----------------------------
 POST
 ----------------------------- */
-#post-loop {
+#main #post-loop {
   max-width: 600px;
   width: 100%;
 }
 /* Needed to allow the sidebar to move smoothly as it changes from fixed to absolute positions */
 @media (min-width: 959px) {
-  #post-loop {
+  #main #post-loop {
     float: left;
   }
 }
@@ -6786,15 +6825,18 @@ POST
   display: none;
   margin-left: auto;
 }
+#photo-of-the-day article {
+  width: 25%;
+}
 /* -----------------------------
 SIDEBAR
 ----------------------------- */
-.absolute-sidebar {
+#sidebar.absolute-sidebar {
   position: absolute;
   top: 0;
   right: 0;
 }
-.absolute-sidebar #sidebar-container {
+#sidebar.absolute-sidebar #sidebar-container {
   margin-right: 30px;
   position: absolute;
   top: 0;
@@ -6831,12 +6873,107 @@ SIDEBAR
   height: 600px;
   padding-top: 280px;
 }
-#sidebar img {
-  width: 100%;
-  height: auto;
+#sidebar .wrap {
+  padding: 10px;
+  border-top: 2px solid #CACACA;
+}
+#sidebar #search .form-group {
+  margin: 10px 0;
 }
 #sidebar #search-input {
   height: 2em;
+}
+#sidebar #profile-pic-wrapper {
+  padding-bottom: 100%;
+}
+#sidebar .tweet {
+  margin: 10px 0;
+  font-size: 0.9em;
+  border-bottom: 2px solid #D8D8D8;
+  padding-bottom: 10px;
+}
+#sidebar .tweet a {
+  color: #2b7bb9;
+}
+#sidebar .tweet a:hover {
+  color: #4495d3;
+}
+#sidebar .tweet .tweet-author-name {
+  color: #354f60;
+}
+#sidebar .tweet .tweet-author-name:hover {
+  color: #476a81;
+}
+#sidebar .tweet-text {
+  font-style: italic;
+}
+#sidebar .tweet:last-child {
+  border: none;
+}
+#sidebar #twitter-follow {
+  width: 100%;
+  background-color: #2b7bb9;
+  color: white;
+  font-weight: 200;
+}
+#sidebar #twitter-follow:hover {
+  background-color: #4495d3;
+}
+#sidebar #twitter-link {
+  display: block;
+  text-align: center;
+  height: 2em;
+  line-height: 1;
+  color: #2b7bb9;
+}
+#sidebar #twitter-link i {
+  font-size: 2em;
+}
+#sidebar #twitter-link span {
+  margin-top: 0.5em;
+  display: inline-block;
+  text-decoration: underline;
+}
+#sidebar #tweets-wrap {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#sidebar .tweet-text,
+#sidebar .tweet-image {
+  margin-top: 10px;
+}
+#sidebar .tweet-image {
+  width: 100%;
+  height: auto;
+}
+#sidebar .tweet-user-img-container {
+  max-width: 48px;
+  max-height: 48px;
+  width: 12.5%;
+  border-radius: 20%;
+  overflow: hidden;
+  float: left;
+  margin-right: 10px;
+}
+#sidebar .tweet-user-img {
+  height: 100%;
+  width: 100%;
+}
+#sidebar .tweet-date,
+#sidebar .tweet-user-text {
+  line-height: 1.2;
+}
+#sidebar .tweet-date {
+  float: right;
+  display: block;
+  font-size: 0.8em;
+}
+#sidebar .tweet-user-text {
+  display: block;
+}
+#sidebar .tweet-author-screen-name {
+  color: grey;
+  font-size: 0.9em;
 }
 /* Hide the sidebar to allow the banner to be full centered */
 @media (max-width: 959px) {
@@ -6844,291 +6981,11 @@ SIDEBAR
     display: none;
   }
 }
-.portfolio-sidebar h1,
-.portfolio-sidebar ul {
-  padding: 0;
-  margin: 20px;
-}
-.portfolio-sidebar h1 {
-  line-height: 1;
-  font-size: 1.5em;
-}
-.portfolio-sidebar ul {
-  list-style: none;
-}
-.portfolio-sidebar ul li a {
-  color: #0E617D;
-}
-.portfolio-sidebar ul li a:hover {
-  color: #b74624;
-}
-.portfolio-sidebar ul .active-portfolio-item a {
-  color: #b74624;
-  text-decoration: underline;
-}
 /* -----------------------------
 BANNER
 ----------------------------- */
-.dark-banner header {
-  background: -moz-linear-gradient(top, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000000), color-stop(100%, rgba(0, 0, 0, 0)));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=0);
-  /* IE6-9 */
-}
-.dark-banner header h1 {
-  color: white;
-}
-.dark-banner footer {
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, #000000 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, #000000));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, #000000 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, #000000 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, #000000 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000000 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000', GradientType=0);
-  /* IE6-9 */
-}
-.dark-banner footer a {
-  color: white;
-}
-#banner {
-  background-size: cover;
-  position: relative;
-  overflow: hidden;
-}
-#banner #banner-img {
-  /* Default banner position, so that if that JavaScript doens't load on time, it should still fill the most common screen sizes */
-  height: auto;
-  width: 100%;
-}
-#banner #banner-content-container {
-  width: 100%;
-  height: 100%;
-}
-#banner #banner-content-container {
-  top: 0;
-  width: 100%;
-}
-#banner #banner-content-wrap {
-  position: relative;
-  height: 100%;
-  margin: 0 auto;
-}
-#banner h1,
-#banner h2,
-#banner h3 {
-  margin: 0;
-  padding: 0;
-}
-#banner h1,
-#banner footer {
-  text-align: center;
-}
-#banner footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-#banner header {
-  z-index: 3;
-  position: absolute;
-  width: 100%;
-}
-#banner header h1 {
-  font-weight: 300;
-}
-#banner #banner-content-container #banner-content-wrap {
-  max-width: 1200px;
-}
-#banner #banner-content-container #banner-content-wrap aside {
-  max-width: 420px;
-  padding: 0 20px;
-  z-index: 2;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap {
-  padding: 0 15px;
-  background-color: rgba(58, 58, 58, 0.9);
-  border-radius: 10px;
-  border: 2px solid #616161;
-  box-shadow: 0 0 6px #BBBABA;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap h2,
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap h3 {
-  line-height: 1.4;
-  font-weight: 400;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap h2 {
-  color: white;
-  font-weight: 300;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap h3 {
-  font-size: 1.2em;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap ul,
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap p {
-  margin: 10px 0 0 0;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap p,
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap #hire-me a {
-  text-decoration: underline;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap ul {
-  padding: 0;
-  list-style-type: none;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap ul li {
-  display: inline-block;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap .banner-item {
-  margin: 15px auto;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap .banner-button {
-  background-color: white;
-  padding: 15px;
-  border: 1px solid #9A9A9A;
-  border-radius: 5px;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap #promotion:hover {
-  background-color: #fafafa;
-  text-decoration: none;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap #hire-me ul li .hire-me-seperator {
-  margin: 0 2px 0 5px;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap #follow-me ul li {
-  height: 32px;
-  line-height: 1;
-  margin-right: 5px;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap #follow-me ul .follow-icon {
-  font-size: 32px;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap #follow-me ul .follow-button {
-  background-color: #d75c37;
-  font-size: 16px;
-  vertical-align: top;
-  padding: 8px;
-  border-radius: 5px;
-  font-weight: 200;
-}
-#banner #banner-content-container #banner-content-wrap aside #banner-aside-wrap #follow-me ul .follow-button a {
-  color: white;
-}
-#banner #banner-content-container footer {
-  width: 100%;
-  line-height: 1;
-  z-index: 1;
-}
-#banner #banner-content-container footer a {
-  display: block;
-  margin: 0 auto;
-  width: 100px;
-  text-decoration: none;
-}
-#banner #banner-content-container footer a .blog-text {
-  display: block;
-  font-size: 1.3em;
-}
-#banner #banner-content-container footer a i {
-  font-size: 4em;
-}
-/* -----------------------------
-BANNER MOBILE
------------------------------ */
-@media (max-width: 850px) {
-  .dark-banner header {
-    padding: 20px 20px 80px 20px;
-  }
-  .dark-banner footer {
-    padding: 80px 20px 20px 20px;
-  }
-  #banner header h1 {
-    font-size: 2em;
-  }
-  #banner #banner-content-container #banner-content-wrap aside {
-    position: relative;
-    margin: 140px auto;
-  }
-  #banner #banner-content-container #banner-content-wrap aside h2 {
-    font-size: 1.25em;
-  }
-  #banner #banner-content-container #banner-content-wrap aside h3 {
-    font-size: 1em;
-  }
-  #banner #banner-content-container #banner-content-wrap aside p {
-    font-size: 0.9em;
-  }
-  #banner #banner-content-container #banner-content-wrap aside #follow-me,
-  #banner #banner-content-container #banner-content-wrap aside #hire-me {
-    display: none;
-  }
-  #banner #banner-content-container #banner-content-wrap aside #promotion {
-    display: block;
-  }
-  #banner #banner-content-container #banner-content-wrap footer {
-    font-size: 0.9em;
-  }
-}
-/* -----------------------------
-BANNER DESKTOP
------------------------------ */
-@media (min-width: 850px) {
-  .dark-banner header {
-    padding: 20px 20px 100px 20px;
-  }
-  .dark-banner footer {
-    padding: 100px 20px 20px 20px;
-  }
-  #banner header h1 {
-    font-size: 3em;
-  }
-  #banner aside,
-  #banner #banner-content-container {
-    position: absolute;
-  }
-  #banner #banner-content-container {
-    top: 0;
-  }
-  #banner #banner-content-wrap {
-    position: relative;
-    height: 100%;
-    margin: 0 auto;
-  }
-  #banner #banner-content-container {
-    z-index: 2;
-  }
-  #banner #banner-content-container #banner-content-wrap {
-    max-width: 1200px;
-  }
-  #banner #banner-content-container #banner-content-wrap aside {
-    right: 0;
-    bottom: 125px;
-  }
-  #banner #banner-content-container #banner-content-wrap aside h2 {
-    font-size: 1.5em;
-  }
-  #banner #banner-content-container #banner-content-wrap aside h3 {
-    font-size: 1.2em;
-  }
-  #banner #banner-content-container #banner-content-wrap aside .banner-item {
-    display: block;
-  }
+#banner-wrap {
+  padding-bottom: 18%;
 }
 /* -----------------------------
 PROJECTS-PAGE

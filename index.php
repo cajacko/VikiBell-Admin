@@ -26,6 +26,10 @@
 		
 	</section>
 	
-	<?php get_template_part( 'sections/sidebar' ); ?>
+	<?php if( !is_category( 'photo-of-the-day' ) ): ?>
+	
+		<?php get_template_part( 'sections/sidebar' ); ?>
+		
+	<?php endif; ?>
 
 <?php get_footer(); ?>
