@@ -20,7 +20,7 @@
 			<?php next_posts_link(); ?>
 		</div>
 		
-		<img class="loading-img" src="<?php echo get_template_directory_uri(); ?>/inc/media/loading-posts.gif">
+		<img class="loading-img" src="<?php echo get_template_directory_uri(); ?>/media/loading-posts.gif">
 		
 	<?php elseif( !is_single() && !is_page() ) : ?>
 	

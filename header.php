@@ -13,7 +13,6 @@
 		exit; //Prevent any other html or scripts from rendering
 	} 
 ?>
-
 	<!DOCTYPE html>
 	<html lang="en-GB" id="html" data-home-url="<?php echo home_url( '/' ); ?>">
 	
@@ -27,18 +26,16 @@
 			<title><?php wp_title( '|', true, 'right' ); ?> <?php echo get_bloginfo( 'name' ); ?></title>
 			<link rel="author" href="<?php echo home_url(); ?>">
 			<link rel="profile" href="http://gmpg.org/xfn/11">
-			<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/inc/media/favicon.ico" />
+			<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/media/favicon/favicon.ico" />
 			<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-			<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/font-awesome/css/font-awesome.min.css">
-	
-			<?php wp_head(); ?>
-			
+			<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/vendors/font-awesome/css/font-awesome.min.css">
+			<?php wp_head(); ?>		
 		</head>
 	
 		<body>
 			<a id="top-of-page"></a>
 			
-			<section id="banner" data-banner-mobile-width="850" style="background-image: url('<?php echo get_template_directory_uri().'/inc/media/contextual-banner-l.jpg'; ?>');">
+			<section id="banner">
 				<div id="banner-wrap" class="embed-responsive">
 					<img id="banner-img" height="400" width="2500" class="embed-responsive-item" src="http://placehold.it/2500x400">
 				</div>

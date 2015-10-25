@@ -30,8 +30,6 @@
     }
 
     function onPageLoad() {
-	    twitterTimeline();
-	    $('#twitter-placeholder').addClass('javascript-enabled');
     }
 	
     function onPageLoadOrResize () {
@@ -164,24 +162,5 @@
 				lastScrollTop = scroll;
 			}
 		}
-		
-		/**
-		 * Display the Twitter Timeline
-		 */
-		function twitterTimeline() {	    	
-    		!function( d,s,id ){
-	    		var js,fjs = d.getElementsByTagName( s )[0], p = /^http:/.test( d.location ) ? 'http' : 'https';
-	    		
-	    		if( !d.getElementById( id ) ) {
-	    			js = d.createElement( s );
-	    			js.id = id;
-	    			js.src = p + "://platform.twitter.com/widgets.js";
-	    			fjs.parentNode.insertBefore( js,fjs );
-	    			
-	    			console.log("Twitter set up");
-	    		}
-	    	} ( document,"script","twitter-wjs" );
-	    	
-	    }	
 
 }) ( jQuery );

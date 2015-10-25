@@ -13,7 +13,6 @@
 
     function windowResizeFunction() {
         onPageLoadOrResize();
-        masonry.masonry( 'layout' );
     }
 
     function onPageLoad() {
@@ -25,11 +24,6 @@
 	    $( "#page-nav" ).remove();
 	    
 	    showLoadingImage();
-	    
-	    masonry = $('#post-loop').masonry({
-			// options
-			itemSelector: 'article',
-		});
     }
 	
     function onPageLoadOrResize () {
