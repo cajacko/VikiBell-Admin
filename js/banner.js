@@ -13,52 +13,17 @@
     }
 
     function onPageLoad() {
+    	$( '#banner' ).css( 'background-image', 'initial' ); //Remove the background image if javascript is enabled
     }
 	
     function onPageLoadOrResize () {
-	    //positionBannerElements();
-	    //imageFillContainer( $( '#banner-img' ) ); //Make the banner image fill it's parent
+
+	    imageFillContainer( $( '#banner-img' ) ); //Make the banner image fill it's parent
     }
 	
 	/* -----------------------------
 	SUPPORT FUNCTIONS
-	----------------------------- */
-	    /**
-		 * If the user has scolled to the bottom of the banner then 
-		 * fix the navigation to the top of the screen.
-		 */ 
-	    function positionBannerElements() {
-		    var windowHeight = $( window ).height();
-		    var windowWidth = $( window ).width();
-		    var asideHeight = $( "#banner aside" ).height();
-		    var minBannerHeight = parseInt( $( "#banner" ).css( "min-height" ) );
-		    var bannerMobileBreak = $( "#banner" ).data( "banner-mobile-width" );
-		    
-		    /**
-			 * Set the position of the banner aside to be 
-			 * vetically centered within the banner div
-			 */
-		    if( windowHeight < minBannerHeight ) {
-			    var asideTop = ( minBannerHeight - asideHeight ) / 2;
-			} else {
-		    	var asideTop = ( windowHeight - asideHeight ) / 2;
-		    }
-		    
-		    /**
-			 * If the window height is bigger than the mobile 
-			 * break point then make the banner fill the window 
-			 * height and vertically align the aside. Otherwise 
-			 * let the default CSS dictate the layout.
-			 */
-		    if( bannerMobileBreak < windowWidth ) {	    
-			    $( "#banner" ).height( windowHeight );
-			    $( "#banner aside" ).css( "bottom", asideTop );
-			} else {
-				$( "#banner" ).height( 'auto' );
-			    $( "#banner aside" ).css( "bottom", 'auto' );
-			}
-		}
-		
+	----------------------------- */	
 		/**
 		 * Make an element fill it's parent and vertically and horizontally center.
 		 */

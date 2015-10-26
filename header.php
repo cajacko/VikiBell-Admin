@@ -35,10 +35,11 @@
 		<body>
 			<a id="top-of-page"></a>
 			
-			<section id="banner">
-				<div id="banner-wrap" class="embed-responsive fit-banner">
-					<img id="banner-img" height="400" width="2500" class="embed-responsive-item" src="http://placehold.it/2500x400">
+			<section id="banner" style="background-image: url('http://placehold.it/2500x400');">
+				<div id="banner-wrap" class="embed-responsive">
+					<div class="embed-responsive-item"></div>
 				</div>
+				<img id="banner-img" class="embed-responsive-item" src="http://placehold.it/2500x400" height="400" width="2500">
 			</section>
 			
 			<header id="site-navigation" class="<?php vikibell_the_site_nav_classes(); ?>">

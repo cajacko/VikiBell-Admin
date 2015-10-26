@@ -70,14 +70,10 @@ ADD STYLES AND SCRIPTS
 		 */
 		wp_enqueue_script( 'vikibell-template-script', get_template_directory_uri()  . '/js/template.js', array( 'jquery' ) );
 		
-		
-		
 		/*
-		 * Add specific JavaScript for the banner element.
+		 * Position the banner image
 		 */
-		if( is_front_page_showing() ) {
-			wp_enqueue_script( 'vikibell-banner-script', get_template_directory_uri()  . '/js/banner.js', array( 'jquery' ) );
-		}
+		wp_enqueue_script( 'vikibell-banner-script', get_template_directory_uri()  . '/js/banner.js', array( 'jquery' ) );
 		
 		/*
 		 * Add JavaScript that acts on a loop of posts e.g. Infinite scroll
