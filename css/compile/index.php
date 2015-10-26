@@ -7,11 +7,11 @@ $url = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $url = str_replace('less/compile-less.php', 'bootstrap/less', $url);
 
 $parser = new Less_Parser();
-$parser->parseFile( '../bootstrap/less/bootstrap.less', $url );
+$parser->parseFile( '../less/bootstrap.less', $url );
 $css = $parser->getCss();
 
 echo $css;
 
-file_put_contents ( '../bootstrap/css/bootstrap.min.css' , $css);
+file_put_contents ( '../style.min.css' , $css);
 
 ?>

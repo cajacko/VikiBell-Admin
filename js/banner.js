@@ -13,8 +13,6 @@
     }
 
     function onPageLoad() {
-	   	//pulseBlogLink();
-	   	$( '#banner' ).css( 'background-image', 'none' ); // If JavaScript is enabled then remove the CSS background image
     }
 	
     function onPageLoadOrResize () {
@@ -59,32 +57,6 @@
 				$( "#banner" ).height( 'auto' );
 			    $( "#banner aside" ).css( "bottom", 'auto' );
 			}
-		}
-		
-		/**
-		 * Make the go to blog link gentle pulsate 
-		 * by varying it's opacity.
-		 */ 
-		function pulseBlogLink() {
-			/**
-			 * If the opacity is 0.5 then adjust to to 1, 
-			 * otherwise reduce the opacity to 0.5. When 
-			 * the animation is complete the function is 
-			 * called again so that it loops.
-			 */
-		    if( $( '#go-to-blog' ).css( 'opacity' ) == 0.5 ) {
-			 	$( "#go-to-blog" ).animate( {
-					opacity: 1
-				}, 2000, function() {
-					pulseBlogLink();
-				}); 
-			} else {
-				$( "#go-to-blog" ).animate( {
-					opacity: 0.5
-				}, 2000, function() {
-					pulseBlogLink();
-				});
-			} 
 		}
 		
 		/**

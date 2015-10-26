@@ -258,8 +258,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('http://localhost/vikibell/wp-content/themes/vikibell/inc/bootstrap/fonts/glyphicons-halflings-regular.eot');
-  src: url('http://localhost/vikibell/wp-content/themes/vikibell/inc/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('http://localhost/vikibell/wp-content/themes/vikibell/inc/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('http://localhost/vikibell/wp-content/themes/vikibell/inc/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('http://localhost/vikibell/wp-content/themes/vikibell/inc/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('http://vikibell.local.com/wp-content/themes/vikibell/fonts/bootstrap/glyphicons-halflings-regular.eot');
+  src: url('http://vikibell.local.com/wp-content/themes/vikibell/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('http://vikibell.local.com/wp-content/themes/vikibell/fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'), url('http://vikibell.local.com/wp-content/themes/vikibell/fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'), url('http://vikibell.local.com/wp-content/themes/vikibell/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -6984,6 +6984,17 @@ SIDEBAR
 /* -----------------------------
 BANNER
 ----------------------------- */
+#banner {
+  max-height: 350px;
+  min-height: 200px;
+  position: relative;
+}
+#banner .fit-banner {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  padding-bottom: inherit;
+}
 #banner-wrap {
   padding-bottom: 18%;
 }

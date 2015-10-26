@@ -36,7 +36,7 @@
 			<a id="top-of-page"></a>
 			
 			<section id="banner">
-				<div id="banner-wrap" class="embed-responsive">
+				<div id="banner-wrap" class="embed-responsive fit-banner">
 					<img id="banner-img" height="400" width="2500" class="embed-responsive-item" src="http://placehold.it/2500x400">
 				</div>
 			</section>
