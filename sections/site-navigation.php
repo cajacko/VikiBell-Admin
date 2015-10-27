@@ -1,43 +1,32 @@
-<nav>
+<nav class="clearfix">
 	<div class="wrap">
 		<ul id="site-navigation-list">
 			<li id="site-navigation-items">
 					<a id="mobile-nav-icon"><i class="fa fa-bars"></i></a>
 					
 					<ul id="mobile-nav-dropdown">
-						<li class="site-navigation-item site-navigation-element">
-							<a class="top-level-nav-link image-to-text"><i class="fa fa-female"></i><span class="hidden">About</span></a>
+						<li class="site-navigation-item site-navigation-element image-to-text">
+							<a class="top-level-nav-link"><i class="fa fa-female"></i><span class="hidden">About</span></a>
 						</li>
 						
-						<li class="site-navigation-item site-navigation-element">
-							<a class="top-level-nav-link image-to-text"><i class="fa fa-leaf"></i><span class="hidden">Life</span></a>
+						<li class="site-navigation-item site-navigation-element image-to-text">
+							<a class="top-level-nav-link"><i class="fa fa-leaf"></i><span class="hidden">Life</span></a>
 						</li>
 						
-						<li class="site-navigation-item site-navigation-element">
-							<a class="top-level-nav-link image-to-text"><i class="fa fa-calendar"></i><span class="hidden">Events</span></a>
+						<li class="site-navigation-item site-navigation-element image-to-text">
+							<a class="top-level-nav-link"><i class="fa fa-calendar"></i><span class="hidden">Events</span></a>
 						</li>
 						
-						<li class="site-navigation-item site-navigation-element">
-							<a class="top-level-nav-link image-to-text"><i class="fa fa-plane"></i><span class="hidden">Travel</span></a>
+						<li class="site-navigation-item site-navigation-element image-to-text">
+							<a class="top-level-nav-link"><i class="fa fa-plane"></i><span class="hidden">Travel</span></a>
 						</li>
 						
-						<li class="site-navigation-item site-navigation-element">
-							<a class="top-level-nav-link image-to-text"><i class="fa fa-cutlery"></i><span class="hidden">Food</span></a>
+						<li class="site-navigation-item site-navigation-element image-to-text">
+							<a class="top-level-nav-link"><i class="fa fa-cutlery"></i><span class="hidden">Food</span></a>
 						</li>
 						
-						<li class="site-navigation-item site-navigation-element">
-							<a class="top-level-nav-link image-to-text"><i class="fa fa-picture-o"></i><span class="hidden">Photo of the Day</span></a>
-						</li>
-						
-						<li class="site-navigation-item site-navigation-element">
-							<a class="top-level-nav-link image-to-text">
-								<div id="social-icons">
-									<i class="fa fa-twitter social-center"></i>
-									<i class="fa fa-facebook social-left"></i>
-									<i class="fa fa-instagram social-right"></i>
-								</div>
-								<span class="hidden">Social</span>
-							</a>
+						<li class="site-navigation-item site-navigation-element image-to-text">
+							<a class="top-level-nav-link"><i class="fa fa-picture-o"></i><span class="hidden">Photo of the Day</span></a>
 						</li>
 					</ul>
 			</li>

@@ -63,7 +63,17 @@
 		 * 
 		 */
 	    function vikibellHoverNav() {
-		    $( '.image-to-text' ).hover( function() {
+		    $( '.image-to-text' ).mouseenter( function() {
+			    if( $( this ).find( 'span' ).hasClass( 'hidden' ) ) {
+				    $( this ).find( 'span' ).removeClass( 'hidden' );
+				    $( this ).find( 'i' ).addClass( 'hidden' );
+				} else {
+					$( this ).find( 'span' ).addClass( 'hidden' );
+				    $( this ).find( 'i' ).removeClass( 'hidden' );
+				}
+			} );
+
+			$( '.image-to-text' ).mouseleave( function() {
 			    if( $( this ).find( 'span' ).hasClass( 'hidden' ) ) {
 				    $( this ).find( 'span' ).removeClass( 'hidden' );
 				    $( this ).find( 'i' ).addClass( 'hidden' );

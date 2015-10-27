@@ -6419,81 +6419,55 @@ SITE NAVIGATION
 }
 #site-navigation nav {
   background-color: #6991ac;
+  font-size: 1.5em;
 }
-#site-navigation nav #mobile-nav-dropdown,
-#site-navigation nav #site-navigation-list {
+#site-navigation #mobile-nav-dropdown,
+#site-navigation #site-navigation-list {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
-#site-navigation nav #site-navigation-list .top-level-nav-link,
-#site-navigation nav #site-navigation-list h2 a,
-#site-navigation nav #site-navigation-list #mobile-nav-icon {
-  color: white;
-  font-size: 1.5em;
-}
-#site-navigation nav #site-navigation-list .top-level-nav-link:hover,
-#site-navigation nav #site-navigation-list h2 a:hover,
-#site-navigation nav #site-navigation-list #mobile-nav-icon:hover {
+#site-navigation #site-navigation-list .top-level-nav-link,
+#site-navigation #site-navigation-list h2 a,
+#site-navigation #site-navigation-list #mobile-nav-icon {
   color: white;
 }
-#site-navigation nav #site-navigation-list h2 a:hover,
-#site-navigation nav #site-navigation-list #mobile-nav-icon:hover {
+#site-navigation #site-navigation-list .top-level-nav-link:hover,
+#site-navigation #site-navigation-list h2 a:hover,
+#site-navigation #site-navigation-list #mobile-nav-icon:hover {
+  color: white;
+}
+#site-navigation #site-navigation-list h2 a:hover,
+#site-navigation #site-navigation-list #mobile-nav-icon:hover {
   color: #EAEAEA;
 }
-#site-navigation nav #site-navigation-list h2 a,
-#site-navigation nav #site-navigation-list #mobile-nav-icon {
+#site-navigation #site-navigation-list h2 a,
+#site-navigation #site-navigation-list #mobile-nav-icon {
   padding: 20px 0;
   display: inline-block;
 }
-#site-navigation nav #site-navigation-list .active-sub-nav {
+#site-navigation #site-navigation-list .active-sub-nav {
   text-decoration: underline;
 }
-#site-navigation nav #site-navigation-list .dimmed-nav-item {
+#site-navigation #site-navigation-list .dimmed-nav-item {
   color: #EAEAEA;
 }
-#site-navigation nav #site-navigation-list #site-logo h2 {
+#site-navigation #site-navigation-list #site-logo h2 {
   margin: 0;
   font-size: 1.3em;
   font-weight: 400;
 }
-#site-navigation nav #site-navigation-list #site-logo h2 a:hover {
+#site-navigation #site-navigation-list #site-logo h2 a:hover {
   text-decoration: none;
 }
-#site-navigation nav #site-navigation-list .sub-nav {
+#site-navigation #site-navigation-list .sub-nav {
   list-style: none;
   padding: 0;
   display: none;
 }
-#site-navigation nav #site-navigation-list .sub-nav li a {
+#site-navigation #site-navigation-list .sub-nav li a {
   display: block;
   padding: 10px 20px;
-}
-#site-navigation #social-icons {
-  position: relative;
-  display: inline-block;
-  height: 0.9em;
-}
-#site-navigation #social-icons i {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-#site-navigation #social-icons .social-center {
-  z-index: 3;
-}
-#site-navigation #social-icons .social-left,
-#site-navigation #social-icons .social-right {
-  color: #DEDDDD;
-}
-#site-navigation #social-icons .social-left {
-  margin-left: -0.5em;
-  z-index: 2;
-}
-#site-navigation #social-icons .social-right {
-  margin-left: 0.5em;
-  z-index: 1;
 }
 #site-navigation #bunting {
   border-top: 2px solid white;
@@ -6545,7 +6519,7 @@ SITE NAVIGATION
 }
 #site-navigation #bunting .dot-3 {
   top: -2.2em;
-  left: -2em;
+  left: 0.8em;
 }
 #site-navigation #bunting .dot-4 {
   top: -1.7em;
@@ -6589,12 +6563,20 @@ SITE NAVIGATION
   #site-navigation nav #site-navigation-list .top-level-nav-link {
     padding: 10px 0;
     display: inline-block;
+    position: absolute;
+    left: 0;
+    margin-left: -50%;
+    white-space: nowrap;
+    right: 0;
+    margin-right: -50%;
   }
   #site-navigation nav #site-navigation-list .site-navigation-item {
-    width: 2000px;
     text-align: center;
-    display: inline-block;
-    width: 13.8%;
+    display: block;
+    width: 16.666666666%;
+    float: left;
+    height: calc(20px + 1.5em);
+    position: relative;
   }
   #site-navigation nav #site-navigation-list .site-navigation-item span {
     font-size: 0.75em;
