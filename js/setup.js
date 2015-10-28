@@ -19,7 +19,7 @@
 	    /**
 		 * Initiate the dropdown menus
 		 */
-	    dropDownMenus();
+	    navigationScripts();
 		
 		/**
 		 * Hide everything that's only needed if JavaScript is disabled
@@ -121,31 +121,22 @@
 			/**
 			 * Is the mobile view being displayed
 			 */
-		    if( $( '#mobile-nav-icon' ).css( "display" ) == 'none' ) {
+		    if( $( '#mobile-nav-main' ).css( "display" ) == 'none' ) {
 		   		mobileView = false;
 		   	} else {
 			   	mobileView = true;
-			}
-			
-			/**
-			 * Toggle the mobile menu depending on whether the mobile view is being displayed.
-			 */
-			if( mobileView ) {
-				$( '#mobile-nav-dropdown' ).hide();	
-			} else {
-				$( '#mobile-nav-dropdown' ).show();
 			}
 		}
 		
 		/**
 		 * Initiate the dropdown menus for the main navigation
 		 */
-		function dropDownMenus() {
+		function navigationScripts() {
 			/**
 			 * Toggle the top level mobile dropdown menu when 
 			 * the menu icon is clicked
 			 */
-			$( '#mobile-nav-icon' ).click( function() {
+			$( '#mobile-nav-dropdown-icon' ).click( function() {
 				if( $( '#mobile-nav-menu-icon' ).is( ':visible' ) ) {
 					$( '#mobile-nav-menu-icon' ).fadeOut();
 					setTimeout( function() {
@@ -158,11 +149,10 @@
 					}, 200 );
 				}
 				
-				
-				if( $( '#mobile-nav-dropdown' ).is( ':visible' ) ) {
-					$( '#mobile-nav-dropdown' ).slideUp(); // Hide the top level nav
+				if( $( '#main-nav' ).is( ':visible' ) ) {
+					$( '#main-nav' ).slideUp(); // Hide the top level nav
 				} else {
-					$( '#mobile-nav-dropdown' ).slideDown(); // Show the top level nav
+					$( '#main-nav' ).slideDown(); // Show the top level nav
 				}
 			});
 			
@@ -171,8 +161,23 @@
 			 * visible dropdown nav then hide the navigation
 			 */
 			$( document ).on( 'click', function( event ) {
-				if( !$( event.target ).closest( '#site-navigation-items' ).length && mobileView ) {
-					$( '#mobile-nav-dropdown' ).slideUp(); // Hide the main nav
+				if( !$( event.target ).closest( '#site-navigation' ).length && mobileView ) {
+					$( '#main-nav' ).slideUp(); // Hide the main nav
+				}
+			});
+
+			/**
+			 * Make sure the main navigation is always 
+			 * showing on desktop view
+			 */
+			$( window ).resize( function() {
+				/**
+				 * Toggle the mobile menu depending on whether the mobile view is being displayed.
+				 */
+				if( mobileView ) {
+					$( '#main-nav' ).hide();	
+				} else {
+					$( '#main-nav' ).show();
 				}
 			});
 		}

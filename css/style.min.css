@@ -6413,6 +6413,15 @@ SITE NAVIGATION
   position: relative;
   width: 100%;
 }
+#site-navigation a {
+  color: white;
+}
+#site-navigation a:hover {
+  color: white;
+}
+#site-navigation * {
+  line-height: 1;
+}
 #site-navigation .display-table-cell {
   vertical-align: middle;
 }
@@ -6420,77 +6429,100 @@ SITE NAVIGATION
   background-color: #6991ac;
   font-size: 1.5em;
 }
-#site-navigation #mobile-nav-dropdown,
-#site-navigation #site-navigation-list {
+#site-navigation ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
-#site-navigation #mobile-nav-icon {
+#site-navigation #mobile-nav-dropdown-icon {
   position: relative;
   display: block;
-  line-height: 1;
   padding: 20px 0;
   height: calc(40px + 1em);
 }
-#site-navigation #mobile-nav-icon i {
+#site-navigation #mobile-nav-dropdown-icon i {
   position: absolute;
+  right: 0;
 }
-#site-navigation #mobile-nav-icon:hover {
+#site-navigation #mobile-nav-dropdown:hover {
   text-decoration: none;
 }
 #site-navigation #mobile-nav-close-icon {
   display: none;
 }
-#site-navigation #site-navigation-list .top-level-nav-link,
-#site-navigation #site-navigation-list h2 a,
-#site-navigation #site-navigation-list #mobile-nav-icon {
-  color: white;
+@media (min-width: 700px) {
+  #site-navigation #mobile-nav-main {
+    display: none;
+  }
 }
-#site-navigation #site-navigation-list .top-level-nav-link:hover,
-#site-navigation #site-navigation-list h2 a:hover,
-#site-navigation #site-navigation-list #mobile-nav-icon:hover {
-  color: white;
-}
-#site-navigation #site-navigation-list .top-level-nav-link {
-  display: block;
-  padding: 20px 0;
-  width: 100%;
-  line-height: 1;
-}
-#site-navigation #site-navigation-list .site-navigation-text {
-  font-size: 0.75em;
-}
-#site-navigation #site-navigation-list h2 a:hover,
-#site-navigation #site-navigation-list #mobile-nav-icon:hover {
-  color: #EAEAEA;
-}
-#site-navigation #site-navigation-list h2 a {
+#site-navigation #mobile-nav-main a {
   padding: 20px 0;
   display: inline-block;
 }
-#site-navigation #site-navigation-list .active-sub-nav {
-  text-decoration: underline;
+#site-navigation #mobile-nav-main-title {
+  display: inline-block;
 }
-#site-navigation #site-navigation-list .dimmed-nav-item {
-  color: #EAEAEA;
+#site-navigation .mobile-nav-main-icon {
+  width: 2em;
+  float: right;
+  text-align: right;
 }
-#site-navigation #site-navigation-list #site-logo h2 {
-  margin: 0;
-  font-size: 1.3em;
-  font-weight: 400;
-}
-#site-navigation #site-navigation-list #site-logo h2 a:hover {
-  text-decoration: none;
-}
-#site-navigation #site-navigation-list .sub-nav {
-  list-style: none;
-  padding: 0;
-  display: none;
-}
-#site-navigation #site-navigation-list .sub-nav li a {
+#site-navigation .top-level-nav-link {
   display: block;
-  padding: 10px 20px;
+  padding: 20px 0;
+  width: 100%;
+}
+@media (max-width: 700px) {
+  #site-navigation .top-level-nav-link {
+    text-align: left;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 960px;
+    width: 100%;
+    position: relative;
+  }
+}
+#site-navigation .site-navigation-text {
+  font-size: 0.75em;
+}
+@media (min-width: 700px) {
+  #site-navigation .site-navigation-item {
+    text-align: center;
+    display: block;
+    width: 16.666666666%;
+    float: left;
+    height: calc(40px + 1em);
+    position: relative;
+  }
+}
+@media (max-width: 700px) {
+  #site-navigation .site-navigation-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+  }
+}
+@media (min-width: 700px) {
+  #site-navigation .site-navigation-hide {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  #site-navigation #main-nav {
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    border-radius: 3px;
+    background-color: #6991ac;
+    z-index: 1;
+  }
+  #site-navigation .site-navigation-icon {
+    width: 2em;
+  }
+  #site-navigation .top-level-nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
 }
 #site-navigation #bunting {
   border-top: 2px solid white;
@@ -6567,92 +6599,6 @@ SITE NAVIGATION
 #site-navigation #bunting .dot-9 {
   top: -0.5em;
   left: -0.1em;
-}
-@media (max-height: 600px) {
-  #site-navigation.fixed-nav {
-    width: 100%;
-    position: absolute;
-  }
-}
-@media (min-height: 600px) {
-  #site-navigation.fixed-nav {
-    z-index: 9999;
-    top: 0;
-    width: 100%;
-    position: fixed;
-  }
-}
-@media (min-width: 700px) {
-  #site-navigation nav #site-navigation-list .site-navigation-item {
-    text-align: center;
-    display: block;
-    width: 16.666666666%;
-    float: left;
-    height: calc(40px + 1em);
-    position: relative;
-  }
-  #site-navigation nav #site-navigation-list .site-navigation-hide {
-    display: none;
-  }
-  #site-navigation nav #site-navigation-list #mobile-nav-icon {
-    display: none;
-  }
-  #site-navigation nav #site-navigation-list .sub-nav {
-    position: absolute;
-    right: 0;
-    background-color: white;
-    margin: 0;
-    text-align: left;
-    border: 1px solid #EAEAEA;
-    width: 200px;
-    box-shadow: 0 0 5px #E2E2E2;
-    border-radius: 3px;
-    z-index: 1;
-  }
-  #site-navigation nav #site-navigation-list .sub-nav li a:hover {
-    background-color: #F9F9F9;
-  }
-}
-@media (max-width: 700px) {
-  #site-navigation nav #site-navigation-list #mobile-nav-dropdown {
-    display: none;
-    position: absolute;
-    right: 0;
-    width: 100%;
-    border-radius: 3px;
-    background-color: #6991ac;
-    z-index: 1;
-  }
-  #site-navigation nav #site-navigation-list .top-level-nav-link {
-    text-align: left;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 960px;
-    width: 100%;
-    position: relative;
-  }
-  #site-navigation nav #site-navigation-list .site-navigation-item {
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
-  }
-  #site-navigation nav #site-navigation-list .site-navigation-icon {
-    width: 2em;
-  }
-  #site-navigation nav #site-navigation-list .top-level-nav-link:hover {
-    background-color: rgba(0, 0, 0, 0.75);
-  }
-  #site-navigation nav #site-navigation-list .sub-nav {
-    background-color: rgba(138, 169, 190, 0.7);
-    margin: 0;
-  }
-  #site-navigation nav #site-navigation-list .sub-nav li a {
-    color: white;
-  }
-  #site-navigation nav #site-navigation-list .sub-nav li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-  }
 }
 /* -----------------------------
 POST
