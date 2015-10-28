@@ -63,23 +63,13 @@
 		 * 
 		 */
 	    function vikibellHoverNav() {
-		    $( '.image-to-text' ).mouseenter( function() {
-			    if( $( this ).find( 'span' ).hasClass( 'hidden' ) ) {
-				    $( this ).find( 'span' ).removeClass( 'hidden' );
-				    $( this ).find( 'i' ).addClass( 'hidden' );
+		    $( '.image-to-text' ).hover( function() {
+			    if( $( this ).find( '.site-navigation-text' ).hasClass( 'site-navigation-hide' ) ) {
+				    $( this ).find( '.site-navigation-text' ).removeClass( 'site-navigation-hide' );
+				    $( this ).find( '.site-navigation-icon' ).addClass( 'site-navigation-hide' );
 				} else {
-					$( this ).find( 'span' ).addClass( 'hidden' );
-				    $( this ).find( 'i' ).removeClass( 'hidden' );
-				}
-			} );
-
-			$( '.image-to-text' ).mouseleave( function() {
-			    if( $( this ).find( 'span' ).hasClass( 'hidden' ) ) {
-				    $( this ).find( 'span' ).removeClass( 'hidden' );
-				    $( this ).find( 'i' ).addClass( 'hidden' );
-				} else {
-					$( this ).find( 'span' ).addClass( 'hidden' );
-				    $( this ).find( 'i' ).removeClass( 'hidden' );
+					$( this ).find( '.site-navigation-text' ).addClass( 'site-navigation-hide' );
+				    $( this ).find( '.site-navigation-icon' ).removeClass( 'site-navigation-hide' );
 				}
 			} );
 		}
@@ -152,63 +142,27 @@
 		 */
 		function dropDownMenus() {
 			/**
-			 * Toggle the dropdown menus when hovering 
-			 * over the menu items whilst not in a mobile 
-			 * view.
-			 */
-			$( '.site-navigation-item' ).hover( function() {
-				/**
-				 * On hover hide all the dropdowns but 
-				 * show the one for the current item
-				 */
-				if( !mobileView ) {
-					$( '.top-level-nav-link' ).addClass( 'dimmed-nav-item' ).removeClass( 'active-sub-nav' ); // Dim all top level nav items
-					$( '.fa-caret-up' ).removeClass( 'fa-caret-up' ).addClass( 'fa-caret-down' ); // Point all the nav arrows down
-					$(this).find( '.sub-nav' ).slideDown(); // Show the current dropdown menu
-					$(this).find( '.fa-caret-down' ).removeClass( 'fa-caret-down' ).addClass( 'fa-caret-up' ); // Change the current nav arrow to down
-					$(this).find( '.top-level-nav-link' ).removeClass( 'dimmed-nav-item' ).addClass( 'active-sub-nav' ); // Make sure the current nav item isn't dimmed
-				}
-				
-			}, function() {
-				/**
-				 * On hover off the hide all sub navs and 
-				 * return everything to their default states
-				 */
-				if(!mobileView) {
-					$( '.sub-nav' ).hide();
-					$( '.top-level-nav-link' ).removeClass( 'dimmed-nav-item' ).removeClass( 'active-sub-nav' ); // Turn all the nav items into their default state
-					$( '.fa-caret-up' ).removeClass( 'fa-caret-up' ).addClass( 'fa-caret-down' ); // Change all the nav arrows back to down
-				}
-				
-			});
-			
-			/**
 			 * Toggle the top level mobile dropdown menu when 
 			 * the menu icon is clicked
 			 */
 			$( '#mobile-nav-icon' ).click( function() {
-				$( '.fa-caret-up' ).removeClass( 'fa-caret-up' ).addClass( 'fa-caret-down' ); // Change all the nav arrows to down
+				if( $( '#mobile-nav-menu-icon' ).is( ':visible' ) ) {
+					$( '#mobile-nav-menu-icon' ).fadeOut();
+					setTimeout( function() {
+						$( '#mobile-nav-close-icon' ).fadeIn();
+					}, 200 );
+				} else {
+					$( '#mobile-nav-close-icon' ).fadeOut();
+					setTimeout( function() {
+						$( '#mobile-nav-menu-icon' ).fadeIn();
+					}, 200 );
+				}
+				
 				
 				if( $( '#mobile-nav-dropdown' ).is( ':visible' ) ) {
 					$( '#mobile-nav-dropdown' ).slideUp(); // Hide the top level nav
-					$( '.sub-nav' ).slideUp(); // Hide the sub menu
 				} else {
 					$( '#mobile-nav-dropdown' ).slideDown(); // Show the top level nav
-				}
-			});
-			
-			/**
-			 * Toggle the submenus on a mobile layout when the nav items are clicked
-			 */
-			$( '.top-level-nav-link' ).click( function() {
-				$( '.fa-caret-up' ).removeClass( 'fa-caret-up' ).addClass( 'fa-caret-down' ); // Change all the nav arrows to down
-				
-				if( mobileView && $( this ).siblings( '.sub-nav' ).is( ':visible' ) ) {
-					$( '.sub-nav' ).slideUp(); // Hide all the sub navs
-				} else if( mobileView ) {
-					$( '.sub-nav' ).slideUp(); // Hide all the sub navs
-					$( this ).siblings( '.sub-nav' ).slideDown(); // Show the current sub nav
-					$( this ).find( '.fa-caret-down' ).removeClass( 'fa-caret-down' ).addClass( 'fa-caret-up' ); // Change the current nav arrow to down
 				}
 			});
 			
@@ -219,8 +173,6 @@
 			$( document ).on( 'click', function( event ) {
 				if( !$( event.target ).closest( '#site-navigation-items' ).length && mobileView ) {
 					$( '#mobile-nav-dropdown' ).slideUp(); // Hide the main nav
-					$( '.sub-nav' ).slideUp(); // Hide the sub nav
-					$( '.fa-caret-up' ).removeClass( 'fa-caret-up' ).addClass( 'fa-caret-down' ); // Point all the nav arrows down
 				}
 			});
 		}
