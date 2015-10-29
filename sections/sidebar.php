@@ -12,10 +12,6 @@
 			</div>
 		</form>
 		
-		<div id="tag-cloud" class="wrap">
-			<?php wp_tag_cloud( 'smallest=8&largest=22' ); ?>
-		</div>
-		
 		<?php
 	
 			vikibell_display_tweets();
