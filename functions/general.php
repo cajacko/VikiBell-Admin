@@ -728,7 +728,7 @@ DISPLAY THE PAGINATION
 		
 	function vikibell_display_tweets() {
 		$connection = new TwitterOAuth( 'DrUAkLKeXRuT0ywejipAbJkTp', 'PNAKfgYr0zHvwAx9Q7ebFAvJo1KFsdeOPtVUNqiqVVrs4qaL6p', '53987352-kGKp3kBVgrMPnriNdgcTbs6AcsWYc7Shrz1YzpQ5l', 'D4twOI82YfPvUBwyw0QOSH8foLu338NZcwq95dbwEMGb1' );
-		$tweets = $connection->get( "statuses/user_timeline", array( "user_id" => "209678272", "count" => 5 ) );	
+		$tweets = $connection->get( "statuses/user_timeline", array( "user_id" => "209678272", "count" => 3 ) );	
 		
 		//print_r( $tweets );
 		

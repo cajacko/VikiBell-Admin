@@ -6889,10 +6889,6 @@ SIDEBAR
   display: inline-block;
   text-decoration: underline;
 }
-#sidebar #tweets-wrap {
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
 #sidebar .tweet-text,
 #sidebar .tweet-image {
   margin-top: 10px;
