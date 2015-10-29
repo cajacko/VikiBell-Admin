@@ -36,7 +36,7 @@
 	    setGlobalVars();
   		positionSidebar();
   		
-  		$( '#main-wrap' ).css( 'max-width', '1050px' );
+  		$( '.wrap' ).css( 'max-width', '1050px' );
   		
   		var mainWrapWidth = $( '#main-wrap' ).width();
   		var postLoopWidth = $( '#post-loop' ).width();
@@ -44,6 +44,7 @@
   		
   		$( '#sidebar-container' ).width( sidebarWidth );
   		$( '#sidebar' ).width( sidebarWidth );
+  		$( '#site-footer a' ).width( sidebarWidth );
     }
     
     function windowScrollFunction() {

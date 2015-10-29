@@ -6336,8 +6336,8 @@ a.anchor {
   top: -70px;
 }
 .wrap {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
   margin-left: auto;
   margin-right: auto;
   max-width: 960px;
@@ -6360,10 +6360,10 @@ a.anchor {
 CONTENT
 ----------------------------- */
 main {
-  padding-bottom: 20px;
+  padding-bottom: 1em;
 }
 main #main-wrap {
-  margin-top: 20px;
+  margin-top: 1em;
   position: relative;
 }
 @media (max-width: 550px) {
@@ -6392,11 +6392,11 @@ FOOTER
 }
 #site-footer #scroll-to-top {
   float: right;
-  margin: 20px 0;
+  margin: 1em 0;
 }
 #site-footer a {
   height: 50px;
-  width: 280px;
+  width: 337px;
   vertical-align: middle;
   text-align: center;
   line-height: 1;
@@ -6410,11 +6410,16 @@ SITE NAVIGATION
 #site-navigation.fixed {
   position: fixed;
   top: 0;
+  font-size: 0.75em;
 }
 #site-navigation {
   z-index: 9999;
   position: relative;
   width: 100%;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
 }
 #site-navigation a {
   color: white;
@@ -6440,8 +6445,8 @@ SITE NAVIGATION
 #site-navigation #mobile-nav-dropdown-icon {
   position: relative;
   display: block;
-  padding: 20px 0;
-  height: calc(40px + 1em);
+  padding: 1em 0;
+  height: calc(2em + 1em);
 }
 #site-navigation #mobile-nav-dropdown-icon i {
   position: absolute;
@@ -6459,7 +6464,7 @@ SITE NAVIGATION
   }
 }
 #site-navigation #mobile-nav-main a {
-  padding: 20px 0;
+  padding: 1em 0;
   display: inline-block;
 }
 #site-navigation #mobile-nav-main-title {
@@ -6472,14 +6477,14 @@ SITE NAVIGATION
 }
 #site-navigation .top-level-nav-link {
   display: block;
-  padding: 20px 0;
+  padding: 1em 0;
   width: 100%;
 }
 @media (max-width: 700px) {
   #site-navigation .top-level-nav-link {
     text-align: left;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
     margin-left: auto;
     margin-right: auto;
     max-width: 960px;
@@ -6504,7 +6509,7 @@ SITE NAVIGATION
     display: block;
     width: 16.666666666%;
     float: left;
-    height: calc(40px + 1em);
+    height: calc(2em + 1em);
     position: relative;
   }
 }
@@ -6646,7 +6651,7 @@ POST
 }
 #post-query-title h1 {
   font-size: 1.5em;
-  margin: 20px 0;
+  margin: 1em 0;
 }
 #post-query-title h1 small {
   color: #636262;
@@ -6661,7 +6666,7 @@ POST
   border-width: 1px;
 }
 #portfolio-nav a {
-  padding: 10px 0;
+  padding: 0.5em 0;
   font-size: 0.9em;
 }
 #portfolio-nav a:hover {
@@ -6679,13 +6684,13 @@ POST
   height: auto;
 }
 .article-container .gallery {
-  padding: 5px;
+  padding: 0.25em;
   background-color: #6991ac;
 }
 .article-container .gallery figure {
   width: 33.3333%;
   float: left;
-  padding: 5px;
+  padding: 0.25em;
 }
 .article-container header .post-featured-image {
   width: 100%;
@@ -6698,11 +6703,11 @@ POST
   word-wrap: break-word;
 }
 .article-container header .header-title {
-  margin-top: 20px;
+  margin-top: 1em;
 }
 .article-container .post-body {
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
 }
 .article-container .post-body h1 {
   font-size: 2em;
@@ -6725,15 +6730,15 @@ POST
 .article-container .post-body blockquote {
   font-size: 1.2em;
   font-style: italic;
-  margin: 0 10px;
-  padding: 0 10px;
+  margin: 0 0.5em;
+  padding: 0 0.5em;
   border-left: 5px solid #E6E6E6;
 }
 .article-container .post-body blockquote cite {
   margin-left: 0;
 }
 .article-container .post-body cite {
-  margin-left: 10px;
+  margin-left: 0.5em;
   font-size: initial;
   font-style: initial;
 }
@@ -6753,11 +6758,11 @@ POST
   font-size: 0.8em;
 }
 .article-container footer {
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
   border-top: 1px solid #ececec;
   background-color: #FCFCFC;
-  margin-top: 20px;
+  margin-top: 1em;
 }
 .article-container .date {
   width: 4em;
@@ -6795,7 +6800,7 @@ SIDEBAR
   right: 0;
 }
 #sidebar.absolute-sidebar #sidebar-container {
-  margin-right: 30px;
+  margin-right: 1.5em;
   position: absolute;
   top: 0;
   right: 0;
@@ -6803,27 +6808,27 @@ SIDEBAR
 .fixed-bottom-sidebar,
 .fixed-top-sidebar {
   float: right;
-  width: 280px;
+  width: 337px;
 }
 .fixed-bottom-sidebar #sidebar-container,
 .fixed-top-sidebar #sidebar-container {
   position: fixed;
 }
 .fixed-bottom-sidebar #sidebar-container {
-  bottom: 20px;
+  bottom: 1em;
 }
 .fixed-top-sidebar #sidebar-container {
-  top: 90px;
+  top: 71em;
 }
 #sidebar #sidebar-container {
   background-color: white;
   display: block;
   border: 1px solid #DEDEDE;
   border-radius: 3px;
-  width: 280px;
+  width: 337px;
 }
 #sidebar #sidebar-container #twitter-placeholder {
-  padding: 20px;
+  padding: 1em;
   text-align: center;
   font-size: 1.5em;
 }
@@ -6832,11 +6837,11 @@ SIDEBAR
   padding-top: 280px;
 }
 #sidebar .wrap {
-  padding: 10px;
+  padding: 0.5em;
   border-top: 2px solid #CACACA;
 }
 #sidebar #search .form-group {
-  margin: 10px 0;
+  margin: 0.5em 0;
 }
 #sidebar #search-input {
   height: 2em;
@@ -6894,7 +6899,7 @@ SIDEBAR
 }
 #sidebar .tweet-text,
 #sidebar .tweet-image {
-  margin-top: 10px;
+  margin-top: 0.5em;
 }
 #sidebar .tweet-image {
   width: 100%;
@@ -6960,8 +6965,8 @@ BANNER
 PROJECTS-PAGE
 ----------------------------- */
 #page-projects #main-wrap {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 @media (max-width: 550px) {
   #page-projects #main-wrap {
@@ -6972,7 +6977,7 @@ PROJECTS-PAGE
 #page-projects #projects-loop article {
   max-width: 33.33333%;
   width: 100%;
-  padding: 0 10px;
+  padding: 0 0.5em;
   float: left;
 }
 @media (max-width: 550px) {
