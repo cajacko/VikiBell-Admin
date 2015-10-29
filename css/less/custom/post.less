@@ -1,6 +1,9 @@
 /* -----------------------------
 POST
------------------------------ */	
+----------------------------- */
+	@date-text-gap: 1em;
+	@date-size: 4em;
+
 	#main #post-loop {
 		max-width: @post-loop-width;
 		width: 100%;
@@ -85,11 +88,12 @@ POST
 				padding: @global-padding / 4;
 			}
 		}
-			
+		
 		header {
 			.post-featured-image {
 				width: 100%;
 				height: auto;
+				margin-top: -( @date-text-gap + (  @date-size / 2 ) );
 			}
 			
 			h2 {
@@ -178,19 +182,18 @@ POST
 		}
 		
 		.date {
-			width: 4em;
-		    height: 4em;
-		    border-radius: 2em;
+			width: @date-size;
+		    height: @date-size;
+		    border-radius: @date-size / 2;
 		    background-color: @charliejackson-link;
 		    padding: 0;
 		    text-align: center;
 		    color: white;
-		    padding-top: 1.35em;
+		    padding-top: ( 5.4 / @date-size );
 		    line-height: 1;
-		    font-size: 1em;
-		    border: 0.15em solid white;
-		    box-shadow: 0 0 0.3em #989898;
-		    margin: -2em auto;
+		    border: ( 0.6 / @date-size ) solid white;
+		    box-shadow: 0 0 ( 1.2 / @date-size ) #989898;
+		    margin: -( @date-size / 2 ) auto @date-text-gap auto;
 		    z-index: 2;
 		    position: relative;
 		}

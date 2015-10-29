@@ -6326,6 +6326,9 @@ ol ul {
 a {
   cursor: pointer;
 }
+pre {
+  padding: 1em;
+}
 a.anchor {
   display: block;
   position: relative;
@@ -6687,6 +6690,7 @@ POST
 .article-container header .post-featured-image {
   width: 100%;
   height: auto;
+  margin-top: -3em;
 }
 .article-container header h2 {
   margin: 0;
@@ -6765,10 +6769,9 @@ POST
   color: white;
   padding-top: 1.35em;
   line-height: 1;
-  font-size: 1em;
-  border: 0.15em solid white;
+  border: 0.15em solid #ffffff;
   box-shadow: 0 0 0.3em #989898;
-  margin: -2em auto;
+  margin: -2em auto 1em auto;
   z-index: 2;
   position: relative;
 }
