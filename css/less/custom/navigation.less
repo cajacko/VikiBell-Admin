@@ -97,6 +97,18 @@ SITE NAVIGATION
 			text-align: left;
 			.wrap;
 		}
+
+		@media (min-width: @mobile-nav-break) {	
+			&:hover.no-javascript {
+				i {
+					display: none;
+				}
+
+				span {
+					display: inline;
+				}
+			}
+		}
 	}
 
 	.site-navigation-text {

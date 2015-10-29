@@ -6484,6 +6484,14 @@ SITE NAVIGATION
     position: relative;
   }
 }
+@media (min-width: 700px) {
+  #site-navigation .top-level-nav-link:hover.no-javascript i {
+    display: none;
+  }
+  #site-navigation .top-level-nav-link:hover.no-javascript span {
+    display: inline;
+  }
+}
 #site-navigation .site-navigation-text {
   font-size: 0.75em;
 }

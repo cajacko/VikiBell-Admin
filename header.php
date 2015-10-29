@@ -14,7 +14,7 @@
 	} 
 ?>
 	<!DOCTYPE html>
-	<html lang="en-GB" id="html" data-home-url="<?php echo home_url( '/' ); ?>">
+	<html lang="en-GB" id="html" data-home-url="<?php echo home_url( '/' ); ?>" class="no-javascript">
 	
 		<head>
 			<meta charset="utf-8">
@@ -39,7 +39,7 @@
 				<div id="banner-wrap" class="embed-responsive">
 					<div class="embed-responsive-item"></div>
 				</div>
-				<img id="banner-img" class="embed-responsive-item" src="http://placehold.it/2500x400" height="400" width="2500">
+				<img id="banner-img" class="embed-responsive-item hide-without-javascript" src="http://placehold.it/2500x400" height="400" width="2500">
 			</section>
 			
 			<header id="site-navigation" class="<?php vikibell_the_site_nav_classes(); ?>">

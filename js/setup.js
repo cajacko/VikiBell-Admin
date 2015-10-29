@@ -25,6 +25,7 @@
 		 * Hide everything that's only needed if JavaScript is disabled
 		 */
 	    $( '.hide-without-javascript' ).removeClass( 'hide-without-javascript' );
+	    $( '.no-javascript' ).removeClass( 'no-javascript' );
 	    
 	    animateScroll();
 	    
