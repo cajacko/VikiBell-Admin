@@ -7,23 +7,33 @@ SITE NAVIGATION
 @font-size: 1.5em;
 @bunting-width: 1.4em;
 @bunting-height: @bunting-width * 1.75;
-@nav-item-padding: @global-padding 0;
-@nav-item-height: calc( ( @global-padding * 2 ) ~"+" 1em );
+@nav-item-padding-value: 0.75em;
+@nav-item-padding: @nav-item-padding-value 0;
+@nav-item-height: ( @nav-item-padding-value * 2 ) + 1;
+@nav-transition: all 0.3s ease;
+
+.nav-transition {
+	-webkit-transition: @nav-transition;
+	-moz-transition: @nav-transition;
+	-o-transition: @nav-transition;
+	-ms-transition: @nav-transition;
+}
 
 #site-navigation.fixed {
 	position: fixed;
 	top: 0;
 	font-size: 0.75em;
+
+	#bunting #bunting-wrap {
+		top: 0;
+	}
 }
 
 #site-navigation {
 	z-index: 9999;
 	position: relative;
 	width: 100%;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	-ms-transition: all 0.3s ease;
+	.nav-transition;
 
 	a {
 		color: white;
@@ -165,11 +175,19 @@ SITE NAVIGATION
 	#bunting {
 		border-top: 2px solid white;
 		width: 100%;
-		overflow: hidden;
 		height: @bunting-height;
+		overflow: hidden;
+		text-align: center;
 		
 		#bunting-wrap {
-			width: 10000px;
+			display: inline-block;
+			white-space: nowrap;
+			position: absolute;
+			left: -9999px;
+			right: -9999px;
+			top: 4em;
+			z-index: -1;
+			.nav-transition;
 		}
 			
 		.bunting {
@@ -177,9 +195,9 @@ SITE NAVIGATION
 		    height: 0;
 		    border-left: @bunting-width solid transparent;
 		    border-right: @bunting-width solid transparent;
-		    float: left;
 		    position: relative;
 		    margin-left: 1.5em;
+		    display: inline-block;
 		}
 		
 		.colour-1 {

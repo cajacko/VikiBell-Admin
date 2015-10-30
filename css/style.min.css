@@ -6407,10 +6407,19 @@ FOOTER
 /* -----------------------------
 SITE NAVIGATION
 ----------------------------- */
+.nav-transition {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+}
 #site-navigation.fixed {
   position: fixed;
   top: 0;
   font-size: 0.75em;
+}
+#site-navigation.fixed #bunting #bunting-wrap {
+  top: 0;
 }
 #site-navigation {
   z-index: 9999;
@@ -6445,8 +6454,8 @@ SITE NAVIGATION
 #site-navigation #mobile-nav-dropdown-icon {
   position: relative;
   display: block;
-  padding: 1em 0;
-  height: calc(2em + 1em);
+  padding: 0.75em 0;
+  height: 2.5em;
 }
 #site-navigation #mobile-nav-dropdown-icon i {
   position: absolute;
@@ -6464,7 +6473,7 @@ SITE NAVIGATION
   }
 }
 #site-navigation #mobile-nav-main a {
-  padding: 1em 0;
+  padding: 0.75em 0;
   display: inline-block;
 }
 #site-navigation #mobile-nav-main-title {
@@ -6477,7 +6486,7 @@ SITE NAVIGATION
 }
 #site-navigation .top-level-nav-link {
   display: block;
-  padding: 1em 0;
+  padding: 0.75em 0;
   width: 100%;
 }
 @media (max-width: 700px) {
@@ -6509,7 +6518,7 @@ SITE NAVIGATION
     display: block;
     width: 16.666666666%;
     float: left;
-    height: calc(2em + 1em);
+    height: 2.5em;
     position: relative;
   }
 }
@@ -6543,20 +6552,31 @@ SITE NAVIGATION
 #site-navigation #bunting {
   border-top: 2px solid white;
   width: 100%;
-  overflow: hidden;
   height: 2.45em;
+  overflow: hidden;
+  text-align: center;
 }
 #site-navigation #bunting #bunting-wrap {
-  width: 10000px;
+  display: inline-block;
+  white-space: nowrap;
+  position: absolute;
+  left: -9999px;
+  right: -9999px;
+  top: 4em;
+  z-index: -1;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
 }
 #site-navigation #bunting .bunting {
   width: 0;
   height: 0;
   border-left: 1.4em solid transparent;
   border-right: 1.4em solid transparent;
-  float: left;
   position: relative;
   margin-left: 1.5em;
+  display: inline-block;
 }
 #site-navigation #bunting .colour-1 {
   border-top: 2.45em solid #ff4c65;
