@@ -6363,8 +6363,11 @@ main {
   padding-bottom: 1em;
 }
 main #main-wrap {
-  margin-top: 1em;
+  margin-top: 2em;
   position: relative;
+}
+.fixed + main {
+  padding-top: 5.15em;
 }
 @media (max-width: 550px) {
   #main-wrap {
@@ -6417,9 +6420,6 @@ SITE NAVIGATION
   position: fixed;
   top: 0;
   font-size: 0.75em;
-}
-#site-navigation.fixed #bunting #bunting-wrap {
-  top: 0;
 }
 #site-navigation {
   z-index: 9999;
@@ -6550,7 +6550,7 @@ SITE NAVIGATION
   }
 }
 #site-navigation #bunting {
-  border-top: 2px solid white;
+  border-top: 0.2em solid #ffffff;
   width: 100%;
   height: 2.45em;
   overflow: hidden;
@@ -6562,12 +6562,6 @@ SITE NAVIGATION
   position: absolute;
   left: -9999px;
   right: -9999px;
-  top: 4em;
-  z-index: -1;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
 }
 #site-navigation #bunting .bunting {
   width: 0;

@@ -79,9 +79,13 @@ CONTENT
 		padding-bottom: @global-padding;
 		
 		#main-wrap {
-			margin-top: @global-padding;
+			margin-top: @date-size / 2;
 			position: relative;
 		}
+	}
+
+	.fixed + main {
+		padding-top: @bunting-height + @nav-item-height + @bunting-border-height;
 	}
 	
 	@media (max-width: @mobile-width) {
