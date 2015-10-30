@@ -6410,25 +6410,14 @@ FOOTER
 /* -----------------------------
 SITE NAVIGATION
 ----------------------------- */
-.nav-transition {
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-}
 #site-navigation.fixed {
   position: fixed;
   top: 0;
-  font-size: 0.75em;
 }
 #site-navigation {
   z-index: 9999;
   position: relative;
   width: 100%;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
 }
 #site-navigation a {
   color: white;
@@ -6453,13 +6442,13 @@ SITE NAVIGATION
 }
 #site-navigation #mobile-nav-dropdown-icon {
   position: relative;
-  display: block;
-  padding: 0.75em 0;
   height: 2.5em;
+  width: 2.5em;
+  margin-right: -0.75em;
 }
 #site-navigation #mobile-nav-dropdown-icon i {
   position: absolute;
-  right: 0;
+  right: 0.75em;
 }
 #site-navigation #mobile-nav-dropdown:hover {
   text-decoration: none;
@@ -6473,14 +6462,14 @@ SITE NAVIGATION
   }
 }
 #site-navigation #mobile-nav-main a {
-  padding: 0.75em 0;
-  display: inline-block;
+  padding: 0.75em;
+  display: block;
 }
 #site-navigation #mobile-nav-main-title {
   display: inline-block;
+  margin-left: -0.75em;
 }
 #site-navigation .mobile-nav-main-icon {
-  width: 2em;
   float: right;
   text-align: right;
 }
