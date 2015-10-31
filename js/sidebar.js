@@ -96,13 +96,13 @@
 		 * and direction.
 		 */
 		function positionSidebar() {
-			if( windowWidth >= wrapMaxWidthMin ) {
+			if( $( '#sidebar' ).is( ':visible' ) ) {
 			    var scroll = $( window ).scrollTop();
 			    var scrollBottom = scroll + windowHeight;
 			    
 			    var sidebarHeight = $( "#sidebar-container" ).outerHeight();
 			    var totalSidebarHeight = sidebarHeight + siteNavHeight + ( globalPadding * 2 );
-			    
+
 			    var sidebarPosition = $( "#sidebar" ).offset();
 			    var sidebarTop = sidebarPosition['top'];
 			    

@@ -18,7 +18,13 @@ POST
 	/* Center the post loop when the banner is hidden */
 	@media (max-width: @wrap-max-width) {
 		#post-loop {
-			margin: 0 auto;
+			position: absolute;
+			left: 50%;
+		}
+
+		#post-loop-wrap {
+			position: relative;
+			left: -50%;
 		}
 	}
 	

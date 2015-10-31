@@ -9,20 +9,22 @@
 <?php get_header(); ?>
 	
 	<section id="post-loop">
-		<?php vikibell_the_query_title(); ?>
-	
-		<?php get_template_part( 'sections/post-loop' ); ?>
+		<div id="post-loop-wrap">
+			<?php vikibell_the_query_title(); ?>
 		
-		<?php 
-			/**
-			 * The pagination is placed outside of the post loop 
-			 * template so that it does not get loaded during an 
-			 * inifinite scroll request
-			 */
-			if( have_posts() ) { 
-				vikibell_pagination(); 
-			}
-		?>
+			<?php get_template_part( 'sections/post-loop' ); ?>
+			
+			<?php 
+				/**
+				 * The pagination is placed outside of the post loop 
+				 * template so that it does not get loaded during an 
+				 * inifinite scroll request
+				 */
+				if( have_posts() ) { 
+					vikibell_pagination(); 
+				}
+			?>
+		</div>
 		
 	</section>
 	
