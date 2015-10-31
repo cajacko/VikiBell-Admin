@@ -15,7 +15,7 @@
 	var siteNavHeight = 50;
 	var windowHeight = 0;
 	var windowWidth = 0;
-	var wrapMaxWidth = 960;
+	var wrapMaxWidthMin = 960;
 	var areGlobalVarsSet = false;
 	var minHeightForFixedNav = 600;
 	var isHeightTooSmallForFixedNav = false;
@@ -30,13 +30,14 @@
     }
 
     function onPageLoad() {
+    	wrapMaxWidthMin = $( ".wrap" ).css( 'max-width' );
+		wrapMaxWidthMin = parseInt( wrapMaxWidthMin );
+
+    	$( '.wrap' ).css( 'max-width', '1050px' );
     }
 	
-    function onPageLoadOrResize () {
-	    setGlobalVars();
-  		positionSidebar();
-  		
-  		$( '.wrap' ).css( 'max-width', '1050px' );
+    function onPageLoadOrResize () {		
+  		setGlobalVars();
   		
   		var mainWrapWidth = $( '#main-wrap' ).width();
   		var postLoopWidth = $( '#post-loop' ).width();
@@ -45,6 +46,8 @@
   		$( '#sidebar-container' ).css( 'width', sidebarWidth + 'px' );
   		$( '#sidebar' ).width( sidebarWidth );
   		$( '#site-footer a' ).width( sidebarWidth );
+		
+  		positionSidebar();
     }
     
     function windowScrollFunction() {
@@ -71,9 +74,6 @@
 		    	    
 		    windowHeight = $( window ).height();	
 		    windowWidth = $( window ).width();	  
-		      
-		    wrapMaxWidth = $( ".wrap" ).css( 'max-width' );
-		    wrapMaxWidth = parseInt( wrapMaxWidth );
 		    
 		    minHeightForFixedNav = $( '#less-vars' ).css( 'height' );
 		    minHeightForFixedNav = parseInt( minHeightForFixedNav );
@@ -96,7 +96,7 @@
 		 * and direction.
 		 */
 		function positionSidebar() {
-			if( windowWidth >= wrapMaxWidth ) {
+			if( windowWidth >= wrapMaxWidthMin ) {
 			    var scroll = $( window ).scrollTop();
 			    var scrollBottom = scroll + windowHeight;
 			    
@@ -116,7 +116,7 @@
 				    topGap = topGap + siteNavHeight;
 				    fixedToTopTopPosisiton = fixedToTopTopPosisiton - siteNavHeight;
 				}
-			    
+
 			    /**
 				 * Make sure there is never a visible gap between the top 
 				 * of the post loop and the top of the sidebar
@@ -147,7 +147,7 @@
 				 * between the bottom of the sidebar and the bottom of the 
 				 * window is never bigger than the global padding
 				 */
-				else if( ( bottomGap >= 0 && scroll > lastScrollTop ) || ( $( "#sidebar" ).hasClass( "fixed-bottom-sidebar" ) && scroll > lastScrollTop ) ) {
+				else if( bottomGap >= 0 || ( $( "#sidebar" ).hasClass( "fixed-bottom-sidebar" ) && scroll > lastScrollTop ) ) {
 					$( "#sidebar" ).removeClass( 'absolute-sidebar' ).addClass( 'fixed-bottom-sidebar' ).removeClass( 'fixed-top-sidebar' );
 					$( "#sidebar-container" ).css( "top", 'auto' ).css( "bottom", globalPadding + "px" );
 					sidebarTopPosition = fixedToBottomTopPosition;
