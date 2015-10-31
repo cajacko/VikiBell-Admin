@@ -6333,7 +6333,7 @@ a.anchor {
   display: block;
   position: relative;
   visibility: hidden;
-  top: -70px;
+  top: -4em;
 }
 .wrap {
   padding-left: 1.5em;
@@ -6633,7 +6633,12 @@ POST
 /* Center the post loop when the banner is hidden */
 @media (max-width: 960px) {
   #post-loop {
-    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+  }
+  #post-loop-wrap {
+    position: relative;
+    left: -50%;
   }
 }
 .article-container,
@@ -6819,7 +6824,15 @@ SIDEBAR
   bottom: 1em;
 }
 .fixed-top-sidebar #sidebar-container {
-  top: 71em;
+  top: 5em;
+}
+#sidebar {
+  /* Hide the sidebar to allow the banner to be full centered */
+}
+@media (max-width: 600px) {
+  #sidebar {
+    display: none;
+  }
 }
 #sidebar #sidebar-container {
   background-color: white;
@@ -6836,6 +6849,11 @@ SIDEBAR
 #sidebar #sidebar-container #twitter-placeholder.javascript-enabled {
   height: 600px;
   padding-top: 280px;
+}
+@media (max-width: 959px) {
+  #sidebar .sidebar-tablet-hide {
+    display: none;
+  }
 }
 #sidebar .wrap {
   padding: 0.5em;
@@ -6934,12 +6952,6 @@ SIDEBAR
 #sidebar .tweet-author-screen-name {
   color: grey;
   font-size: 0.9em;
-}
-/* Hide the sidebar to allow the banner to be full centered */
-@media (max-width: 959px) {
-  #sidebar {
-    display: none;
-  }
 }
 /* -----------------------------
 BANNER

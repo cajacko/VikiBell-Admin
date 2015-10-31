@@ -36,6 +36,11 @@ SIDEBAR
 	}
 	
 	#sidebar {
+		/* Hide the sidebar to allow the banner to be full centered */
+		@media (max-width: 600px) {
+			display: none;
+		}
+
 		#sidebar-container {
 		    background-color: white;
 		    display: block;
@@ -52,6 +57,12 @@ SIDEBAR
 			#twitter-placeholder.javascript-enabled {
 				height: 600px;
 				padding-top: 280px;	
+			}
+		}
+
+		.sidebar-tablet-hide {
+			@media (max-width: @wrap-max-width-min) {
+				display: none;
 			}
 		}
 		
@@ -176,11 +187,4 @@ SIDEBAR
 			color: grey;
 			font-size: 0.9em;
 		}	
-	}
-	
-	/* Hide the sidebar to allow the banner to be full centered */
-	@media (max-width: @wrap-max-width-min) {
-		#sidebar {
-			display: none;
-		}
 	}

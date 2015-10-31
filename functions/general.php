@@ -732,7 +732,7 @@ DISPLAY THE PAGINATION
 		
 		//print_r( $tweets );
 		
-		echo '<div id="tweets" class="widget wrap"><header id="tweets-header"><a id="twitter-link" class="image-to-text" target="_blank" href="http://twitter.com/Vikiibell"><i class="fa fa-twitter"></i><span class="hidden">Twitter</span></a></header><div id="tweets-wrap">';
+		echo '<div id="tweets" class="widget wrap sidebar-tablet-hide"><header id="tweets-header"><a id="twitter-link" class="image-to-text" target="_blank" href="http://twitter.com/Vikiibell"><i class="fa fa-twitter"></i><span class="hidden">Twitter</span></a></header><div id="tweets-wrap">';
 		
 		foreach( $tweets as $tweet ) {
 			echo '<article class="tweet">';
