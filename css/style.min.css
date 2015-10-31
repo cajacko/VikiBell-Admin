@@ -6625,13 +6625,13 @@ POST
   width: 100%;
 }
 /* Needed to allow the sidebar to move smoothly as it changes from fixed to absolute positions */
-@media (min-width: 959px) {
+@media (min-width: 960px) {
   #main #post-loop {
     float: left;
   }
 }
 /* Center the post loop when the banner is hidden */
-@media (max-width: 959px) {
+@media (max-width: 960px) {
   #post-loop {
     margin: 0 auto;
   }
