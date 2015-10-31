@@ -42,7 +42,7 @@
   		var postLoopWidth = $( '#post-loop' ).width();
   		var sidebarWidth = mainWrapWidth - postLoopWidth - 20;
   		
-  		$( '#sidebar-container' ).width( sidebarWidth );
+  		console.log( $( '#sidebar-container' ).css( 'width', sidebarWidth + 'px' ) );
   		$( '#sidebar' ).width( sidebarWidth );
   		$( '#site-footer a' ).width( sidebarWidth );
     }
