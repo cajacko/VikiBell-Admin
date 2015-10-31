@@ -21,8 +21,8 @@
 	var isHeightTooSmallForFixedNav = false;
 
     function documentReadyFunction() {
-        onPageLoadOrResize();
         onPageLoad();
+        onPageLoadOrResize();  
     }
 
     function windowResizeFunction() {
