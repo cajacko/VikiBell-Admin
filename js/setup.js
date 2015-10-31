@@ -53,10 +53,10 @@
 		    
 		    if( scroll >= bannerBottom ) {
 			 	$( '#site-navigation' ).addClass( 'fixed' ); 
-			 	//$( "main" ).css( "padding-top", $( '#site-navigation' ).height() );  
+			 	$( "main" ).css( "padding-top", $( '#site-navigation' ).height() );  
 			} else {
 				$( '#site-navigation' ).removeClass( 'fixed' );
-				//$( "main" ).css( "padding-top", "0px" );
+				$( "main" ).css( "padding-top", "0px" );
 			}
 		}
 		

@@ -6366,9 +6366,6 @@ main #main-wrap {
   margin-top: 2em;
   position: relative;
 }
-.fixed + main {
-  padding-top: 5.15em;
-}
 @media (max-width: 550px) {
   #main-wrap {
     padding-left: 0;
@@ -6544,6 +6541,7 @@ SITE NAVIGATION
   height: 2.45em;
   overflow: hidden;
   text-align: center;
+  position: relative;
 }
 #site-navigation #bunting #bunting-wrap {
   display: inline-block;
@@ -6953,6 +6951,7 @@ BANNER
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  overflow: hidden;
 }
 #banner-wrap {
   padding-bottom: 18%;
