@@ -50,9 +50,11 @@ SIDEBAR
 		    border: 1px solid #DEDEDE;
 		    border-radius: 3px;	
 		    width: @wrap-max-width - @post-loop-width - (@global-padding * 3) - 20;	
+		    overflow: hidden;
 
 		    @media (max-width: @wrap-max-width) {
 				right: 0;
+				width: auto;
 			}
 		    
 		    #twitter-placeholder {
@@ -104,9 +106,42 @@ SIDEBAR
 		}
 
 		.sidebar-social-icon {
+			text-align: center;
+
+			@media (min-width: @wrap-max-width-min) {
+				display: block;
+				width: 33.3333333%;
+				float: left;
+			}
+
 			a {
 				display: block;
 				padding: @nav-item-padding-value;
+				color: white;
+			}
+		}
+
+		#sidebar-twitter a {
+			background-color: #4099FF;
+
+			&:hover {
+				background-color: darken( #4099FF, 10% );
+			}
+		}
+
+		#sidebar-instagram a {
+			background-color: #125688;
+
+			&:hover {
+				background-color: darken( #125688, 10% );
+			}
+		}
+
+		#sidebar-pinterest a {
+			background-color: #C8232C;
+
+			&:hover {
+				background-color: darken( #C8232C, 10% );
 			}
 		}
 		

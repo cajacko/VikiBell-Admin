@@ -6844,10 +6844,12 @@ SIDEBAR
   border: 1px solid #DEDEDE;
   border-radius: 3px;
   width: 337px;
+  overflow: hidden;
 }
 @media (max-width: 960px) {
   #sidebar #sidebar-container {
     right: 0;
+    width: auto;
   }
 }
 #sidebar #sidebar-container #twitter-placeholder {
@@ -6886,9 +6888,38 @@ SIDEBAR
 #sidebar #sidebar-social-icons * {
   line-height: 1;
 }
+#sidebar .sidebar-social-icon {
+  text-align: center;
+}
+@media (min-width: 959px) {
+  #sidebar .sidebar-social-icon {
+    display: block;
+    width: 33.3333333%;
+    float: left;
+  }
+}
 #sidebar .sidebar-social-icon a {
   display: block;
   padding: 0.75em;
+  color: white;
+}
+#sidebar #sidebar-twitter a {
+  background-color: #4099FF;
+}
+#sidebar #sidebar-twitter a:hover {
+  background-color: #0d7eff;
+}
+#sidebar #sidebar-instagram a {
+  background-color: #125688;
+}
+#sidebar #sidebar-instagram a:hover {
+  background-color: #0c3a5b;
+}
+#sidebar #sidebar-pinterest a {
+  background-color: #C8232C;
+}
+#sidebar #sidebar-pinterest a:hover {
+  background-color: #9d1b22;
 }
 #sidebar .tweet {
   margin: 10px 0;

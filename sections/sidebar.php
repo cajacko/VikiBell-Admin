@@ -6,10 +6,10 @@
 			</div>
 		</div>
 
-		<ul id="sidebar-social-icons">
-			<li class="sidebar-social-icon"><a href=""><i class="fa fa-twitter"></i></a></li>
-			<li class="sidebar-social-icon"><a href=""><i class="fa fa-instagram"></i></a></li>
-			<li class="sidebar-social-icon"><a href=""><i class="fa fa-pinterest"></i></a></li>
+		<ul id="sidebar-social-icons" class="clearfix">
+			<li id="sidebar-twitter" class="sidebar-social-icon"><a href=""><i class="fa fa-twitter"></i></a></li>
+			<li id="sidebar-instagram" class="sidebar-social-icon"><a href=""><i class="fa fa-instagram"></i></a></li>
+			<li id="sidebar-pinterest" class="sidebar-social-icon"><a href=""><i class="fa fa-pinterest"></i></a></li>
 		</ul>
 		
 		<form id="search" method="GET" class="wrap sidebar-tablet-hide">
@@ -18,10 +18,7 @@
 			</div>
 		</form>
 		
-		<?php
-	
-			vikibell_display_tweets();
-		?>
+		<?php vikibell_display_tweets(); ?>
 		
 	</div>
 </section>
