@@ -48,7 +48,7 @@
   		if( $( '#profile-pic' ).is( ':visible' ) ) {
 			$( '#sidebar-container' ).css( 'width', sidebarWidth + 'px' );
   		} else {
-  			$( '#sidebar-container' ).width( 'auto' );
+  			$( '#sidebar-container' ).width( '' );
 	  	}
 		
   		positionSidebar();

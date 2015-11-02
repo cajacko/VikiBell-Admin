@@ -11,7 +11,7 @@ SIDEBAR
 		    top: 0;
 		    right: 0; 
 
-		    @media (min-width: @wrap-max-width-min) {
+		    @media (min-width: @wrap-max-width) {
 				margin-right: @global-padding + @extra-padding-for-scrollbar;
 			}
 		}
@@ -40,7 +40,7 @@ SIDEBAR
 	
 	#sidebar {
 		/* Hide the sidebar to allow the banner to be full centered */
-		@media (max-width: 600px) {
+		@media (max-width: @mobile-nav-break-min) {
 			display: none;
 		}
 
@@ -49,12 +49,12 @@ SIDEBAR
 		    display: block;
 		    border: 1px solid #DEDEDE;
 		    border-radius: 3px;	
-		    width: @wrap-max-width - @post-loop-width - (@global-padding * 3) - 20;	
+		    width: @wrap-max-width - @post-loop-width - (@global-padding * 4);
 		    overflow: hidden;
 
-		    @media (max-width: @wrap-max-width) {
+		    @media (max-width: @wrap-max-width-min) {
 				right: 0;
-				width: auto;
+				width: @nav-font-size * ( ( @nav-item-padding-value * 2 ) + 1 );
 			}
 		    
 		    #twitter-placeholder {
