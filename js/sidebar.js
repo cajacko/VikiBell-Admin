@@ -38,14 +38,18 @@
 	
     function onPageLoadOrResize () {		
   		setGlobalVars();
-  		
   		var mainWrapWidth = $( '#main-wrap' ).width();
   		var postLoopWidth = $( '#post-loop' ).width();
   		var sidebarWidth = mainWrapWidth - postLoopWidth - 20;
   		
-  		$( '#sidebar-container' ).css( 'width', sidebarWidth + 'px' );
   		$( '#sidebar' ).width( sidebarWidth );
   		$( '#site-footer a' ).width( sidebarWidth );
+
+  		if( $( '#profile-pic' ).is( ':visible' ) ) {
+			$( '#sidebar-container' ).css( 'width', sidebarWidth + 'px' );
+  		} else {
+  			$( '#sidebar-container' ).width( 'auto' );
+	  	}
 		
   		positionSidebar();
     }

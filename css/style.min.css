@@ -6806,10 +6806,14 @@ SIDEBAR
   right: 0;
 }
 #sidebar.absolute-sidebar #sidebar-container {
-  margin-right: 1.5em;
   position: absolute;
   top: 0;
   right: 0;
+}
+@media (min-width: 959px) {
+  #sidebar.absolute-sidebar #sidebar-container {
+    margin-right: 1.5em;
+  }
 }
 .fixed-bottom-sidebar,
 .fixed-top-sidebar {
@@ -6841,6 +6845,11 @@ SIDEBAR
   border-radius: 3px;
   width: 337px;
 }
+@media (max-width: 960px) {
+  #sidebar #sidebar-container {
+    right: 0;
+  }
+}
 #sidebar #sidebar-container #twitter-placeholder {
   padding: 1em;
   text-align: center;
@@ -6867,6 +6876,19 @@ SIDEBAR
 }
 #sidebar #profile-pic-wrapper {
   padding-bottom: 100%;
+}
+#sidebar #sidebar-social-icons {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.5em;
+}
+#sidebar #sidebar-social-icons * {
+  line-height: 1;
+}
+#sidebar .sidebar-social-icon a {
+  display: block;
+  padding: 0.75em;
 }
 #sidebar .tweet {
   margin: 10px 0;

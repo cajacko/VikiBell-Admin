@@ -7,9 +7,9 @@
 		</div>
 
 		<ul id="sidebar-social-icons">
-			<li class=""><a href=""><i class="fa fa-twitter"></i></a></li>
-			<li class=""><a href=""><i class="fa fa-instagram"></i></a></li>
-			<li class=""><a href=""><i class="fa fa-pinterest"></i></a></li>
+			<li class="sidebar-social-icon"><a href=""><i class="fa fa-twitter"></i></a></li>
+			<li class="sidebar-social-icon"><a href=""><i class="fa fa-instagram"></i></a></li>
+			<li class="sidebar-social-icon"><a href=""><i class="fa fa-pinterest"></i></a></li>
 		</ul>
 		
 		<form id="search" method="GET" class="wrap sidebar-tablet-hide">

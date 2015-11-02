@@ -7,10 +7,13 @@ SIDEBAR
 		right: 0;
 		
 		#sidebar-container {
-			margin-right: @global-padding + @extra-padding-for-scrollbar;
 		    position: absolute;
 		    top: 0;
 		    right: 0; 
+
+		    @media (min-width: @wrap-max-width-min) {
+				margin-right: @global-padding + @extra-padding-for-scrollbar;
+			}
 		}
 	}
 	
@@ -47,6 +50,10 @@ SIDEBAR
 		    border: 1px solid #DEDEDE;
 		    border-radius: 3px;	
 		    width: @wrap-max-width - @post-loop-width - (@global-padding * 3) - 20;	
+
+		    @media (max-width: @wrap-max-width) {
+				right: 0;
+			}
 		    
 		    #twitter-placeholder {
 			    padding: @global-padding;
@@ -83,6 +90,24 @@ SIDEBAR
 		
 		#profile-pic-wrapper {
 			padding-bottom: 100%;
+		}
+
+		#sidebar-social-icons {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			font-size: @nav-font-size;
+
+			* {
+				line-height: 1;
+			}
+		}
+
+		.sidebar-social-icon {
+			a {
+				display: block;
+				padding: @nav-item-padding-value;
+			}
 		}
 		
 		.tweet {
