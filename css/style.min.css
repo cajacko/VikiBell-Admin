@@ -6385,52 +6385,6 @@ main #main-wrap {
 /* -----------------------------
 FOOTER
 ----------------------------- */
-#site-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  z-index: 9999;
-}
-@media (max-width: 60em) {
-  #site-footer {
-    font-size: 1.5em;
-  }
-}
-@media (max-width: 46.99999em) {
-  #site-footer {
-    display: none;
-  }
-}
-#site-footer #scroll-to-top {
-  float: right;
-  margin: 1em 0;
-}
-@media (min-width: 59.999em) {
-  #site-footer #scroll-to-top {
-    width: 18.5em;
-  }
-}
-@media (max-width: 60em) {
-  #site-footer #scroll-to-top {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-}
-#site-footer a {
-  text-align: center;
-  line-height: 1;
-  background-color: rgba(255, 255, 255, 0.75);
-  border: 1px solid #DEDEDE;
-  border-radius: 3px;
-  display: block;
-  padding: 0.5em 0;
-}
-@media (max-width: 60em) {
-  #site-footer a {
-    padding: 0.75em;
-  }
-}
 /* -----------------------------
 SITE NAVIGATION
 ----------------------------- */
@@ -6868,12 +6822,7 @@ SIDEBAR
   }
 }
 #sidebar #sidebar-container {
-  background-color: white;
-  display: block;
-  border: 1px solid #DEDEDE;
-  border-radius: 3px;
   width: 18.5em;
-  overflow: hidden;
 }
 @media (max-width: 59.999em) {
   #sidebar #sidebar-container {
@@ -6881,12 +6830,18 @@ SIDEBAR
     width: 3.75em;
   }
 }
-#sidebar #sidebar-container #twitter-placeholder {
+#sidebar #sidebar-main {
+  background-color: white;
+  border: 1px solid #DEDEDE;
+  border-radius: 3px;
+  overflow: hidden;
+}
+#sidebar #sidebar-main #twitter-placeholder {
   padding: 1em;
   text-align: center;
   font-size: 1.5em;
 }
-#sidebar #sidebar-container #twitter-placeholder.javascript-enabled {
+#sidebar #sidebar-main #twitter-placeholder.javascript-enabled {
   height: 600px;
   padding-top: 280px;
 }
@@ -7034,6 +6989,30 @@ SIDEBAR
 #sidebar .tweet-author-screen-name {
   color: grey;
   font-size: 0.9em;
+}
+#sidebar #scroll-to-top {
+  margin: 1em 0;
+}
+@media (max-width: 60em) {
+  #sidebar #scroll-to-top {
+    font-size: 1.5em;
+    position: fixed;
+    bottom: 0;
+  }
+}
+#sidebar #scroll-to-top a {
+  text-align: center;
+  line-height: 1;
+  background-color: white;
+  border: 1px solid #DEDEDE;
+  border-radius: 3px;
+  display: block;
+  padding: 0.5em 0;
+}
+@media (max-width: 60em) {
+  #sidebar #scroll-to-top a {
+    padding: 0.75em;
+  }
 }
 /* -----------------------------
 BANNER

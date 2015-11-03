@@ -48,18 +48,20 @@ SIDEBAR
 		}
 
 		#sidebar-container {
-		    background-color: white;
-		    display: block;
-		    border: 1px solid #DEDEDE;
-		    border-radius: 3px;	
-		    width: @wrap-max-width - @post-loop-width - (@global-padding * 4);
-		    overflow: hidden;
+			width: @wrap-max-width - @post-loop-width - (@global-padding * 4);
 
-		    @media (max-width: @wrap-max-width-min) {
+			@media (max-width: @wrap-max-width-min) {
 				right: 0;
 				width: @nav-font-size * ( ( @nav-item-padding-value * 2 ) + 1 );
 			}
-		    
+		}
+
+		#sidebar-main {
+		    background-color: white;
+		    border: 1px solid #DEDEDE;
+		    border-radius: 3px;	
+		    overflow: hidden;
+
 		    #twitter-placeholder {
 			    padding: @global-padding;
 			    text-align: center;
@@ -250,4 +252,30 @@ SIDEBAR
 			color: grey;
 			font-size: 0.9em;
 		}	
+
+		#scroll-to-top {
+			margin: @global-padding 0;
+
+			@media (max-width: @wrap-max-width) {
+				font-size: @nav-font-size;
+				position: fixed;
+				bottom: 0;
+			}
+
+   			a {
+			    text-align: center;
+			    line-height: 1;
+			    background-color: white;
+			    border: 1px solid #DEDEDE;
+			    border-radius: 3px;
+			    display: block;
+	    		padding: 0.5em 0;
+
+	    		@media (max-width: @wrap-max-width) {
+	    			padding: @nav-item-padding-value;
+	    		}
+			}
+		}
+		
+		
 	}
