@@ -109,20 +109,42 @@ FOOTER
 		position: fixed;
 		bottom: 0;
 		width: 100%;
+		z-index: 9999;
+
+		@media (max-width: @wrap-max-width) {
+			font-size: @nav-font-size;
+		}
+
+		@media (max-width: @mobile-nav-break-min) {
+			display: none;
+		}
 		
 		#scroll-to-top {
 			float: right;
 			margin: @global-padding 0;
+
+			@media (min-width: @wrap-max-width-min) {
+				width: @wrap-max-width - @post-loop-width - (@global-padding * 4);
+			}
+
+			@media (max-width: @wrap-max-width) {
+    			position: absolute;
+    			right: 0;
+    			bottom: 0;
+    		}
 		}
 		
 		a {
-			height: 50px;
-		    width: @wrap-max-width - @post-loop-width - (@global-padding * 3) - 20;	;
-		    vertical-align: middle;
 		    text-align: center;
 		    line-height: 1;
 		    background-color: rgba(255,255,255,0.75);
 		    border: 1px solid #DEDEDE;
 		    border-radius: 3px;
+		    display: block;
+    		padding: 0.5em 0;
+
+    		@media (max-width: @wrap-max-width) {
+    			padding: @nav-item-padding-value;
+    		}
 		}
 	}

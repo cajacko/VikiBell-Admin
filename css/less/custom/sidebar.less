@@ -19,7 +19,7 @@ SIDEBAR
 	
 	.fixed-bottom-sidebar, .fixed-top-sidebar {
 		float: right;
-		width: @wrap-max-width - @post-loop-width - (@global-padding * 3) - 20;
+		width: @wrap-max-width - @post-loop-width - (@global-padding * 4);
 		
 		#sidebar-container {
 			position: fixed;
@@ -39,6 +39,9 @@ SIDEBAR
 	}
 	
 	#sidebar {
+		/* Needed otherwise jQuery thinks it isn't visible */
+		min-width: 1px;
+
 		/* Hide the sidebar to allow the banner to be full centered */
 		@media (max-width: @mobile-nav-break-min) {
 			display: none;

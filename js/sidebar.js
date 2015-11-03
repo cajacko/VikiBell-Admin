@@ -19,6 +19,7 @@
 	var areGlobalVarsSet = false;
 	var minHeightForFixedNav = 600;
 	var isHeightTooSmallForFixedNav = false;
+	var scrollToTopHeight = 60;
 
     function documentReadyFunction() {
         onPageLoad();
@@ -41,13 +42,14 @@
   		var mainWrapWidth = $( '#main-wrap' ).width();
   		var postLoopWidth = $( '#post-loop' ).width();
   		var sidebarWidth = mainWrapWidth - postLoopWidth - 20;
-  		
-  		$( '#sidebar' ).width( sidebarWidth );
-  		$( '#site-footer a' ).width( sidebarWidth );
 
   		if( $( '#profile-pic' ).is( ':visible' ) ) {
+  			$( '#sidebar' ).width( sidebarWidth );
+  			$( '#scroll-to-top' ).width( sidebarWidth );
 			$( '#sidebar-container' ).css( 'width', sidebarWidth + 'px' );
   		} else {
+  			$( '#sidebar' ).width( '' );
+  			$( '#scroll-to-top' ).width( '' );
   			$( '#sidebar-container' ).width( '' );
 	  	}
 		
@@ -88,6 +90,8 @@
 				isHeightTooSmallForFixedNav = false;
 			}
 			
+			scrollToTopHeight = $( '#scroll-to-top' ).outerHeight( true );
+
 			$( '.sub-nav' ).hide();
 			
 			areGlobalVarsSet = true;
@@ -153,7 +157,7 @@
 				 */
 				else if( bottomGap >= 0 || ( $( "#sidebar" ).hasClass( "fixed-bottom-sidebar" ) && scroll > lastScrollTop ) ) {
 					$( "#sidebar" ).removeClass( 'absolute-sidebar' ).addClass( 'fixed-bottom-sidebar' ).removeClass( 'fixed-top-sidebar' );
-					$( "#sidebar-container" ).css( "top", 'auto' ).css( "bottom", globalPadding + "px" );
+					$( "#sidebar-container" ).css( "top", 'auto' ).css( "bottom", scrollToTopHeight + "px" );
 					sidebarTopPosition = fixedToBottomTopPosition;
 				} 
 				/**
