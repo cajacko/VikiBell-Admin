@@ -114,10 +114,10 @@
 			    var sidebarPosition = $( "#sidebar" ).offset();
 			    var sidebarTop = sidebarPosition['top'];
 			    
-			    var fixedToBottomTopPosition = scrollBottom - sidebarTop - sidebarHeight - globalPadding;
+			    var fixedToBottomTopPosition = scrollBottom - sidebarTop - sidebarHeight - scrollToTopHeight;
 			    var fixedToTopTopPosisiton = scroll - sidebarTop + siteNavHeight + globalPadding;
 			    
-			    var bottomGap = scrollBottom - sidebarTop - sidebarHeight - sidebarTopPosition - globalPadding;
+			    var bottomGap = scrollBottom - sidebarTop - sidebarHeight - sidebarTopPosition - scrollToTopHeight;
 			    var topGap = sidebarTopPosition - ( scroll - sidebarTop ) - siteNavHeight - globalPadding;
 			    
 			    if( isHeightTooSmallForFixedNav ) {
