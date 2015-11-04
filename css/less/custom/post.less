@@ -179,11 +179,48 @@ POST
 		}
 		
 		footer {
-			padding-bottom: @content-padding;
-		    padding-top: @content-padding;
 		    border-top: 1px solid @content-border-color;
-		    background-color: #FCFCFC;
 		    margin-top: @global-padding;
+		    line-height: 1;
+		    text-align: center;
+		}
+
+		.post-share-on-text {
+			display: block;
+		    background-color: #FCFCFC;
+		    padding: @content-padding 0;
+		}
+
+		.post-share-button {
+			width: 33.333333333%;
+			display: block;
+			float: left;
+			padding: @content-padding 0;
+			color: white;
+		}
+
+		.post-share-button-twitter {
+			background-color: @twitter-blue;
+
+			&:hover {
+				background-color: darken( @twitter-blue, 10% );
+			}
+		}
+
+		.post-share-button-facebook {
+			background-color: @facebook-blue;
+
+			&:hover {
+				background-color: darken( @facebook-blue, 10% );
+			}
+		}
+
+		.post-share-button-email {
+			background-color: @email-background-colour;
+
+			&:hover {
+				background-color: darken( @email-background-colour, 10% );
+			}
 		}
 		
 		.date {

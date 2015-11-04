@@ -6745,11 +6745,40 @@ POST
   font-size: 0.8em;
 }
 .article-container footer {
-  padding-bottom: 0.5em;
-  padding-top: 0.5em;
   border-top: 1px solid #ececec;
-  background-color: #FCFCFC;
   margin-top: 1em;
+  line-height: 1;
+  text-align: center;
+}
+.article-container .post-share-on-text {
+  display: block;
+  background-color: #FCFCFC;
+  padding: 0.5em 0;
+}
+.article-container .post-share-button {
+  width: 33.333333333%;
+  display: block;
+  float: left;
+  padding: 0.5em 0;
+  color: white;
+}
+.article-container .post-share-button-twitter {
+  background-color: #4099ff;
+}
+.article-container .post-share-button-twitter:hover {
+  background-color: #0d7eff;
+}
+.article-container .post-share-button-facebook {
+  background-color: #3b5998;
+}
+.article-container .post-share-button-facebook:hover {
+  background-color: #2d4373;
+}
+.article-container .post-share-button-email {
+  background-color: #d23737;
+}
+.article-container .post-share-button-email:hover {
+  background-color: #af2727;
 }
 .article-container .date {
   width: 4em;
@@ -6888,7 +6917,7 @@ SIDEBAR
   color: white;
 }
 #sidebar #sidebar-twitter a {
-  background-color: #4099FF;
+  background-color: #4099ff;
 }
 #sidebar #sidebar-twitter a:hover {
   background-color: #0d7eff;
@@ -6900,7 +6929,7 @@ SIDEBAR
   background-color: #0c3a5b;
 }
 #sidebar #sidebar-pinterest a {
-  background-color: #C8232C;
+  background-color: #c8232c;
 }
 #sidebar #sidebar-pinterest a:hover {
   background-color: #9d1b22;
