@@ -6960,19 +6960,19 @@ SIDEBAR
 }
 #sidebar #twitter-follow {
   width: 100%;
-  background-color: #2b7bb9;
+  background-color: #4099ff;
   color: white;
   font-weight: 200;
 }
 #sidebar #twitter-follow:hover {
-  background-color: #4495d3;
+  background-color: #0d7eff;
 }
 #sidebar #twitter-link {
   display: block;
   text-align: center;
   height: 2em;
   line-height: 1;
-  color: #2b7bb9;
+  color: #4099ff;
 }
 #sidebar #twitter-link i {
   font-size: 2em;
