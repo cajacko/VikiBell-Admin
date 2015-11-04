@@ -35,6 +35,14 @@
 		wrapMaxWidthMin = parseInt( wrapMaxWidthMin );
 
     	$( '.wrap' ).css( 'max-width', '1050px' );
+
+	    $( '#scroll-to-top a' ).click(function(){ 
+	        $( 'html,body' ).animate( { 
+	        	scrollTop: 0 
+	        }, 'slow' );
+	        
+	        return false; 
+	    });
     }
 	
     function onPageLoadOrResize () {		
