@@ -6391,11 +6391,16 @@ SITE NAVIGATION
 #site-navigation.fixed {
   position: fixed;
   top: 0;
+  font-size: 0.75em;
 }
 #site-navigation {
   z-index: 9999;
   position: relative;
   width: 100%;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
 }
 #site-navigation a {
   color: white;
@@ -6523,6 +6528,9 @@ SITE NAVIGATION
   overflow: hidden;
   text-align: center;
   position: relative;
+}
+.fixed #site-navigation #bunting {
+  margin-top: -50px;
 }
 #site-navigation #bunting #bunting-wrap {
   display: inline-block;
@@ -6761,6 +6769,15 @@ POST
   float: left;
   padding: 0.5em 0;
   color: white;
+  position: relative;
+}
+.article-container .post-share-button i:last-child {
+  display: block;
+  float: right;
+  right: 1em;
+  position: absolute;
+  top: 0.5em;
+  opacity: 0.5;
 }
 .article-container .post-share-button-twitter {
   background-color: #4099ff;
