@@ -52,10 +52,10 @@
 		    var scroll = $( window ).scrollTop();
 		    
 		    if( scroll >= bannerBottom ) {
-			 	$( '#site-navigation' ).addClass( 'fixed' ); 
+			 	$( '#site-navigation' ).addClass( 'fixed' ).removeClass( 'static' ); 
 			 	$( "main" ).css( "padding-top", $( '#site-navigation' ).height() );  
 			} else {
-				$( '#site-navigation' ).removeClass( 'fixed' );
+				$( '#site-navigation' ).removeClass( 'fixed' ).addClass( 'static' );
 				$( "main" ).css( "padding-top", "0px" );
 			}
 		}

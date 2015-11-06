@@ -42,7 +42,7 @@
 				<img id="banner-img" class="embed-responsive-item hide-without-javascript" src="http://placehold.it/2500x400" height="400" width="2500">
 			</section>
 			
-			<header id="site-navigation" class="<?php vikibell_the_site_nav_classes(); ?>">
+			<header id="site-navigation" class="static">
 				
 				<?php get_template_part( 'sections/site-navigation' ); ?>
 				

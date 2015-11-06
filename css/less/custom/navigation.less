@@ -13,7 +13,7 @@ SITE NAVIGATION
 #site-navigation.fixed {
 	position: fixed;
 	top: 0;
-	font-size: 0.75em;
+	//font-size: 0.75em;
 }
 
 #site-navigation {
@@ -122,6 +122,13 @@ SITE NAVIGATION
 	}
 
 	.site-navigation-item {
+		white-space: nowrap;
+		-webkit-transition: all 0.5s ease;
+	  -moz-transition: all 0.5s ease;
+	  -o-transition: all 0.5s ease;
+	  -ms-transition: all 0.5s ease;
+	  opacity: 1;
+
 		@media (min-width: @mobile-nav-break) {
 			text-align: center;
 			display: block;
@@ -262,4 +269,34 @@ SITE NAVIGATION
 			left: -0.1em;
 		}
 	}
+}
+
+#site-navigation-mid-logo {
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+#site-navigation.static #site-navigation-mid-logo.site-navigation-item {
+	width: 0%;
+	opacity: 0;
+
+	a {
+		left: -200px;
+		right: -200px;
+		width: 400px;
+		position: absolute;
+	}
+}
+
+#site-navigation.fixed #site-navigation-mid-logo.site-navigation-item {
+	a {
+		left: 0;
+		right: 0;
+		width: 100%;
+		position: absolute;
+	}
+}
+
+#site-navigation.fixed .site-navigation-item {
+	width: 14.2%;
 }
