@@ -6646,15 +6646,9 @@ POST
     float: left;
   }
 }
-/* Center the post loop when the banner is hidden */
 @media (max-width: 59.999em) {
   #post-loop {
-    position: absolute;
-    left: 50%;
-  }
-  #post-loop-wrap {
-    position: relative;
-    left: -50%;
+    margin: 0 auto;
   }
 }
 .article-container,
@@ -6867,6 +6861,12 @@ SIDEBAR
 @media (min-width: 60em) {
   #sidebar.absolute-sidebar #sidebar-container {
     margin-right: 1.5em;
+  }
+}
+@media (max-width: 59.999em) {
+  #sidebar.fixed-top-sidebar {
+    position: absolute;
+    top: 0;
   }
 }
 .fixed-bottom-sidebar,

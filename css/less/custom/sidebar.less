@@ -16,6 +16,13 @@ SIDEBAR
 			}
 		}
 	}
+
+	#sidebar.fixed-top-sidebar {
+		@media (max-width: @wrap-max-width-min) {
+			position: absolute;
+			top: 0;
+		}
+	}
 	
 	.fixed-bottom-sidebar, .fixed-top-sidebar {
 		float: right;
