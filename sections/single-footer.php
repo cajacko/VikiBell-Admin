@@ -1,28 +1,71 @@
 <aside>
-	<div class="article-container">
-		<?php
-		
-		$args = array(
+	<?php
+	global $wpdb;
 
+	$query = '
+		SELECT wp_term_relationships.term_taxonomy_id
+		FROM wp_term_relationships
+		WHERE wp_term_relationships.object_id = ' . get_the_ID() . '
+	';
+
+	$results = $wpdb->get_results( $query, OBJECT );
+	$where = '';
+	$count = 0;
+	foreach( $results as $result ) {
+		if( 0 != $count ) {
+			$where .= ' OR ';
+		}
+
+		$where .= 'wp_term_relationships.term_taxonomy_id = ' . $result->term_taxonomy_id;
+
+		$count++;
+	}
+
+	$query = '
+		SELECT wp_posts.ID
+		FROM wp_posts
+		INNER JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id)
+		WHERE wp_posts.ID != ' . get_the_ID() . ' AND (' . $where . ')  
+		GROUP BY wp_posts.ID
+		ORDER BY COUNT(wp_posts.ID) DESC
+		LIMIT 0, 3;
+	';
+
+	$results = $wpdb->get_results( $query, OBJECT );
+
+	$posts = array();
+	foreach( $results as $result ) {
+		$posts[] = $result->ID;
+	}
+
+	$offset = 3 - count( $posts );
+	$exclude = $posts;
+	$exclude[] = get_the_ID();
+
+	if( 0 < $offset ) {
+		$args = array(
+			'posts_per_page' => $offset,
+			'orderby' => 'rand',
+			'exclude' => $exclude,
 		);
 
-		/**
-		  * Use custom mysql query that:
-		  * - is linked to the taxonomy table and returns all the columns from both tables
-		  * - gets all posts with any of the categories of the current post
-		  * - gets all posts with any of the tags of the current post
-		  * - isn't the current post
-		  *
-		  * This will return loads of duplicate post ID's. Simple display the 3 posts that are most prevalent in the results.
-		  */ 
+		$rand_posts = get_posts( $args );
 
-		$suggested_posts = get_posts( $args );
-		?>
+		foreach( $rand_posts as $rand_post ) {
+			$posts[] = $rand_post->ID;
+		}
+	}
+	?>
 
-		<?php foreach( $suggested_posts as $post ): ?>
+	<?php foreach( $posts as $post ): ?>
 
-			<?php echo $post->post_title; ?>
+		<?php $post = get_post( $post ); ?>
 
-		<?php endforeach; ?>
-	</div>
+		<article>
+
+			<?php echo $post->post_title; ?> - <?php echo $post->ID; ?>
+
+		</article>
+
+	<?php endforeach; ?>
 </aside>

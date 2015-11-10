@@ -450,8 +450,10 @@ GET THE CONTENT WITH FORMATTING
 		
 		return $query;	
 	}
-	
-	add_action( 'pre_get_posts', 'vikibell_filter_photo_of_the_day_query' );
+
+	if( !is_single() ) {
+		//add_action( 'pre_get_posts', 'vikibell_filter_photo_of_the_day_query' );
+	}
 	
 /* -----------------------------
 DISPLAY THE SITE NAV CLASSES	
