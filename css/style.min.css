@@ -6288,6 +6288,11 @@ button.close {
     display: none !important;
   }
 }
+.content-background-border-mixin {
+  background-color: white;
+  border: 1px solid #ececec;
+  border-radius: 3px;
+}
 html {
   font-size: 16px;
 }
@@ -6652,14 +6657,10 @@ POST
   }
 }
 .article-container,
-.loading-img,
-#portfolio-nav,
-#post-query-title {
+.loading-img {
   margin-bottom: 3em;
 }
-.article-container,
-#portfolio-nav,
-#post-query-title {
+.article-container {
   background-color: white;
   border: 1px solid #ececec;
   border-radius: 3px;
@@ -6845,6 +6846,52 @@ POST
 #photo-of-the-day article {
   width: 25%;
 }
+#suggested-posts article {
+  width: 33.3333333333%;
+  float: left;
+}
+#suggested-posts article:nth-child( 2 ) .suggested-post-container {
+  margin-left: 0;
+}
+#suggested-posts article:last-child .suggested-post-container {
+  margin-right: 0;
+}
+#suggest-posts-heading {
+  text-align: center;
+}
+.suggested-post-container {
+  background-color: white;
+  border: 1px solid #ececec;
+  border-radius: 3px;
+  margin: 0 0.5em;
+  height: 11em;
+  display: block;
+  position: relative;
+}
+.suggested-post-container h4 {
+  color: #d75c37;
+  font-size: 1em;
+  position: absolute;
+  bottom: 0.5em;
+  left: 0.5em;
+  right: 0.5em;
+  margin: 0;
+  height: 2.8em;
+  overflow: hidden;
+}
+.suggested-post-container h4:hover {
+  color: #b74624;
+  text-decoration: underline;
+}
+.suggested-post-image-container {
+  width: 100%;
+  position: absolute;
+  height: 7.2em;
+}
+.suggested-post-image-container img {
+  width: 100%;
+  height: auto;
+}
 /* -----------------------------
 SIDEBAR
 ----------------------------- */
@@ -6905,7 +6952,7 @@ SIDEBAR
 }
 #sidebar #sidebar-main {
   background-color: white;
-  border: 1px solid #DEDEDE;
+  border: 1px solid #ececec;
   border-radius: 3px;
   overflow: hidden;
 }

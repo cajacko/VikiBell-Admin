@@ -21,14 +21,12 @@ POST
 		}
 	}
 	
-	.article-container, .loading-img, #portfolio-nav, #post-query-title {
+	.article-container, .loading-img {
 		margin-bottom: 3em;
 	}
 	
-	.article-container, #portfolio-nav, #post-query-title {
-		background-color: white;
-		border: 1px solid @content-border-color;
-		border-radius: 3px;
+	.article-container {
+		.content-background-border-mixin;
 		width: 100%;
 	}
 	
@@ -258,4 +256,65 @@ POST
 		article {
 			width: 25%;	
 		}	
+	}
+
+	#suggested-posts article {	  
+		width: 33.3333333333%;
+    	float: left;
+
+    	&:nth-child( 2 ) {
+    		.suggested-post-container {
+    			margin-left: 0;
+    		}
+    	}
+
+    	&:last-child {
+    		.suggested-post-container {
+    			margin-right: 0;
+    		}
+    	}
+	}
+
+	#suggest-posts-heading {
+		text-align: center;
+	}
+
+	@suggested-post-container-height: 11em;
+	@suggested-post-font-size: 1em;
+	@suggested-post-text-height: ( ( @headings-line-height * 2 ) * @suggested-post-font-size );
+
+	.suggested-post-container {
+		.content-background-border-mixin;
+		margin: 0 @content-padding;
+		height: @suggested-post-container-height;
+		display: block;
+		position: relative;
+
+		h4 {
+			color: @link-color;
+			font-size: @suggested-post-font-size;
+		    position: absolute;
+		    bottom: @content-padding;
+		    left: @content-padding;
+		    right: @content-padding;
+		    margin: 0;
+		    height: unit( @suggested-post-text-height, em );
+		    overflow: hidden;
+
+			&:hover {
+				color: @link-hover-color;
+				text-decoration: @link-hover-decoration;
+			}
+		}
+	}
+
+	.suggested-post-image-container {
+		width: 100%;
+		position: absolute;
+		height: @suggested-post-container-height - ( @content-padding * 2 ) - @suggested-post-text-height;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}

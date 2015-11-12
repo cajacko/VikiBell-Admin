@@ -1,4 +1,7 @@
-<aside>
+<aside id="suggested-posts">
+
+	<h3 id="suggest-posts-heading">You might also enjoy</h3>
+
 	<?php
 	global $wpdb;
 
@@ -63,9 +66,24 @@
 
 		<article>
 
-			<?php echo $post->post_title; ?> - <?php echo $post->ID; ?>
+			<a href="" class="suggested-post-container<?php if( !has_post_thumbnail( $post->ID ) ): ?> colour<?php endif; ?>">
+
+				<div class="suggested-post-image-container">
+				
+					<?php if( has_post_thumbnail( $post->ID ) ): ?>
+
+						<?php echo get_the_post_thumbnail( $post->ID, 'inline-image', array( 'class' => 'post-featured-image' ) ); ?>
+
+					<?php endif; ?>
+
+				</div>
+
+				<h4><?php echo $post->post_title; ?></h4>
+
+			</a>
 
 		</article>
 
 	<?php endforeach; ?>
+
 </aside>
