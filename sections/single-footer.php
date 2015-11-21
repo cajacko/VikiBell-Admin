@@ -72,7 +72,7 @@
 				
 					<?php if( has_post_thumbnail( $post->ID ) ): ?>
 
-						<?php echo get_the_post_thumbnail( $post->ID, 'inline-image', array( 'class' => 'post-featured-image' ) ); ?>
+						<?php echo get_the_post_thumbnail( $post->ID, 'inline-image', array( 'class' => 'image-fill-container' ) ); ?>
 
 					<?php endif; ?>
 

@@ -69,12 +69,7 @@ ADD STYLES AND SCRIPTS
 		 * Add the template.js file which provides global functions used by other JavaScript files.
 		 */
 		wp_enqueue_script( 'vikibell-template-script', get_template_directory_uri()  . '/js/template.js', array( 'jquery' ) );
-		
-		/*
-		 * Position the banner image
-		 */
-		wp_enqueue_script( 'vikibell-banner-script', get_template_directory_uri()  . '/js/banner.js', array( 'jquery' ) );
-		
+
 		/*
 		 * Add JavaScript that acts on a loop of posts e.g. Infinite scroll
 		 */

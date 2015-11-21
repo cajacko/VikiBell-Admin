@@ -39,7 +39,7 @@
 				<div id="banner-wrap" class="embed-responsive">
 					<div class="embed-responsive-item"></div>
 				</div>
-				<img id="banner-img" class="embed-responsive-item hide-without-javascript" src="http://placehold.it/2500x400" height="400" width="2500">
+				<img id="banner-img" class="embed-responsive-item hide-without-javascript image-fill-container" src="http://placehold.it/2500x400" height="400" width="2500">
 			</section>
 			
 			<header id="site-navigation" class="static">

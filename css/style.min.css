@@ -6846,15 +6846,17 @@ POST
 #photo-of-the-day article {
   width: 25%;
 }
-#suggested-posts article {
-  width: 33.3333333333%;
-  float: left;
-}
-#suggested-posts article:nth-child( 2 ) .suggested-post-container {
-  margin-left: 0;
-}
-#suggested-posts article:last-child .suggested-post-container {
-  margin-right: 0;
+@media (min-width: 37.5em) {
+  #suggested-posts article {
+    width: 33.3333333333%;
+    float: left;
+  }
+  #suggested-posts article:nth-child( 2 ) .suggested-post-container {
+    margin-left: 0;
+  }
+  #suggested-posts article:last-child .suggested-post-container {
+    margin-right: 0;
+  }
 }
 #suggest-posts-heading {
   text-align: center;
@@ -6868,6 +6870,13 @@ POST
   display: block;
   position: relative;
 }
+.suggested-post-container:hover h4 {
+  color: #b74624;
+  text-decoration: underline;
+}
+.suggested-post-container:hover .suggested-post-image-container {
+  opacity: 0.75;
+}
 .suggested-post-container h4 {
   color: #d75c37;
   font-size: 1em;
@@ -6879,18 +6888,14 @@ POST
   height: 2.8em;
   overflow: hidden;
 }
-.suggested-post-container h4:hover {
-  color: #b74624;
-  text-decoration: underline;
-}
 .suggested-post-image-container {
   width: 100%;
   position: absolute;
   height: 7.2em;
+  overflow: hidden;
 }
 .suggested-post-image-container img {
-  width: 100%;
-  height: auto;
+  position: absolute;
 }
 /* -----------------------------
 SIDEBAR

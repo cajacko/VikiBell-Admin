@@ -258,21 +258,24 @@ POST
 		}	
 	}
 
-	#suggested-posts article {	  
-		width: 33.3333333333%;
-    	float: left;
+	#suggested-posts article {	
 
-    	&:nth-child( 2 ) {
-    		.suggested-post-container {
-    			margin-left: 0;
-    		}
-    	}
+		@media (min-width: @post-loop-width) {  
+			width: 33.3333333333%;
+	    	float: left;
 
-    	&:last-child {
-    		.suggested-post-container {
-    			margin-right: 0;
-    		}
-    	}
+	    	&:nth-child( 2 ) {
+	    		.suggested-post-container {
+	    			margin-left: 0;
+	    		}
+	    	}
+
+	    	&:last-child {
+	    		.suggested-post-container {
+	    			margin-right: 0;
+	    		}
+	    	}
+	    }
 	}
 
 	#suggest-posts-heading {
@@ -290,6 +293,17 @@ POST
 		display: block;
 		position: relative;
 
+		&:hover {
+			h4 {
+				color: @link-hover-color;
+				text-decoration: @link-hover-decoration;
+			}
+
+			.suggested-post-image-container {
+				opacity: 0.75;
+			}
+		}
+
 		h4 {
 			color: @link-color;
 			font-size: @suggested-post-font-size;
@@ -300,11 +314,6 @@ POST
 		    margin: 0;
 		    height: unit( @suggested-post-text-height, em );
 		    overflow: hidden;
-
-			&:hover {
-				color: @link-hover-color;
-				text-decoration: @link-hover-decoration;
-			}
 		}
 	}
 
@@ -312,9 +321,9 @@ POST
 		width: 100%;
 		position: absolute;
 		height: @suggested-post-container-height - ( @content-padding * 2 ) - @suggested-post-text-height;
+		overflow: hidden;
 
 		img {
-			width: 100%;
-			height: auto;
+			position: absolute;
 		}
 	}
