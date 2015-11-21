@@ -35,12 +35,12 @@
 		<body>
 			<a id="top-of-page"></a>
 			
-			<section id="banner" style="background-image: url('/wp-content/themes/vikibell/media/banner.jpg');">
+			<a id="banner" style="background-image: url('/wp-content/themes/vikibell/media/banner.jpg');" href="<?php echo home_url( '/' ); ?>">
 				<div id="banner-wrap" class="embed-responsive">
 					<div class="embed-responsive-item"></div>
 				</div>
 				<img id="banner-img" class="embed-responsive-item hide-without-javascript image-fill-container" src="/wp-content/themes/vikibell/media/banner.jpg" height="400" width="2500">
-			</section>
+			</a>
 			
 			<header id="site-navigation" class="static">
 				
