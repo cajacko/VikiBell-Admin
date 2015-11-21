@@ -3,7 +3,7 @@
 		<div id="sidebar-main">
 			<div id="profile-pic" class="widget sidebar-tablet-hide">
 				<div id="profile-pic-wrapper" class="embed-responsive">
-					<img id="profile-img" class="embed-responsive-item" height="400" width="400" src="http://placehold.it/400x400">
+					<img id="profile-img" class="embed-responsive-item" height="400" width="400" src="/wp-content/themes/vikibell/media/profile.jpg">
 				</div>
 			</div>
 
