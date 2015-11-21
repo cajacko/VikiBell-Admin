@@ -410,6 +410,10 @@ GET THE CONTENT WITH FORMATTING
 		$content = apply_filters( 'the_content', $content );
 		$content = str_replace( ']]>', ']]&gt;', $content ); // Can't remember what this was for, but I must have added it for a reason?...
 		$content = str_replace( '<p>&nbsp;</p>', '', $content ); // Remove empty paragraphs
+
+		$content = str_replace( '<br>', '', $content );
+		$content = str_replace( '<br />', '', $content );
+		$content = str_replace( '</br>', '', $content );
 		
 		$content = str_replace( '<h5>', '<h6>', $content );
 		$content = str_replace( '</h5>', '</h6>', $content );
