@@ -6400,7 +6400,6 @@ main #main-wrap {
 .background-image {
   position: absolute;
   z-index: 1;
-  left: -25%;
 }
 @media (max-width: 46.99999em) {
   .background-image {
@@ -6706,6 +6705,9 @@ POST
 .article-container img {
   max-width: 100%;
   height: auto;
+}
+.article-container img + img {
+  margin-top: 1em;
 }
 .article-container .gallery {
   padding: 0.25em;
