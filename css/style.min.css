@@ -6361,6 +6361,21 @@ a.anchor {
 .hide-without-javascript {
   display: none;
 }
+.bg-blue {
+  background-color: #ff4c65;
+}
+.bg-red {
+  background-color: #fbe2b4;
+}
+.bg-orange {
+  background-color: #ffc33c;
+}
+.bg-baige {
+  background-color: #59c4c5;
+}
+.bg-green {
+  background-color: #00c8f8;
+}
 /* -----------------------------
 CONTENT
 ----------------------------- */
