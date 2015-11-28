@@ -5,6 +5,9 @@
     $( window ).scroll( onWindowScroll );
 	
 	var mobileView = false; // Global variable to define if the mobile view is displayed or not
+	var backgroundInterval = 1500;
+	var lastBackgroundTop = -backgroundInterval;
+	var backgroundLastPos = true;
 
     function documentReadyFunction() {
         onPageLoadOrResize();
@@ -32,6 +35,8 @@
 	    vikibellHoverNav();
 
 	    $( '#banner' ).css( 'background-image', 'initial' ); //Remove the background image if javascript is enabled
+
+	    positionBackgroundImage();
     }
 	
     function onPageLoadOrResize () {
@@ -42,6 +47,7 @@
     
     function onWindowScroll() {
 	    vikibellFixNav();
+	    positionBackgroundImage();
 	}
     
     /* -----------------------------
@@ -227,6 +233,52 @@
 					});
 				}
 			});
+		}
+
+		function positionBackgroundImage() {
+
+			var mainHeight = $( '#main-wrap' ).height();
+			var gap = mainHeight - lastBackgroundTop;
+
+			if( gap > backgroundInterval ) {
+				var iterate = Math.ceil( gap / backgroundInterval );
+
+				for (i = 0; i < iterate; i++) { 
+
+					var rand = Math.floor(Math.random() * 7) + 1;
+					
+					var image = $( '<img class="background-image" src="/wp-content/themes/vikibell/media/background-' + rand + '.png">' );
+
+					var top = ( lastBackgroundTop + backgroundInterval );
+					lastBackgroundTop = top;
+
+					top = top + 'px';
+
+					if( backgroundLastPos ) {
+						var left = '-25%';
+						var right = 'auto';
+
+						backgroundLastPos = false;
+					} else {
+						var right = '-25%';
+						var left = 'auto';
+
+						backgroundLastPos = true;
+					}
+
+					
+
+					$( image ).css({
+						top: top,
+						left: left,
+						right: right,
+						width: '50%',
+					});
+
+					$( '#main-wrap' ).append( image );
+
+				}
+			}
 		}
 
 }) ( jQuery );

@@ -119,7 +119,12 @@ CONTENT
 	.background-image {
 		position: absolute;
 		z-index: 1;	
-		left: -25%;
+	}
+
+	@media (max-width: @mobile-nav-break-min) {	
+		.background-image {
+			display: none;
+		}
 	}
 
 /* -----------------------------

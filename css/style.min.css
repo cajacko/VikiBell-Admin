@@ -6402,6 +6402,11 @@ main #main-wrap {
   z-index: 1;
   left: -25%;
 }
+@media (max-width: 46.99999em) {
+  .background-image {
+    display: none;
+  }
+}
 /* -----------------------------
 FOOTER
 ----------------------------- */
