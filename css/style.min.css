@@ -6500,7 +6500,7 @@ SITE NAVIGATION
   #site-navigation .site-navigation-item {
     text-align: center;
     display: block;
-    width: 16.666666666%;
+    width: 14.2%;
     float: left;
     height: 2.5em;
     position: relative;
@@ -6619,24 +6619,11 @@ SITE NAVIGATION
   overflow: hidden;
   white-space: nowrap;
 }
-#site-navigation.static #site-navigation-mid-logo.site-navigation-item {
-  width: 0%;
-  opacity: 0;
-}
-#site-navigation.static #site-navigation-mid-logo.site-navigation-item a {
-  left: -200px;
-  right: -200px;
-  width: 400px;
-  position: absolute;
-}
-#site-navigation.fixed #site-navigation-mid-logo.site-navigation-item a {
+#site-navigation #site-navigation-mid-logo.site-navigation-item a {
   left: 0;
   right: 0;
   width: 100%;
   position: absolute;
-}
-#site-navigation.fixed .site-navigation-item {
-  width: 14.2%;
 }
 /* -----------------------------
 POST

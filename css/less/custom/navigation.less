@@ -124,15 +124,15 @@ SITE NAVIGATION
 	.site-navigation-item {
 		white-space: nowrap;
 		-webkit-transition: all 0.5s ease;
-	  -moz-transition: all 0.5s ease;
-	  -o-transition: all 0.5s ease;
-	  -ms-transition: all 0.5s ease;
-	  opacity: 1;
+		-moz-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		-ms-transition: all 0.5s ease;
+		opacity: 1;
 
 		@media (min-width: @mobile-nav-break) {
 			text-align: center;
 			display: block;
-			width: 16.666666666%;
+			width: 14.2%;
 			float: left;
 			height: @nav-item-height;
 			position: relative;
@@ -276,27 +276,11 @@ SITE NAVIGATION
 	white-space: nowrap;
 }
 
-#site-navigation.static #site-navigation-mid-logo.site-navigation-item {
-	width: 0%;
-	opacity: 0;
-
-	a {
-		left: -200px;
-		right: -200px;
-		width: 400px;
-		position: absolute;
-	}
-}
-
-#site-navigation.fixed #site-navigation-mid-logo.site-navigation-item {
+#site-navigation #site-navigation-mid-logo.site-navigation-item {
 	a {
 		left: 0;
 		right: 0;
 		width: 100%;
 		position: absolute;
 	}
-}
-
-#site-navigation.fixed .site-navigation-item {
-	width: 14.2%;
 }
