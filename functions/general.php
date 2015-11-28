@@ -529,7 +529,7 @@ DISPLAY THE QUERY TITLE
 				$string .= ' <small>- Page: '.get_query_var( 'paged' ).'</small>';
 			}
 
-			echo '<div id="post-query-title" class="wrap"><h1>'.$string.'</h1></div>';
+			echo '<div id="post-query-title"><div class="article-container wrap"><h1>'.$string.'</h1></div></div>';
 		}
 	}
 		
