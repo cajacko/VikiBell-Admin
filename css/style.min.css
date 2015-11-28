@@ -7150,6 +7150,7 @@ BANNER
   background-repeat: no-repeat;
   background-position: 50% 50%;
   overflow: hidden;
+  display: block;
 }
 #banner-wrap {
   padding-bottom: 18%;

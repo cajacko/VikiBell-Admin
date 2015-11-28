@@ -35,12 +35,12 @@
 		<body>
 			<a id="top-of-page"></a>
 			
-			<section id="banner" style="background-image: url('http://placehold.it/2500x400');">
+			<a id="banner" style="background-image: url('/wp-content/themes/vikibell/media/banner.jpg');" href="<?php echo home_url( '/' ); ?>">
 				<div id="banner-wrap" class="embed-responsive">
 					<div class="embed-responsive-item"></div>
 				</div>
-				<img id="banner-img" class="embed-responsive-item hide-without-javascript image-fill-container" src="http://placehold.it/2500x400" height="400" width="2500">
-			</section>
+				<img id="banner-img" class="embed-responsive-item hide-without-javascript image-fill-container" src="/wp-content/themes/vikibell/media/banner.jpg" height="400" width="2500">
+			</a>
 			
 			<header id="site-navigation" class="static">
 				
