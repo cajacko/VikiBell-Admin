@@ -15,6 +15,10 @@
 				</ul>
 				
 				<ul id="main-nav">
+					<li id="site-navigation-mid-logo" class="site-navigation-item site-navigation-element">
+						<a class="top-level-nav-link no-javascript">Viki Bell</a>
+					</li>
+
 					<li class="site-navigation-item site-navigation-element image-to-text">
 						<a class="top-level-nav-link no-javascript"><i class="site-navigation-icon fa fa-female"></i><span class="site-navigation-text site-navigation-hide">About</span></a>
 					</li>
@@ -26,10 +30,6 @@
 					<li class="site-navigation-item site-navigation-element image-to-text">
 						<a class="top-level-nav-link no-javascript"><i class="site-navigation-icon fa fa-calendar"></i><span class="site-navigation-text site-navigation-hide">Events</span></a>
 					</li>
-
-					<li id="site-navigation-mid-logo" class="site-navigation-item site-navigation-element">
-						<a class="top-level-nav-link no-javascript">Viki Bell</a>
-					</li>
 					
 					<li class="site-navigation-item site-navigation-element image-to-text">
 						<a class="top-level-nav-link no-javascript"><i class="site-navigation-icon fa fa-plane"></i><span class="site-navigation-text site-navigation-hide">Travel</span></a>
@@ -37,10 +37,6 @@
 					
 					<li class="site-navigation-item site-navigation-element image-to-text">
 						<a class="top-level-nav-link no-javascript"><i class="site-navigation-icon fa fa-cutlery"></i><span class="site-navigation-text site-navigation-hide">Food</span></a>
-					</li>
-					
-					<li class="site-navigation-item site-navigation-element image-to-text">
-						<a class="top-level-nav-link no-javascript"><i class="site-navigation-icon fa fa-picture-o"></i><span class="site-navigation-text site-navigation-hide">Photos</span></a>
 					</li>
 				</ul>
 			</li>
