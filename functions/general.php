@@ -405,8 +405,13 @@ EDIT ATTACHMENT CAPTION HTML
 /* -----------------------------
 GET THE CONTENT WITH FORMATTING	
 ----------------------------- */	
-	function vikibell_get_the_content_with_formatting( $more_link_text = '(more...)', $stripteaser = 0, $more_file = '' ) {
-		$content = get_the_content( $more_link_text, $stripteaser, $more_file );
+	function vikibell_get_the_content_with_formatting( $excerpt = false ) {
+		if( $excerpt ) {
+			$content = get_the_excerpt();
+		} else {
+			$content = get_the_content();
+		}
+
 		$content = apply_filters( 'the_content', $content );
 		$content = str_replace( ']]>', ']]&gt;', $content ); // Can't remember what this was for, but I must have added it for a reason?...
 		$content = str_replace( '<p>&nbsp;</p>', '', $content ); // Remove empty paragraphs
