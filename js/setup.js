@@ -241,7 +241,7 @@
 			var gap = mainHeight - lastBackgroundTop;
 
 			if( gap > backgroundInterval ) {
-				var iterate = Math.ceil( gap / backgroundInterval );
+				var iterate = Math.floor( gap / backgroundInterval );
 
 				for (i = 0; i < iterate; i++) { 
 
