@@ -745,12 +745,14 @@ DISPLAY THE PAGINATION
 		
 	function vikibell_display_tweets() {
 		$connection = new TwitterOAuth( 'DrUAkLKeXRuT0ywejipAbJkTp', 'PNAKfgYr0zHvwAx9Q7ebFAvJo1KFsdeOPtVUNqiqVVrs4qaL6p', '53987352-kGKp3kBVgrMPnriNdgcTbs6AcsWYc7Shrz1YzpQ5l', 'D4twOI82YfPvUBwyw0QOSH8foLu338NZcwq95dbwEMGb1' );
-		$tweets = $connection->get( "statuses/user_timeline", array( "user_id" => "209678272", "count" => 3 ) );	
+		$tweets = $connection->get( "statuses/user_timeline", array( "user_id" => "209678272", "count" => 100, 'exclude_replies' => TRUE ) );	
 		
 		//print_r( $tweets );
 		
 		echo '<div id="tweets" class="widget wrap sidebar-tablet-hide"><header id="tweets-header"><a id="twitter-link" class="image-to-text" target="_blank" href="http://twitter.com/Vikiibell"><i class="fa fa-twitter"></i><span class="hidden">Twitter</span></a></header><div id="tweets-wrap">';
 		
+		$count = 0;
+
 		foreach( $tweets as $tweet ) {
 			echo '<article class="tweet">';
 			
@@ -770,6 +772,12 @@ DISPLAY THE PAGINATION
 			}
 			
 			echo '</article>';
+
+			$count++;
+
+			if( $count >= 3 ) {
+				break;
+			}
 		}
 		
 		echo '</div><footer><a href="http://twitter.com/Vikiibell" target="_blank"><button id="twitter-follow" class="btn btn-default">Follow @vikibell</button></a></footer></div>';
