@@ -6664,7 +6664,13 @@ POST
 }
 .article-container,
 .loading-img {
-  margin-bottom: 3em;
+  margin-bottom: 6em;
+}
+@media (max-width: 46.99999em) {
+  .article-container,
+  .loading-img {
+    margin-bottom: 3em;
+  }
 }
 .article-container {
   background-color: white;
