@@ -208,6 +208,8 @@
 			$( document ).on( 'click', function( event ) {
 				if( !$( event.target ).closest( '#site-navigation' ).length && mobileView ) {
 					$( '#main-nav' ).slideUp(); // Hide the main nav
+					$( '#mobile-nav-close-icon' ).fadeOut();
+					$( '#mobile-nav-menu-icon' ).fadeIn();
 				}
 			});
 
@@ -221,8 +223,8 @@
 				 */
 				if( mobileView ) {
 					$( '#main-nav' ).hide();
-					$( '#mobile-nav-close-icon' ).hide();
-					$( '#mobile-nav-menu-icon' ).show();
+					$( '#mobile-nav-close-icon' ).fadeOut();
+					$( '#mobile-nav-menu-icon' ).fadeIn();
 				} else {
 					$( '#main-nav' ).show();
 				}
