@@ -220,7 +220,9 @@
 				 * Toggle the mobile menu depending on whether the mobile view is being displayed.
 				 */
 				if( mobileView ) {
-					$( '#main-nav' ).hide();	
+					$( '#main-nav' ).hide();
+					$( '#mobile-nav-close-icon' ).hide();
+					$( '#mobile-nav-menu-icon' ).show();
 				} else {
 					$( '#main-nav' ).show();
 				}
