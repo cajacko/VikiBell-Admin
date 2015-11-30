@@ -19,8 +19,18 @@
 						<a href="<?php echo home_url(); ?>" class="top-level-nav-link no-javascript">Viki Bell</a>
 					</li>
 
-					<li class="site-navigation-item site-navigation-element image-to-text">
+					<li class="site-navigation-item site-navigation-element image-to-text has-subnav">
 						<a href="<?php echo home_url( '/about-me' ); ?>" class="top-level-nav-link no-javascript"><i class="site-navigation-icon fa fa-female"></i><span class="site-navigation-text site-navigation-hide">About</span></a>
+
+						<ul class="subnav">
+							<li class="subnav-item">
+								<a href="<?php echo home_url( '/category/about-me/' ); ?>" class="subnav-link">About</a>
+							</li>
+
+							<li class="subnav-item">
+								<a href="<?php echo home_url( '/category/about-me/contact/' ); ?>" class="subnav-link">Contact</a>
+							</li>
+						</ul>
 					</li>
 					
 					<li class="site-navigation-item site-navigation-element image-to-text">
@@ -35,8 +45,18 @@
 						<a href="<?php echo home_url( '/category/travel/' ); ?>" class="top-level-nav-link no-javascript"><i class="site-navigation-icon fa fa-plane"></i><span class="site-navigation-text site-navigation-hide">Travel</span></a>
 					</li>
 					
-					<li class="site-navigation-item site-navigation-element image-to-text">
+					<li class="site-navigation-item site-navigation-element image-to-text has-subnav">
 						<a href="<?php echo home_url( '/category/recipes/' ); ?>" class="top-level-nav-link no-javascript"><i class="site-navigation-icon fa fa-cutlery"></i><span class="site-navigation-text site-navigation-hide">Food</span></a>
+
+						<ul class="subnav">
+							<li class="subnav-item">
+								<a href="<?php echo home_url( '/category/recipes/' ); ?>" class="subnav-link">Recipes</a>
+							</li>
+
+							<li class="subnav-item">
+								<a href="<?php echo home_url( '/category/resturants/' ); ?>" class="subnav-link">Resturants</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</li>

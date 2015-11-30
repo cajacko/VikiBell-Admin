@@ -8,6 +8,8 @@
 	var backgroundInterval = 1500;
 	var lastBackgroundTop = -backgroundInterval;
 	var backgroundLastPos = true;
+	var subnavHoverProgess = true;
+	var subnavClickProgress = true;
 
     function documentReadyFunction() {
         onPageLoadOrResize();
@@ -16,6 +18,10 @@
 
     function windowResizeFunction() {
         onPageLoadOrResize();
+
+        $( '.subnav' ).hide();
+        subnavHoverProgess = true;
+		subnavClickProgress = true;
     }
 
     function onPageLoad() {
@@ -33,6 +39,7 @@
 	    animateScroll();
 	    
 	    vikibellHoverNav();
+	    vikibellSubnav();
 
 	    $( '#banner' ).css( 'background-image', 'initial' ); //Remove the background image if javascript is enabled
 
@@ -82,6 +89,40 @@
 				    $( this ).find( '.site-navigation-icon' ).removeClass( 'site-navigation-hide' );
 				}
 			} );
+		}
+
+		/**
+		 * 
+		 */
+	    function vikibellSubnav() {
+		    $( '.has-subnav' ).hover( function() {
+		    	var subnav = $( this ).find( '.subnav' );
+
+		    	if( !mobileView && subnavHoverProgess ) {
+		    		subnavHoverProgess = false;
+				    $( subnav ).slideDown( function() {
+				    	subnavHoverProgess = true;
+				    });
+				}
+			}, function() {
+				var subnav = $( this ).find( '.subnav' );
+
+		    	if( !mobileView ) {
+				    $( subnav ).slideUp();
+				}
+			});
+
+			$( '.has-subnav' ).click( function( event ) {
+		    	var subnav = $( this ).find( '.subnav' );
+
+		    	if( mobileView && subnavClickProgress ) {
+				    event.preventDefault();
+				    subnavClickProgress = false;
+					$( subnav ).slideToggle( function() {
+				    	subnavClickProgress = true;
+				    });
+				}
+			});
 		}
 		
 		/**
@@ -173,6 +214,8 @@
 			$( document ).on( 'click', function( event ) {
 				if( !$( event.target ).closest( '#site-navigation' ).length && mobileView ) {
 					$( '#main-nav' ).slideUp(); // Hide the main nav
+					$( '#mobile-nav-close-icon' ).fadeOut();
+					$( '#mobile-nav-menu-icon' ).fadeIn();
 				}
 			});
 
@@ -185,7 +228,9 @@
 				 * Toggle the mobile menu depending on whether the mobile view is being displayed.
 				 */
 				if( mobileView ) {
-					$( '#main-nav' ).hide();	
+					$( '#main-nav' ).hide();
+					$( '#mobile-nav-close-icon' ).fadeOut();
+					$( '#mobile-nav-menu-icon' ).fadeIn();
 				} else {
 					$( '#main-nav' ).show();
 				}
