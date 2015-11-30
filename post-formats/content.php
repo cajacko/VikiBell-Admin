@@ -34,9 +34,17 @@
 		</header>
 		
 		<section class="post-body wrap">
-			
-			<?php echo vikibell_get_the_content_with_formatting(); ?>
-			
+
+			<?php if( !is_single() && has_excerpt() ): ?>
+
+				<?php echo vikibell_get_the_content_with_formatting( true ); ?>
+
+			<?php else: ?>
+
+				<?php echo vikibell_get_the_content_with_formatting(); ?>
+
+			<?php endif; ?>
+
 		</section>
 		
 		<?php get_template_part( 'sections/post-footer' ); ?>

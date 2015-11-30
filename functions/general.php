@@ -272,6 +272,17 @@ DISPLAY PORTFOLIO META BOXES
 	 * When the post is saved, also save the 'Portfolio Content'
 	 */
 	function vikibell_save_postdata( $post_id ) {
+
+		$bitly = get_post_meta( $post_id, 'bitly', true );
+
+		if( '' == $bitly ) {
+			$home_url = home_url() . '?p=' . $post_id;
+			$url = json_decode( file_get_contents( 'https://api-ssl.bitly.com/v3/shorten?access_token=7fceeb0b8b4eaad437b21b748e7cdf3f34a55038&longUrl=' . $home_url ) );
+			$url = $url->data->url;
+
+			update_post_meta( $post_id, 'bitly', $url );
+		}
+
 		/**
 		 * Don't save the 'Portfolio Content' on an autosave
 		 */
@@ -405,8 +416,13 @@ EDIT ATTACHMENT CAPTION HTML
 /* -----------------------------
 GET THE CONTENT WITH FORMATTING	
 ----------------------------- */	
-	function vikibell_get_the_content_with_formatting( $more_link_text = '(more...)', $stripteaser = 0, $more_file = '' ) {
-		$content = get_the_content( $more_link_text, $stripteaser, $more_file );
+	function vikibell_get_the_content_with_formatting( $excerpt = false ) {
+		if( $excerpt ) {
+			$content = get_the_excerpt();
+		} else {
+			$content = get_the_content();
+		}
+
 		$content = apply_filters( 'the_content', $content );
 		$content = str_replace( ']]>', ']]&gt;', $content ); // Can't remember what this was for, but I must have added it for a reason?...
 		$content = str_replace( '<p>&nbsp;</p>', '', $content ); // Remove empty paragraphs
