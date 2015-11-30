@@ -19,8 +19,18 @@
 						<a href="<?php echo home_url(); ?>" class="top-level-nav-link no-javascript">Viki Bell</a>
 					</li>
 
-					<li class="site-navigation-item site-navigation-element image-to-text">
+					<li class="site-navigation-item site-navigation-element image-to-text has-subnav">
 						<a href="<?php echo home_url( '/about-me' ); ?>" class="top-level-nav-link no-javascript"><i class="site-navigation-icon fa fa-female"></i><span class="site-navigation-text site-navigation-hide">About</span></a>
+
+						<ul class="subnav">
+							<li class="subnav-item">
+								<a href="" class="subnav-link">About</a>
+							</li>
+
+							<li class="subnav-item">
+								<a href="" class="subnav-link">Contact</a>
+							</li>
+						</ul>
 					</li>
 					
 					<li class="site-navigation-item site-navigation-element image-to-text">

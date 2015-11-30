@@ -5,6 +5,8 @@
     $( window ).scroll( onWindowScroll );
 	
 	var mobileView = false; // Global variable to define if the mobile view is displayed or not
+	var subnavHoverProgess = true;
+	var subnavClickProgress = true;
 
     function documentReadyFunction() {
         onPageLoadOrResize();
@@ -13,6 +15,10 @@
 
     function windowResizeFunction() {
         onPageLoadOrResize();
+
+        $( '.subnav' ).hide();
+        subnavHoverProgess = true;
+		subnavClickProgress = true;
     }
 
     function onPageLoad() {
@@ -30,6 +36,7 @@
 	    animateScroll();
 	    
 	    vikibellHoverNav();
+	    vikibellSubnav();
 
 	    $( '#banner' ).css( 'background-image', 'initial' ); //Remove the background image if javascript is enabled
     }
@@ -76,6 +83,40 @@
 				    $( this ).find( '.site-navigation-icon' ).removeClass( 'site-navigation-hide' );
 				}
 			} );
+		}
+
+		/**
+		 * 
+		 */
+	    function vikibellSubnav() {
+		    $( '.has-subnav' ).hover( function() {
+		    	var subnav = $( this ).find( '.subnav' );
+
+		    	if( !mobileView && subnavHoverProgess ) {
+		    		subnavHoverProgess = false;
+				    $( subnav ).slideDown( function() {
+				    	subnavHoverProgess = true;
+				    });
+				}
+			}, function() {
+				var subnav = $( this ).find( '.subnav' );
+
+		    	if( !mobileView ) {
+				    $( subnav ).slideUp();
+				}
+			});
+
+			$( '.has-subnav' ).click( function( event ) {
+		    	var subnav = $( this ).find( '.subnav' );
+
+		    	if( mobileView && subnavClickProgress ) {
+				    event.preventDefault();
+				    subnavClickProgress = false;
+					$( subnav ).slideToggle( function() {
+				    	subnavClickProgress = true;
+				    });
+				}
+			});
 		}
 		
 		/**
