@@ -66,7 +66,7 @@
 
 		<article>
 
-			<a href="" class="suggested-post-container">
+			<a href="<?php echo home_url( '/?p=' . $post->ID ); ?>" class="suggested-post-container">
 
 				<?php if( has_post_thumbnail( $post->ID ) ): ?>
 
