@@ -19,6 +19,86 @@ TERRY PRATCHETT HEADER
 	
 	add_filter( 'wp_headers', 'add_header_clacks' );
 
+
+	function vikibell_is_pdf() {
+		if( isset( $_GET[ 'action' ] ) && 'pdf' == $_GET[ 'action' ] ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	function vikibell_is_pdf_front() {
+		if( isset( $_GET[ 'type' ] ) && 'front' == $_GET[ 'type' ] ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	function vikibell_process_pdf() {
+		putenv('PATH=C:\Program Files\wkhtmltopdf\bin' . PATH_SEPARATOR . 'C:\Program Files (x86)\PDFtk Server\bin' . PATH_SEPARATOR . '/usr/local/bin');
+		chdir ( 'C:/Data/Personal/vikibell/blog/live/wp-content/themes/vikibell/media' );
+
+		$args = array(
+			'posts_per_page' => 2,
+			'author_name' => 'viki',
+		);
+
+		$posts = get_posts( $args );
+		$count = 0;
+
+		foreach( $posts as $post ) {
+			vikibell_post_to_pdf( $post->ID, $count );
+			$count++;
+		}
+
+		exit;
+	}
+
+	function vikibell_post_to_pdf( $id = 924, $count = 0 ) {
+		vikibell_create_pdf( 'front', $id );
+		vikibell_create_pdf( 'content', $id );
+		vikibell_combine_pdf( $count );
+	}
+
+	function vikibell_create_pdf( $type = 'content', $id = 924) {
+
+		$command = 'wkhtmltopdf --dpi 600 --image-dpi 600 --margin-left 0mm --margin-right 0mm --page-height 250mm --page-width 200mm --no-outline --disable-javascript ';
+
+		if( 'front' == $type ) {
+			$command .= '--margin-bottom 0mm --margin-top 0mm ' . escapeshellarg( 'vikibell.local.com/?action=pdf&type=front&id=' . $id ) . ' front.pdf';
+		} else {
+			$command .= '--margin-bottom 20mm --margin-top 20mm ' . escapeshellarg( 'vikibell.local.com/?action=pdf&type=content&id=' . $id ) . ' content.pdf';
+		}
+
+		echo $command . '<br><br>';
+
+		shell_exec( $command );
+
+	}
+
+	function vikibell_combine_pdf( $count = 0 ) {
+		if( 0 == $count ) {
+			@unlink( 'vikibell.pdf' );
+			$command = 'pdftk front.pdf content.pdf cat output concat.pdf';
+			shell_exec( $command );
+		} else {
+			$command = 'pdftk vikibell.pdf front.pdf content.pdf cat output concat.pdf';
+			shell_exec( $command );
+		}
+
+		unlink( 'front.pdf' );
+		unlink( 'content.pdf' );
+		@unlink( 'vikibell.pdf' );
+
+		rename("concat.pdf", "vikibell.pdf");
+	}
+
+	if( isset( $_GET[ 'action' ] ) && 'process_pdf' == $_GET[ 'action' ] ) {
+		vikibell_process_pdf();
+	}
+
 /* -----------------------------
 ADD/REMOVE THEME SUPPORT
 ----------------------------- */	
@@ -59,11 +139,18 @@ ADD/REMOVE THEME SUPPORT
 ADD STYLES AND SCRIPTS
 ----------------------------- */
 	function vikibell_scripts() {
+		if( vikibell_is_pdf() ) {
+			$rand = '?rand=' . rand( 0, 9999999999 );
+			wp_enqueue_style( 'vikibell-pdf-style',  get_template_directory_uri()  . '/css/pdf.css' . $rand );
+			return;
+		}
 		/*
 		 * Add the bootstrap stylesheet and JavaScript
 		 */
 		wp_enqueue_style( 'vikibell-bootstrap-style',  get_template_directory_uri()  . '/css/style.min.css' );
 		wp_enqueue_script( 'vikibell-bootstrap-script', get_template_directory_uri()  . '/js/bootstrap.min.js', array( 'jquery' ) );
+
+		wp_enqueue_script( 'vikibell-html2canvas-script', get_template_directory_uri()  . '/js/html2canvas.js', array( 'jquery' ) );
 		
 		/*
 		 * Add the template.js file which provides global functions used by other JavaScript files.
@@ -350,7 +437,20 @@ FILTER MEDIA BY QUERY
 	/**
 	 * Show sketchwork which is not in Pinterest
 	 */
-	function vikibell_filter_media_by_query( $query ) {		
+	function vikibell_filter_media_by_query( $query ) {	
+		if( vikibell_is_pdf() ) {
+			//$query->set( 'posts_per_page', -1 );
+
+			if( isset( $_GET[ 'id' ] ) && is_numeric( $_GET[ 'id' ] ) ) {
+				$query->set( 'p', $_GET[ 'id' ] );
+			} else {
+				$query->set( 'posts_per_page', 1 );
+				$query->set( 'author_name', 'viki' );
+			}
+
+			return;
+		}
+
 		if( $_GET['pinterest-media'] == 'pinterest-sketchbook' ) {
 	        $query->set( 'tax_query', 
 	        	array(

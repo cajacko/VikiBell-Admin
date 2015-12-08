@@ -33,20 +33,24 @@
 		</head>
 	
 		<body>
-			<a id="top-of-page"></a>
-			
-			<a id="banner" style="background-image: url('/wp-content/themes/vikibell/media/banner.jpg');" href="<?php echo home_url( '/' ); ?>">
-				<div id="banner-wrap" class="embed-responsive">
-					<div class="embed-responsive-item"></div>
-				</div>
-				<img id="banner-img" class="embed-responsive-item hide-without-javascript image-fill-container" src="/wp-content/themes/vikibell/media/banner.jpg" height="400" width="2500">
-			</a>
-			
-			<header id="site-navigation" class="static">
+			<?php if( !vikibell_is_pdf() ): ?>
+
+				<a id="top-of-page"></a>
 				
-				<?php get_template_part( 'sections/site-navigation' ); ?>
+				<a id="banner" style="background-image: url('/wp-content/themes/vikibell/media/banner.jpg');" href="<?php echo home_url( '/' ); ?>">
+					<div id="banner-wrap" class="embed-responsive">
+						<div class="embed-responsive-item"></div>
+					</div>
+					<img id="banner-img" class="embed-responsive-item hide-without-javascript image-fill-container" src="/wp-content/themes/vikibell/media/banner.jpg" height="400" width="2500">
+				</a>
 				
-			</header>
+				<header id="site-navigation" class="static">
+					
+					<?php get_template_part( 'sections/site-navigation' ); ?>
+					
+				</header>
+
+			<?php endif; ?>
 			
 			<main id="<?php vikibell_the_main_id(); ?>">
 				

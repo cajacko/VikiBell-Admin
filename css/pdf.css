@@ -1,0 +1,78 @@
+html {
+	font-size: 20px;
+	font-family: 'Helvetica', sans-serif;
+	line-height: 1.75;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+p {
+	margin: 2em 0;
+	page-break-inside: avoid;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #d75c37;
+    text-decoration: none;
+    margin: 0;
+    padding: 1em 3rem;    
+    font-weight: 100;
+}
+
+.header-title h2 {
+	font-size: 2em;
+	background-color: #d75c37;
+	color: white;
+	height: 1100px;
+}
+
+article {
+	page-break-after: always;
+}
+
+article:nth-child(6n+1) .header-title h2 {
+	background-color: #FF4C65;
+}
+
+article:nth-child(6n+2) .header-title h2 {
+	background-color: #00C8F8;
+}
+
+article:nth-child(6n+3) .header-title h2 {
+	background-color: #59C4C5;
+}
+
+article:nth-child(6n+4) .header-title h2 {
+	background-color: #FFC33C;
+}
+
+article:nth-child(6n+5) .header-title h2 {
+	background-color: #FBE2B4;
+}
+
+article:nth-child(6n+6) .header-title h2 {
+	background-color: #d75c37;
+}
+
+article img {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+
+article img + img {
+	margin-top: 2em;
+}
+
+.post-body {
+	margin: 1em 3rem;
+}

@@ -20,7 +20,7 @@
 				 * template so that it does not get loaded during an 
 				 * inifinite scroll request
 				 */
-				if( have_posts() ) { 
+				if( have_posts() && !vikibell_is_pdf() ) { 
 					vikibell_pagination(); 
 				}
 			?>
@@ -28,7 +28,7 @@
 		
 	</section>
 	
-	<?php if( !is_category( 'photo-of-the-day' ) ): ?>
+	<?php if( !is_category( 'photo-of-the-day' ) && !vikibell_is_pdf() ): ?>
 	
 		<?php get_template_part( 'sections/sidebar' ); ?>
 		
