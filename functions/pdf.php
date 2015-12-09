@@ -17,16 +17,18 @@
 	}
 
 	function vikibell_process_pdf() {
+		set_time_limit( 100000000000000000 );
+
 		putenv('PATH=C:\Program Files\wkhtmltopdf\bin' . PATH_SEPARATOR . 'C:\Program Files (x86)\PDFtk Server\bin' . PATH_SEPARATOR . '/usr/local/bin');
 		chdir ( 'C:/Data/Personal/vikibell/blog/live/wp-content/themes/vikibell/media' );
 
 		$args = array(
-			'posts_per_page' => 2,
+			'posts_per_page' => -1,
 			'author_name' => 'viki',
 		);
 
 		$posts = get_posts( $args );
-		$count = 0;
+		$count = 1;
 
 		foreach( $posts as $post ) {
 			vikibell_post_to_pdf( $post->ID, $count );
@@ -37,17 +39,17 @@
 	}
 
 	function vikibell_post_to_pdf( $id = 924, $count = 0 ) {
-		vikibell_create_pdf( 'front', $id );
+		vikibell_create_pdf( 'front', $id, $count );
 		vikibell_create_pdf( 'content', $id );
 		vikibell_combine_pdf( $count );
 	}
 
-	function vikibell_create_pdf( $type = 'content', $id = 924) {
+	function vikibell_create_pdf( $type = 'content', $id = 924, $count = false ) {
 
 		$command = 'wkhtmltopdf --dpi 600 --image-dpi 600 --margin-left 0mm --margin-right 0mm --page-height 250mm --page-width 200mm --no-outline ';
 
 		if( 'front' == $type ) {
-			$command .= '--margin-bottom 0mm --margin-top 0mm ' . escapeshellarg( 'vikibell.local.com/?action=pdf&type=front&post=' . $id ) . ' front.pdf';
+			$command .= '--margin-bottom 0mm --margin-top 0mm ' . escapeshellarg( 'vikibell.local.com/?action=pdf&type=front&post=' . $id . '&count=' . $count ) . ' front.pdf';
 		} else {
 			$command .= '--margin-bottom 15mm --margin-top 15mm ' . escapeshellarg( 'vikibell.local.com/?action=pdf&type=content&post=' . $id ) . ' content.pdf';
 		}
@@ -58,15 +60,24 @@
 
 	}
 
-	function vikibell_combine_pdf( $count = 0 ) {
-		if( 0 == $count ) {
+	function vikibell_combine_pdf( $count = 1 ) {
+		$command = 'pdftk content.pdf cat end-1 output temp.pdf';
+		shell_exec( $command );
+
+		$command = 'pdftk temp.pdf cat end-2 output temp2.pdf';
+		shell_exec( $command );
+
+		if( 1 == $count ) {
 			@unlink( 'vikibell.pdf' );
-			$command = 'pdftk front.pdf content.pdf cat output concat.pdf';
+			$command = 'pdftk front.pdf temp2.pdf cat output concat.pdf';
 			shell_exec( $command );
 		} else {
-			$command = 'pdftk vikibell.pdf front.pdf content.pdf cat output concat.pdf';
+			$command = 'pdftk vikibell.pdf front.pdf temp2.pdf cat output concat.pdf';
 			shell_exec( $command );
 		}
+
+		unlink( 'temp.pdf' );
+		unlink( 'temp2.pdf' );
 
 		unlink( 'front.pdf' );
 		unlink( 'content.pdf' );
@@ -95,8 +106,16 @@
 		$content = vikibell_get_the_content_with_formatting();
 		$urls = array();
 
+		$content = str_replace( '<div style="color: rgba(0, 0, 0, 0.701961); font-family: UICTFontTextStyleBody; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.301961); -webkit-composition-fill-color: rgba(130, 98, 83, 0.0980392); text-decoration: -webkit-letterpress;">', '<div>', $content );
+		$content = str_replace( '<div>', '<p>', $content );
+		$content = str_replace( '</div>', '</p>', $content );
+		$content = str_replace( "<p></p>", '', $content );
+
 		vikibell_pdf_process_regex( "/<p><img.*><\/p>/", $content, $urls );
 		vikibell_pdf_process_regex( "/<p><a.+?><img.+?><\/a><\/p>/s", $content, $urls );
+		vikibell_pdf_process_regex( "/<div><a.+?><img.+?><\/a><\/div>/s", $content, $urls );
+		vikibell_pdf_process_regex( "/<img.+?>/", $content, $urls );
+		
 
 		array_unique( $urls );
 
