@@ -8,7 +8,25 @@
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/pdf.css">		
 	</head>
 
-	<body id="pdf-title">
+	<?php
+	if( isset( $_GET[ 'count' ] ) ) {
+		if( $_GET[ 'count' ] % 5 == 0 ) {
+			$colour = '#f8cf81';
+		} elseif( $_GET[ 'count' ] % 4 == 0 ) {
+			$colour = '#FFC33C';
+		} elseif( $_GET[ 'count' ] % 3 == 0 ) {
+			$colour = '#59C4C5';
+		} elseif( $_GET[ 'count' ] % 2 == 0 ) {
+			$colour = '#00C8F8';
+		} else {
+			$colour = '#FF4C65';
+		}
+	} else {
+		$colour = '#d75c37';
+	}
+	?>
+
+	<body id="pdf-title" style="background-color: <?php echo $colour; ?>">
 		<?php
 		$urls = vikibell_pdf_pull_post_images( false );
 
@@ -22,7 +40,7 @@
 
 		<table id="pdf-photos-<?php echo $length; ?>">
 			<tr>
-				<td>
+				<td id="pdf-title-text">
 					<div><?php the_title(); ?></div>
 					<div id="pdf-title-date"><?php the_date( 'jS F Y'); ?></div>
 				</td>
@@ -50,7 +68,7 @@
 				$first_class = 3;
 				$second_class = 3;
 			} elseif( $length == 7 ) {
-				$first_class = 2;
+				$first_class = 3;
 				$second_class = 4;
 			} elseif( $length == 8 ) {
 				$first_class = 4;
