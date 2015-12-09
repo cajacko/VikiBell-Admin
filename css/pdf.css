@@ -7,6 +7,9 @@ html {
 body {
 	padding: 0;
 	margin: 0;
+	background: none;
+	line-height: inherit !important;
+	font-size: inherit;
 }
 
 a {
@@ -15,7 +18,7 @@ a {
 }
 
 p {
-	margin: 2em 0;
+	margin: 0 0 2em 0;
 	page-break-inside: avoid;
 }
 
@@ -27,43 +30,29 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 100;
 }
 
-.header-title h2 {
-	font-size: 2em;
+#pdf-title {
+	font-size: 3em;
 	background-color: #d75c37;
 	color: white;
-	height: 1100px;
+	height: 1180px;
+	text-align: center;
+	overflow: hidden;
+}
+
+#pdf-title table {
+	width: 100%;
+}
+
+#pdf-title-date {
+	font-size: 0.5em;
 }
 
 article {
 	page-break-after: always;
 }
 
-article:nth-child(6n+1) .header-title h2 {
-	background-color: #FF4C65;
-}
-
-article:nth-child(6n+2) .header-title h2 {
-	background-color: #00C8F8;
-}
-
-article:nth-child(6n+3) .header-title h2 {
-	background-color: #59C4C5;
-}
-
-article:nth-child(6n+4) .header-title h2 {
-	background-color: #FFC33C;
-}
-
-article:nth-child(6n+5) .header-title h2 {
-	background-color: #FBE2B4;
-}
-
-article:nth-child(6n+6) .header-title h2 {
-	background-color: #d75c37;
-}
-
 article img {
-	width: 100%;
+	width: 50%;
 	height: auto;
 	display: block;
 	margin: 0 auto;
@@ -73,6 +62,96 @@ article img + img {
 	margin-top: 2em;
 }
 
-.post-body {
-	margin: 1em 3rem;
+.article-container {
+	padding: 0 3.5rem;
+	border: none !important;
+	margin: 0 !important;
+}
+
+.pdf-photos td {
+	background-size: cover;
+}
+
+.pdf-1-columns td {
+	width: 100%;
+}
+
+.pdf-2-columns td {
+	width: 50%;
+}
+
+.pdf-3-columns td {
+	width: 33.33333%;
+}
+
+.pdf-4-columns td {
+	width: 25%;
+}
+
+.pdf-5-columns td {
+	width: 20%;
+}
+
+.pdf-1-columns {
+	height: 550px !important;
+}
+
+.pdf-2-columns {
+	height: 300px !important;
+}
+
+.pdf-3-columns {
+	height: 250px !important;
+}
+
+.pdf-4-columns {
+	height: 250px !important;
+}
+
+.pdf-5-columns {
+	height: 200px !important;
+}
+
+#pdf-photos-0 {
+	height: 100%;
+}
+
+#pdf-photos-1 {
+	height: calc( 100% - 550px );
+}
+
+#pdf-photos-2 {
+	height: calc( 100% - 300px );
+}
+
+#pdf-photos-3 {
+	height: calc( 100% - 250px );
+}
+
+#pdf-photos-4 {
+	height: calc( 100% - 250px );
+}
+
+#pdf-photos-5 {
+	height: calc( 100% - 550px );
+}
+
+#pdf-photos-6 {
+	height: calc( 100% - 500px );
+}
+
+#pdf-photos-7 {
+	height: calc( 100% - 500px );
+}
+
+#pdf-photos-8 {
+	height: calc( 100% - 500px );
+}
+
+#pdf-photos-9 {
+	height: calc( 100% - 450px );
+}
+
+#pdf-photos-10 {
+	height: calc( 100% - 400px );
 }

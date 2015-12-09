@@ -20,7 +20,7 @@
 
 	<?php endwhile; ?>
 
-	<?php if( get_next_posts_link() && !is_single() && !vikibell_is_pdf() ) : ?>
+	<?php if( get_next_posts_link() && !is_single() ) : ?>
 	
 		<div class="next-page-link">
 			<?php next_posts_link(); ?>
@@ -28,7 +28,7 @@
 		
 		<img class="loading-img" src="<?php echo get_template_directory_uri(); ?>/media/loading-posts.gif">
 		
-	<?php elseif( !is_page() && !is_single() && !vikibell_is_pdf() ) : ?>
+	<?php elseif( !is_page() && !is_single() ) : ?>
 	
 		<div id="no-more-posts" class="alert alert-warning" role="alert">That's all folks, there are no more posts.</div>
 		
