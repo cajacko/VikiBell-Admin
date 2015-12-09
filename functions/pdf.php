@@ -23,7 +23,7 @@
 		chdir ( 'C:/Data/Personal/vikibell/blog/live/wp-content/themes/vikibell/media' );
 
 		$args = array(
-			'posts_per_page' => -1,
+			'posts_per_page' => 20,
 			'author_name' => 'viki',
 		);
 
@@ -58,32 +58,37 @@
 
 		shell_exec( $command );
 
+		sleep( 1 );
+
 	}
 
 	function vikibell_combine_pdf( $count = 1 ) {
-		$command = 'pdftk content.pdf cat end-1 output temp.pdf';
+
+		$command = 'pdftk content.pdf cat 1-r2 output temp.pdf';
 		shell_exec( $command );
 
-		$command = 'pdftk temp.pdf cat end-2 output temp2.pdf';
-		shell_exec( $command );
+		sleep( 1 );
 
 		if( 1 == $count ) {
 			@unlink( 'vikibell.pdf' );
-			$command = 'pdftk front.pdf temp2.pdf cat output concat.pdf';
+			$command = 'pdftk front.pdf temp.pdf cat output concat.pdf';
 			shell_exec( $command );
 		} else {
-			$command = 'pdftk vikibell.pdf front.pdf temp2.pdf cat output concat.pdf';
+			$command = 'pdftk vikibell.pdf front.pdf temp.pdf cat output concat.pdf';
 			shell_exec( $command );
 		}
 
-		unlink( 'temp.pdf' );
-		unlink( 'temp2.pdf' );
+		sleep( 1 );
 
+		
+
+		@unlink( 'temp.pdf' );
 		unlink( 'front.pdf' );
 		unlink( 'content.pdf' );
 		@unlink( 'vikibell.pdf' );
 
 		rename("concat.pdf", "vikibell.pdf");
+		sleep( 1 );
 	}
 
 	function vikibell_replace_images( &$content, $matches, &$urls ) {
