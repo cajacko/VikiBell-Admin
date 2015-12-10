@@ -1,12 +1,12 @@
-$pageHeight: 1180px;
-$oneColumn: 550px;
-$twoColumns: 300px;
-$threeColumns: 250px;
+$pageHeight: 991px;
+$oneColumn: 450px;
+$twoColumns: 250px;
+$threeColumns: 200px;
 $fourColumns: $threeColumns;
-$fiveColumns: 200px;
+$fiveColumns: 150px;
 
 html {
-	font-size: 20px;
+	font-size: 17px;
 	font-family: 'Helvetica', sans-serif;
 	line-height: 1.75;
 }
@@ -28,6 +28,10 @@ p {
 	margin: 0 0 2em 0;
 	page-break-inside: avoid;
 	text-align: justify;
+}
+
+.pdf-link {
+	color: #d75c37;
 }
 
 h1, h2, h3, h4, h5, h6 {

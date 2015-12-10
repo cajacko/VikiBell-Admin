@@ -1,5 +1,5 @@
 html {
-  font-size: 20px;
+  font-size: 17px;
   font-family: 'Helvetica', sans-serif;
   line-height: 1.75; }
 
@@ -19,6 +19,9 @@ p {
   page-break-inside: avoid;
   text-align: justify; }
 
+.pdf-link {
+  color: #d75c37; }
+
 h1, h2, h3, h4, h5, h6 {
   color: #d75c37;
   text-decoration: none;
@@ -30,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 3em;
   background-color: #d75c37;
   color: white;
-  height: 1180px;
+  height: 991px;
   text-align: center;
   overflow: hidden; }
   #pdf-title table {
@@ -76,49 +79,49 @@ article {
   width: 20%; }
 
 .pdf-1-columns {
-  height: 550px !important; }
+  height: 450px !important; }
 
 .pdf-2-columns {
-  height: 300px !important; }
+  height: 250px !important; }
 
 .pdf-3-columns {
-  height: 250px !important; }
+  height: 200px !important; }
 
 .pdf-4-columns {
-  height: 250px !important; }
+  height: 200px !important; }
 
 .pdf-5-columns {
-  height: 200px !important; }
+  height: 150px !important; }
 
 #pdf-photos-0 {
   height: 100%; }
 
 #pdf-photos-1 {
-  height: 630px; }
+  height: 541px; }
 
 #pdf-photos-2 {
-  height: 880px; }
+  height: 741px; }
 
 #pdf-photos-3 {
-  height: 930px; }
+  height: 791px; }
 
 #pdf-photos-4 {
-  height: 930px; }
+  height: 791px; }
 
 #pdf-photos-5 {
-  height: 630px; }
+  height: 541px; }
 
 #pdf-photos-6 {
-  height: 680px; }
+  height: 591px; }
 
 #pdf-photos-7 {
-  height: 680px; }
+  height: 591px; }
 
 #pdf-photos-8 {
-  height: 680px; }
+  height: 591px; }
 
 #pdf-photos-9 {
-  height: 730px; }
+  height: 641px; }
 
 #pdf-photos-10 {
-  height: 780px; }
+  height: 691px; }

@@ -190,10 +190,11 @@ FILTER OEMBED OUTPUT
 		 * return the embed within a fixed aspect 
 		 * ratio div
 		 */
+
 		if ( strpos( $html, 'youtube.com' ) !== false ) {
 			$html = preg_replace( '/(width=").+?(")/', '', $html ); // Remove the width attribute
 			$html = preg_replace( '/(height=").+?(")/', '', $html ); // Remove the height attribute
-			$html = str_replace( 'iframe', 'iframe class="embed-responsive-item"', $html ); // Add a responsive class to the iframe
+			$html = str_replace( '<iframe', '<iframe class="embed-responsive-item"', $html ); // Add a responsive class to the iframe
 			$html = '<div class="embed-responsive embed-responsive-16by9">' . $html . '</div>';
 		}
 		

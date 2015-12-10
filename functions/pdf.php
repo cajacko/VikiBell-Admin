@@ -23,7 +23,7 @@
 		chdir ( 'C:/Data/Personal/vikibell/blog/live/wp-content/themes/vikibell/media' );
 
 		$args = array(
-			'posts_per_page' => 20,
+			'posts_per_page' => -1,
 			'author_name' => 'viki',
 		);
 
@@ -32,6 +32,7 @@
 
 		foreach( $posts as $post ) {
 			vikibell_post_to_pdf( $post->ID, $count );
+			//vikibell_post_to_pdf( 686, $count );
 			$count++;
 		}
 
@@ -46,7 +47,7 @@
 
 	function vikibell_create_pdf( $type = 'content', $id = 924, $count = false ) {
 
-		$command = 'wkhtmltopdf --dpi 600 --image-dpi 600 --margin-left 0mm --margin-right 0mm --page-height 250mm --page-width 200mm --no-outline ';
+		$command = 'wkhtmltopdf --dpi 600 --image-dpi 600 --margin-left 0mm --margin-right 0mm --page-height 210mm --page-width 148mm --no-outline ';
 
 		if( 'front' == $type ) {
 			$command .= '--margin-bottom 0mm --margin-top 0mm ' . escapeshellarg( 'vikibell.local.com/?action=pdf&type=front&post=' . $id . '&count=' . $count ) . ' front.pdf';
@@ -58,7 +59,7 @@
 
 		shell_exec( $command );
 
-		sleep( 1 );
+		//sleep( 1 );
 
 	}
 
@@ -67,7 +68,7 @@
 		$command = 'pdftk content.pdf cat 1-r2 output temp.pdf';
 		shell_exec( $command );
 
-		sleep( 1 );
+		//sleep( 1 );
 
 		if( 1 == $count ) {
 			@unlink( 'vikibell.pdf' );
@@ -78,7 +79,7 @@
 			shell_exec( $command );
 		}
 
-		sleep( 1 );
+		//sleep( 1 );
 
 		
 
@@ -88,7 +89,7 @@
 		@unlink( 'vikibell.pdf' );
 
 		rename("concat.pdf", "vikibell.pdf");
-		sleep( 1 );
+		//sleep( 1 );
 	}
 
 	function vikibell_replace_images( &$content, $matches, &$urls ) {
@@ -111,16 +112,24 @@
 		$content = vikibell_get_the_content_with_formatting();
 		$urls = array();
 
+		preg_match_all( '/<div class="embed-responsive.+?<\/div>/s' , $content, $matches );
+
+		foreach( $matches[0] as $match ) {
+			preg_match ( '/src="(.+?)"/' , $match, $url );
+			$content = str_replace( $match, '<p class="pdf-link">Visit: ' . $url[ 1 ] . '</p>', $content );
+		}
+
+
 		$content = str_replace( '<div style="color: rgba(0, 0, 0, 0.701961); font-family: UICTFontTextStyleBody; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.301961); -webkit-composition-fill-color: rgba(130, 98, 83, 0.0980392); text-decoration: -webkit-letterpress;">', '<div>', $content );
 		$content = str_replace( '<div>', '<p>', $content );
 		$content = str_replace( '</div>', '</p>', $content );
 		$content = str_replace( "<p></p>", '', $content );
-
+		
+		
 		vikibell_pdf_process_regex( "/<p><img.*><\/p>/", $content, $urls );
 		vikibell_pdf_process_regex( "/<p><a.+?><img.+?><\/a><\/p>/s", $content, $urls );
 		vikibell_pdf_process_regex( "/<div><a.+?><img.+?><\/a><\/div>/s", $content, $urls );
 		vikibell_pdf_process_regex( "/<img.+?>/", $content, $urls );
-		
 
 		array_unique( $urls );
 
