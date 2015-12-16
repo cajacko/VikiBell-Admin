@@ -1,0 +1,18 @@
+{
+	"name": 		"viki",
+	"description": 	"Site for Viki Bell.",
+	"version": 		"1.0.0",
+	"license" : 	"UNLICENSED",
+	"private": 		true,
+	"repository" : {
+		"type": 	"git",
+		"url": 		"https://cajacko@bitbucket.org/cajacko/vikibell.git"
+	},
+	"dependencies": {
+		"gulp": 			"^3.9.0",
+		"gulp-sass":		"^2.1.0",
+		"gulp-minify-css": 	"^1.1.1",
+		"gulp-sourcemaps": 	"^1.5.0",
+		"gulp-concat":		"^2.6.0"
+	}
+}

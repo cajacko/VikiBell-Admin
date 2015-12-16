@@ -64,6 +64,8 @@ ADD STYLES AND SCRIPTS
 		 */
 		wp_enqueue_style( 'vikibell-bootstrap-style',  get_template_directory_uri()  . '/css/style.min.css' );
 		wp_enqueue_script( 'vikibell-bootstrap-script', get_template_directory_uri()  . '/js/bootstrap.min.js', array( 'jquery' ) );
+
+		wp_enqueue_script( 'vikibell-html2canvas-script', get_template_directory_uri()  . '/js/html2canvas.js', array( 'jquery' ) );
 		
 		/*
 		 * Add the template.js file which provides global functions used by other JavaScript files.
@@ -188,10 +190,11 @@ FILTER OEMBED OUTPUT
 		 * return the embed within a fixed aspect 
 		 * ratio div
 		 */
+
 		if ( strpos( $html, 'youtube.com' ) !== false ) {
 			$html = preg_replace( '/(width=").+?(")/', '', $html ); // Remove the width attribute
 			$html = preg_replace( '/(height=").+?(")/', '', $html ); // Remove the height attribute
-			$html = str_replace( 'iframe', 'iframe class="embed-responsive-item"', $html ); // Add a responsive class to the iframe
+			$html = str_replace( '<iframe', '<iframe class="embed-responsive-item"', $html ); // Add a responsive class to the iframe
 			$html = '<div class="embed-responsive embed-responsive-16by9">' . $html . '</div>';
 		}
 		
@@ -350,7 +353,7 @@ FILTER MEDIA BY QUERY
 	/**
 	 * Show sketchwork which is not in Pinterest
 	 */
-	function vikibell_filter_media_by_query( $query ) {		
+	function vikibell_filter_media_by_query( $query ) {	
 		if( $_GET['pinterest-media'] == 'pinterest-sketchbook' ) {
 	        $query->set( 'tax_query', 
 	        	array(
