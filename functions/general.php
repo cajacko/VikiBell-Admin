@@ -64,6 +64,8 @@ ADD STYLES AND SCRIPTS
 		 */
 		wp_enqueue_style( 'vikibell-bootstrap-style',  get_template_directory_uri()  . '/css/style.min.css' );
 		wp_enqueue_script( 'vikibell-bootstrap-script', get_template_directory_uri()  . '/js/bootstrap.min.js', array( 'jquery' ) );
+
+		wp_enqueue_script( 'vikibell-html2canvas-script', get_template_directory_uri()  . '/js/html2canvas.js', array( 'jquery' ) );
 		
 		/*
 		 * Add the template.js file which provides global functions used by other JavaScript files.
@@ -188,10 +190,11 @@ FILTER OEMBED OUTPUT
 		 * return the embed within a fixed aspect 
 		 * ratio div
 		 */
+
 		if ( strpos( $html, 'youtube.com' ) !== false ) {
 			$html = preg_replace( '/(width=").+?(")/', '', $html ); // Remove the width attribute
 			$html = preg_replace( '/(height=").+?(")/', '', $html ); // Remove the height attribute
-			$html = str_replace( 'iframe', 'iframe class="embed-responsive-item"', $html ); // Add a responsive class to the iframe
+			$html = str_replace( '<iframe', '<iframe class="embed-responsive-item"', $html ); // Add a responsive class to the iframe
 			$html = '<div class="embed-responsive embed-responsive-16by9">' . $html . '</div>';
 		}
 		
@@ -272,6 +275,17 @@ DISPLAY PORTFOLIO META BOXES
 	 * When the post is saved, also save the 'Portfolio Content'
 	 */
 	function vikibell_save_postdata( $post_id ) {
+
+		$bitly = get_post_meta( $post_id, 'bitly', true );
+
+		if( '' == $bitly ) {
+			$home_url = home_url() . '?p=' . $post_id;
+			$url = json_decode( file_get_contents( 'https://api-ssl.bitly.com/v3/shorten?access_token=7fceeb0b8b4eaad437b21b748e7cdf3f34a55038&longUrl=' . $home_url ) );
+			$url = $url->data->url;
+
+			update_post_meta( $post_id, 'bitly', $url );
+		}
+
 		/**
 		 * Don't save the 'Portfolio Content' on an autosave
 		 */
@@ -339,7 +353,7 @@ FILTER MEDIA BY QUERY
 	/**
 	 * Show sketchwork which is not in Pinterest
 	 */
-	function vikibell_filter_media_by_query( $query ) {		
+	function vikibell_filter_media_by_query( $query ) {	
 		if( $_GET['pinterest-media'] == 'pinterest-sketchbook' ) {
 	        $query->set( 'tax_query', 
 	        	array(
@@ -405,11 +419,20 @@ EDIT ATTACHMENT CAPTION HTML
 /* -----------------------------
 GET THE CONTENT WITH FORMATTING	
 ----------------------------- */	
-	function vikibell_get_the_content_with_formatting( $more_link_text = '(more...)', $stripteaser = 0, $more_file = '' ) {
-		$content = get_the_content( $more_link_text, $stripteaser, $more_file );
+	function vikibell_get_the_content_with_formatting( $excerpt = false ) {
+		if( $excerpt ) {
+			$content = get_the_excerpt();
+		} else {
+			$content = get_the_content();
+		}
+
 		$content = apply_filters( 'the_content', $content );
 		$content = str_replace( ']]>', ']]&gt;', $content ); // Can't remember what this was for, but I must have added it for a reason?...
 		$content = str_replace( '<p>&nbsp;</p>', '', $content ); // Remove empty paragraphs
+
+		$content = str_replace( '<br>', '', $content );
+		$content = str_replace( '<br />', '', $content );
+		$content = str_replace( '</br>', '', $content );
 		
 		$content = str_replace( '<h5>', '<h6>', $content );
 		$content = str_replace( '</h5>', '</h6>', $content );
@@ -509,7 +532,7 @@ DISPLAY THE QUERY TITLE
 				$string .= ' <small>- Page: '.get_query_var( 'paged' ).'</small>';
 			}
 
-			echo '<div id="post-query-title" class="wrap"><h1>'.$string.'</h1></div>';
+			echo '<div id="post-query-title"><div class="article-container wrap"><h1>'.$string.'</h1></div></div>';
 		}
 	}
 		
@@ -725,12 +748,14 @@ DISPLAY THE PAGINATION
 		
 	function vikibell_display_tweets() {
 		$connection = new TwitterOAuth( 'DrUAkLKeXRuT0ywejipAbJkTp', 'PNAKfgYr0zHvwAx9Q7ebFAvJo1KFsdeOPtVUNqiqVVrs4qaL6p', '53987352-kGKp3kBVgrMPnriNdgcTbs6AcsWYc7Shrz1YzpQ5l', 'D4twOI82YfPvUBwyw0QOSH8foLu338NZcwq95dbwEMGb1' );
-		$tweets = $connection->get( "statuses/user_timeline", array( "user_id" => "209678272", "count" => 3 ) );	
+		$tweets = $connection->get( "statuses/user_timeline", array( "user_id" => "209678272", "count" => 100, 'exclude_replies' => TRUE ) );	
 		
 		//print_r( $tweets );
 		
 		echo '<div id="tweets" class="widget wrap sidebar-tablet-hide"><header id="tweets-header"><a id="twitter-link" class="image-to-text" target="_blank" href="http://twitter.com/Vikiibell"><i class="fa fa-twitter"></i><span class="hidden">Twitter</span></a></header><div id="tweets-wrap">';
 		
+		$count = 0;
+
 		foreach( $tweets as $tweet ) {
 			echo '<article class="tweet">';
 			
@@ -750,6 +775,12 @@ DISPLAY THE PAGINATION
 			}
 			
 			echo '</article>';
+
+			$count++;
+
+			if( $count >= 3 ) {
+				break;
+			}
 		}
 		
 		echo '</div><footer><a href="http://twitter.com/Vikiibell" target="_blank"><button id="twitter-follow" class="btn btn-default">Follow @vikibell</button></a></footer></div>';

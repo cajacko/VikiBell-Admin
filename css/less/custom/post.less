@@ -22,7 +22,11 @@ POST
 	}
 	
 	.article-container, .loading-img {
-		margin-bottom: 3em;
+		margin-bottom: 6em;
+
+		@media (max-width: @mobile-nav-break-min) {	
+			margin-bottom: 3em;
+		}
 	}
 	
 	.article-container {
@@ -72,6 +76,10 @@ POST
 		img {
 			max-width: 100%;
 			height: auto;
+
+			+ img {
+				margin-top: @global-padding;
+			}
 		}
 		
 		.gallery {

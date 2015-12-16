@@ -66,17 +66,23 @@
 
 		<article>
 
-			<a href="" class="suggested-post-container<?php if( !has_post_thumbnail( $post->ID ) ): ?> colour<?php endif; ?>">
+			<a href="<?php echo home_url( '/?p=' . $post->ID ); ?>" class="suggested-post-container">
 
-				<div class="suggested-post-image-container">
-				
-					<?php if( has_post_thumbnail( $post->ID ) ): ?>
+				<?php if( has_post_thumbnail( $post->ID ) ): ?>
+
+					<div class="suggested-post-image-container">
 
 						<?php echo get_the_post_thumbnail( $post->ID, 'inline-image', array( 'class' => 'image-fill-container' ) ); ?>
 
-					<?php endif; ?>
+					</div>
 
-				</div>
+				<?php else: ?>
+
+					<?php $background_colours = array( 'bg-blue', 'bg-red', 'bg-orange', 'bg-baige', 'bg-green' ); ?>
+
+					<div class="suggested-post-image-container <?php echo $background_colours[ rand( 0, 4 ) ]; ?>"></div>
+
+				<?php endif; ?>
 
 				<h4><?php echo $post->post_title; ?></h4>
 

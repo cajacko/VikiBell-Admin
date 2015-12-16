@@ -72,6 +72,26 @@ a.anchor {
 	display: none;	
 }
 
+.bg-blue {
+	background-color: @brand-color-1;
+}
+
+.bg-red {
+	background-color: @brand-color-2;
+}
+
+.bg-orange {
+	background-color: @brand-color-3;
+}
+
+.bg-baige {
+	background-color: @brand-color-4;
+}
+
+.bg-green {
+	background-color: @brand-color-5;
+}
+
 /* -----------------------------
 CONTENT
 ----------------------------- */	
@@ -99,7 +119,12 @@ CONTENT
 	.background-image {
 		position: absolute;
 		z-index: 1;	
-		left: -25%;
+	}
+
+	@media (max-width: @mobile-nav-break-min) {	
+		.background-image {
+			display: none;
+		}
 	}
 
 /* -----------------------------
