@@ -5,7 +5,7 @@
     $( window ).scroll( onWindowScroll );
 	
 	var mobileView = false; // Global variable to define if the mobile view is displayed or not
-	var backgroundInterval = 1500;
+	var backgroundInterval = 1200;
 	var lastBackgroundTop = -backgroundInterval;
 	var backgroundLastPos = true;
 	var subnavHoverProgess = true;
