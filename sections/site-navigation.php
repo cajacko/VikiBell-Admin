@@ -24,11 +24,11 @@
 
 						<ul class="subnav">
 							<li class="subnav-item">
-								<a href="<?php echo home_url( '/category/about-me/' ); ?>" class="subnav-link">About</a>
+								<a href="<?php echo home_url( '/about-me/' ); ?>" class="subnav-link">About</a>
 							</li>
 
 							<li class="subnav-item">
-								<a href="<?php echo home_url( '/category/about-me/contact/' ); ?>" class="subnav-link">Contact</a>
+								<a href="<?php echo home_url( '/about-me/contact/' ); ?>" class="subnav-link">Contact</a>
 							</li>
 						</ul>
 					</li>
@@ -54,7 +54,7 @@
 							</li>
 
 							<li class="subnav-item">
-								<a href="<?php echo home_url( '/category/resturants/' ); ?>" class="subnav-link">Resturants</a>
+								<a href="<?php echo home_url( '/category/restaurants/' ); ?>" class="subnav-link">Resturants</a>
 							</li>
 						</ul>
 					</li>
