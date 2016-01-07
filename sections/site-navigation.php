@@ -54,7 +54,7 @@
 							</li>
 
 							<li class="subnav-item">
-								<a href="<?php echo home_url( '/category/restaurants/' ); ?>" class="subnav-link">Resturants</a>
+								<a href="<?php echo home_url( '/category/restaurants/' ); ?>" class="subnav-link">Restaurants</a>
 							</li>
 						</ul>
 					</li>
