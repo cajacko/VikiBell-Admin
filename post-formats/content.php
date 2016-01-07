@@ -16,7 +16,7 @@
 			
 			<?php if( has_post_thumbnail() && !vikibell_is_pdf() ): ?>
 			
-				<?php the_post_thumbnail( 'inline-image', array( 'class' => 'post-featured-image' ) ); ?>
+				<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_post_thumbnail( 'inline-image', array( 'class' => 'post-featured-image' ) ); ?></a>
 				
 			<?php elseif( $cross_site_sync_featured_image ): ?>
 			
