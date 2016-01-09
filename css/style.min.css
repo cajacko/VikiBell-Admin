@@ -6824,6 +6824,9 @@ POST
 .article-container .post-body p {
   font-size: 1em;
 }
+.article-container .post-body iframe {
+  max-width: 100%;
+}
 .article-container .post-body .caption {
   width: 100%;
 }
