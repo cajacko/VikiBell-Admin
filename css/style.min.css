@@ -6319,7 +6319,8 @@ body {
 }
 p,
 ul,
-ol {
+ol,
+.caption {
   margin: 1em 0;
 }
 ul ul,
@@ -6755,6 +6756,9 @@ POST
 .article-container img {
   max-width: 100%;
   height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .article-container img + img {
   margin-top: 1em;
@@ -6833,7 +6837,7 @@ POST
 .article-container .post-body .caption .caption-text {
   font-style: italic;
   text-align: center;
-  margin: 0.5em 0 2em 0;
+  margin: 0.5em 0 0 0;
   font-size: 0.8em;
 }
 .article-container footer {
