@@ -1,37 +1,17 @@
 <?php
 /**
- * The main template file.
+ * Front to the WordPress application. This file doesn't do anything, but loads
+ * wp-blog-header.php which does and tells WordPress to load the theme.
  *
- * @package Charlie Jackson
+ * @package WordPress
  */
-?>
 
-<?php get_header(); ?>
-	
-	<section id="post-loop">
-		<div id="post-loop-wrap">
-			<?php vikibell_the_query_title(); ?>
-		
-			<?php get_template_part( 'sections/post-loop' ); ?>
-			
-			<?php 
-				/**
-				 * The pagination is placed outside of the post loop 
-				 * template so that it does not get loaded during an 
-				 * inifinite scroll request
-				 */
-				if( have_posts() ) { 
-					vikibell_pagination(); 
-				}
-			?>
-		</div>
-		
-	</section>
-	
-	<?php if( !is_category( 'photo-of-the-day' ) ): ?>
-	
-		<?php get_template_part( 'sections/sidebar' ); ?>
-		
-	<?php endif; ?>
+/**
+ * Tells WordPress to load the WordPress theme and output it.
+ *
+ * @var bool
+ */
+define('WP_USE_THEMES', true);
 
-<?php get_footer(); ?>
+/** Loads the WordPress Environment and Template */
+require( dirname( __FILE__ ) . '/wp-blog-header.php' );
