@@ -23,13 +23,13 @@
 define('DB_NAME', 'vikibell');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'vikibell');
 
 /** MySQL database password */
-define('DB_PASSWORD', '9sTpN46iP27Y3PdszHeWC7xVu3tL87');
+define('DB_PASSWORD', 't7eWXgO0HfeO6dPs');
 
 /** MySQL hostname */
-define('DB_HOST', 'low-level-cluster.cluster-c50ck7znwzq8.eu-west-1.rds.amazonaws.com');
+define('DB_HOST', '52.49.247.254');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
