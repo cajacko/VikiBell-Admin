@@ -19,8 +19,6 @@
  */
 
 // ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define('DB_NAME', 'vikibell');
 
 /** MySQL database username */
 define('DB_USER', 'vikibell');
@@ -31,11 +29,18 @@ define('DB_PASSWORD', 't7eWXgO0HfeO6dPs');
 /** MySQL hostname */
 define('DB_HOST', '52.49.247.254');
 
+if('vikibell.com' === $_SERVER['HTTP_HOST']) {
+	define('DB_NAME', 'vikibell');
+} else {
+	define('DB_NAME', 'vikibell_local');
+}
+
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
 
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
+
 
 /**#@+
  * Authentication Unique Keys and Salts.
