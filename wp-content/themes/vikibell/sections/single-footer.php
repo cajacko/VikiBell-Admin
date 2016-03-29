@@ -28,7 +28,7 @@
 		SELECT wp_posts.ID
 		FROM wp_posts
 		INNER JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id)
-		WHERE wp_posts.ID != ' . get_the_ID() . ' AND (' . $where . ')  
+		WHERE wp_posts.ID != ' . get_the_ID() . ' AND (' . $where . ') AND wp_posts.post_status = "publish"
 		GROUP BY wp_posts.ID
 		ORDER BY COUNT(wp_posts.ID) DESC
 		LIMIT 0, 3;
