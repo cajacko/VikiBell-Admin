@@ -33,14 +33,18 @@ ADD/REMOVE THEME SUPPORT
 		 * resolutions.
 		 */
 		add_image_size( 'inline-image', 600, 3000, false );
-		add_image_size( 'width-500', 500 );
-		add_image_size( 'width-1000', 1000 );
-		add_image_size( 'width-1500', 1500 );
-		add_image_size( 'width-2000', 2000 );
-		add_image_size( 'width-2500', 2500 );
-		add_image_size( 'width-3000', 3000 );
-		add_image_size( 'width-3500', 3500 );
-		add_image_size( 'width-4000', 4000 );
+		// add_image_size( 'width-500', 500 );
+		// add_image_size( 'width-1000', 1000 );
+		// add_image_size( 'width-1500', 1500 );
+		// add_image_size( 'width-2000', 2000 );
+		// add_image_size( 'width-2500', 2500 );
+		// add_image_size( 'width-3000', 3000 );
+		// add_image_size( 'width-3500', 3500 );
+		// add_image_size( 'width-4000', 4000 );
+
+		for($i = 600; $i > 300; $i = $i - 50) {
+			add_image_size( 'width-' . $i, $i );
+		}
 		
 		add_post_type_support( "page", "excerpt" );
 		
