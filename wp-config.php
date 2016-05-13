@@ -31,7 +31,6 @@ define('DB_HOST', '52.49.247.254');
 
 if('admin.vikibell.com' === $_SERVER['HTTP_HOST']) {
     define('DB_NAME', 'vikibell');
-    define( 'FORCE_SSL_ADMIN', true );
 } else {
     define('DB_NAME', 'vikibell_local');
 }
