@@ -19,20 +19,23 @@
  */
 
 // ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define('DB_NAME', 'database_name_here');
-
 /** MySQL database username */
-define('DB_USER', 'username_here');
+define('DB_USER', 'xxx');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'password_here');
+define('DB_PASSWORD', 'xxx');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'xxx');
+
+if('admin.vikibell.com' === $_SERVER['HTTP_HOST']) {
+    define('DB_NAME', 'xxx');
+} else {
+    define('DB_NAME', 'xxx');
+}
 
 /** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
+define('DB_CHARSET', 'xxx');
 
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
@@ -46,14 +49,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
+define('AUTH_KEY',         'xxx');
+define('SECURE_AUTH_KEY',  'xxx');
+define('LOGGED_IN_KEY',    'xxx');
+define('NONCE_KEY',        'xxx');
+define('AUTH_SALT',        'xxx');
+define('SECURE_AUTH_SALT', 'xxx');
+define('LOGGED_IN_SALT',   'xxx');
+define('NONCE_SALT',       'xxx');
 
 /**#@-*/
 
@@ -83,7 +86,7 @@ define('WP_DEBUG', false);
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+    define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
