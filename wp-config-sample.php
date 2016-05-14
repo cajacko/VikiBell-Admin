@@ -22,6 +22,9 @@ define('CLOUDFLARE_EMAIL', 'xxx');
 define('CLOUDFLARE_API', 'xxx');
 define('CLOUDFLARE_ZONE', 'xxx');
 
+define('DBI_AWS_ACCESS_KEY_ID', 'xxx');
+define('DBI_AWS_SECRET_ACCESS_KEY', 'xxx');
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', 'database_name_here');
