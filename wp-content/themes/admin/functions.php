@@ -1,5 +1,9 @@
 <?php
 
+if (!session_id()) {
+  session_start();
+}
+
 // Setup theme
 function admin_setup() {  
     add_theme_support( 'post-thumbnails' );
@@ -24,7 +28,7 @@ add_action( 'after_setup_theme', 'admin_setup' );
 @ini_set( ‘max_execution_time’, ‘300’);
 
 // Update the sitemap on vikibell.com
-function update_sitemap() {
+function admin_update_sitemap() {
     // Action url that builds the sitemap
     $sitemap_action_url = 'https://vikibell.com/action/build-sitemap'; 
 
@@ -34,24 +38,22 @@ function update_sitemap() {
 
     // Trigger the action and get the response
     $response = file_get_contents($sitemap_action_url);
-    $reponse = json_decode($response);
+    // $reponse = json_encode($response);
 
-    // If the action was successful then return true
-    if(isset($response['reponse']) && $response['reponse']) {
+    $response = json_decode($response, true);
+
+    // If the action was successful then return true and set admin message
+    if(isset($response['response']) && $response['response']) {
+        $_SESSION['admin_sitemap_updated'] = '<div class="notice notice-success is-dismissible"><p>Sitemap updated.</p></div>';
         return true;
     } else {
+        $_SESSION['admin_sitemap_not_updated'] = '<div class="notice notice-error is-dismissible"><p>We could not update your sitemap. Tell Charlie!!!</p></div>';
         return false;
     }
 }
 
-// update_sitemap();
-
-function sync_media() {
-
-}
-
 // Due to free cloudflare plan we must purge everything
-function clear_page_cache() {
+function admin_clear_page_cache() {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://api.cloudflare.com/client/v4/zones/" . CLOUDFLARE_ZONE . "/purge_cache");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -70,13 +72,73 @@ function clear_page_cache() {
 
     $result = json_decode(curl_exec($ch), true);
 
+    // If the cache has been reset then return true and set admin message
     if(isset($result['success']) && $result['success']) {
+        $_SESSION['admin_cache_updated'] = '<div class="notice notice-success is-dismissible"><p>Cache reset.</p></div>';
         return true;
     } else {
+        $_SESSION['admin_cache_not_cleared'] = '<div class="notice notice-error is-dismissible"><p>We could not clear the page cache. Tell Charlie!!!</p></div>';
         return false;
     }
 }
 
-// clear_page_cache();
-// exit;
+// Update sitemap and clear cache
+function admin_pages_changes() {
+    admin_update_sitemap();
+    admin_clear_page_cache();
+    return true;
+}
 
+// Update blog site when published pages have changed
+function admin_save_post($post_id) {
+    $original_post_status = $_POST['original_post_status'];
+    $new_post_status = $_POST['post_status'];
+
+    // If the post is published then update the sitemap and clear the cache
+    if('publish' == $new_post_status) {
+        return admin_pages_changes();
+    }
+
+    // If the revious state was publish then update the sitemap and clear cache
+    if('publish' == $original_post_status) {
+        return admin_pages_changes();
+    }
+}
+
+add_action('save_post', 'admin_save_post');
+
+// Update blog site when a used category is deleted
+function admin_delete_category() {
+    return admin_pages_changes();
+}
+
+add_action('delete_category', 'admin_delete_category'); 
+
+// Set admin messages
+function my_admin_notices(){
+    if(!empty($_SESSION['admin_cache_not_cleared'])) {
+        print $_SESSION['admin_cache_not_cleared'];
+    }
+
+    unset($_SESSION['admin_cache_not_cleared']);
+
+    if(!empty($_SESSION['admin_sitemap_not_updated'])) {
+        print $_SESSION['admin_sitemap_not_updated'];
+    }
+   
+    unset($_SESSION['admin_sitemap_not_updated']);
+
+    if(!empty($_SESSION['admin_sitemap_updated'])) {
+        print $_SESSION['admin_sitemap_updated'];
+    }
+   
+    unset($_SESSION['admin_sitemap_updated']);
+
+    if(!empty($_SESSION['admin_cache_updated'])) {
+        print $_SESSION['admin_cache_updated'];
+    }
+   
+    unset($_SESSION['admin_cache_updated']);
+}
+
+add_action( 'admin_notices', 'my_admin_notices' );
