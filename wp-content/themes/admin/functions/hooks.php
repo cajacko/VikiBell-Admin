@@ -10,7 +10,7 @@ add_action( 'after_setup_theme', 'admin_setup' );
 
 // When a post/page is saved
 function admin_save_post($post_id) {
-    admin_update_blog_site_on_save();
+    // admin_update_blog_site_on_save();
 }
 
 add_action('save_post', 'admin_save_post');
