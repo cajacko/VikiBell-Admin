@@ -28,3 +28,7 @@ function admin_notices(){
 }
 
 add_action('admin_notices', 'admin_notices');
+
+
+add_action( 'post_submitbox_misc_actions', 'article_or_box' );
+add_action( 'save_post', 'save_article_or_box' );
