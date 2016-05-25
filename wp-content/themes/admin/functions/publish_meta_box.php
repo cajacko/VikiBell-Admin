@@ -4,9 +4,10 @@ $auto_tweet_meta_scheduled = 'auto_tweet_scheduled';
 $auto_tweet_meta_tweeted = 'auto_tweet_tweeted';
 $auto_tweet_nonce = 'auto_tweet_nonce';
 $auto_tweet_nonce_action = 'auto_tweet_nonce_action';
+$admin_tweet_meta = 'admin_tweet_meta';
 
 function admin_tweet_submit_box() {
-    global $post, $auto_tweet_meta_scheduled, $auto_tweet_meta_tweeted, $auto_tweet_nonce, $auto_tweet_nonce_action;
+    global $post, $auto_tweet_meta_scheduled, $auto_tweet_meta_tweeted, $auto_tweet_nonce, $auto_tweet_nonce_action, $admin_tweet_meta;
 
     if (get_post_type($post) == 'post') {
         echo '<div class="misc-pub-section misc-pub-section-last" style="border-top: 1px solid #eee;">';
@@ -21,6 +22,10 @@ function admin_tweet_submit_box() {
             }            
 
             echo '<input type="checkbox" name="' . $auto_tweet_meta_scheduled . '" id="article_or_box-article" value="true" '. $checked .' /> <label for="article_or_box-article" class="select-it">Tweet on publish</label><br />';
+
+            $tweet = admin_return_post_tweet($post->ID);
+
+            echo '<textarea name="' . $admin_tweet_meta . '" style="width: 100%; margin-top: 10px; min-height: 75px;">' . $tweet . '</textarea>';
         } else {
             echo 'Already tweeted';
         }
@@ -30,7 +35,7 @@ function admin_tweet_submit_box() {
 }
 
 function admin_save_post_tweet_pref($post_id) {
-    global $auto_tweet_meta_scheduled, $auto_tweet_nonce, $auto_tweet_nonce_action;
+    global $auto_tweet_meta_scheduled, $auto_tweet_nonce, $auto_tweet_nonce_action, $admin_tweet_meta;
 
     if (!isset($_POST['post_type']))
         return $post_id;
@@ -46,12 +51,17 @@ function admin_save_post_tweet_pref($post_id) {
     
     if (!isset($_POST[$auto_tweet_meta_scheduled])) {
         delete_post_meta($post_id, $auto_tweet_meta_scheduled);
-        return $post_id;
     } else {
-        $mydata = $_POST[$auto_tweet_meta_scheduled];
         update_post_meta($post_id, $auto_tweet_meta_scheduled, $_POST[$auto_tweet_meta_scheduled]);
-        return $post_id;
     }
+
+    if (!isset($_POST[$admin_tweet_meta])) {
+        delete_post_meta($post_id, $admin_tweet_meta);
+    } else {
+        update_post_meta($post_id, $admin_tweet_meta, $_POST[$admin_tweet_meta]);
+    }
+
+    return $post_id;
 }
 
 require_once(__DIR__ . '/../vendor/autoload.php');
@@ -138,63 +148,64 @@ if(isset($_GET['code']) && is_user_logged_in()) {
     admin_bitly_callback();
 }
 
-$admin_tweet_meta = 'admin_tweet_meta';
-
-function admin_return_post_tweet($post_id, $bitly) {
-    global $admin_tweet_meta, $admin_twitter_screen_name;
+function admin_return_post_tweet($post_id) {
+    global $admin_tweet_meta, $admin_bitly_access_token;
 
     $tweet = get_post_meta($post_id, $admin_tweet_meta, true);
     $tweet_limit = 140;
 
     if(strlen($tweet) > 10 && strlen($tweet) <= $tweet_limit) {
-        return false;
-    } else {
-        $title = get_the_title($post_id);
-        $title_count = strlen($title);
-        $tweet_append = ' ' . $bitly;
-        $tweet_append_count = strlen($tweet_append);
-
-        $total_count = $title_count + $tweet_append_count;
-
-        if($total_count > $tweet_limit) {
-            $reduce_by = $total_count - $tweet_limit + 3;
-            $title = substr($title, 0, -$reduce_by) . '...';
-
-            $tweet = $title . $tweet_append;
-        } else {
-            $tweet = $title . $tweet_append;
-        }
-
         return $tweet;
+    } else {
+        require_once(__DIR__ . '/../vendor/bitly.php');
+
+        $params = array();
+        $params['access_token'] = get_option($admin_bitly_access_token);
+        $params['longUrl'] = LIVE_BLOG_URL . 'posts/' . get_post_field('post_name', $post_id);
+        $results = bitly_get('shorten', $params);
+
+         if(isset($results['data']['url'])) {
+            $bitly = $results['data']['url'];
+
+            $title = get_the_title($post_id);
+            $title_count = strlen($title);
+            $tweet_append = ' ' . $bitly;
+            $tweet_append_count = strlen($tweet_append);
+
+            $total_count = $title_count + $tweet_append_count;
+
+            if($total_count > $tweet_limit) {
+                $reduce_by = $total_count - $tweet_limit + 3;
+                $title = substr($title, 0, -$reduce_by) . '...';
+
+                $tweet = $title . $tweet_append;
+            } else {
+                $tweet = $title . $tweet_append;
+            }
+
+            return $tweet;
+        } else {
+            return false;
+        }
     }
 }
 
 function admin_send_tweet($post_id) {
-    global $admin_bitly_access_token, $admin_twitter_oauth_token, $admin_twitter_oauth_token_secret;
+    global $admin_twitter_oauth_token, $admin_twitter_oauth_token_secret;
 
-    require_once(__DIR__ . '/../vendor/bitly.php');
+    $connection = new TwitterOAuth(
+        TWITTER_KEY, 
+        TWITTER_SECRET, 
+        get_option($admin_twitter_oauth_token), 
+        get_option($admin_twitter_oauth_token_secret)
+    );
 
-    $params = array();
-    $params['access_token'] = get_option($admin_bitly_access_token);
-    $params['longUrl'] = LIVE_BLOG_URL . 'posts/' . get_post_field('post_name', $post_id);
-    $results = bitly_get('shorten', $params);
+    $status = admin_return_post_tweet($post_id);
+    echo $status; exit;
+    $statues = $connection->post("statuses/update", ["status" => $status]);
 
-    if(isset($results['data']['url'])) {
-        $connection = new TwitterOAuth(
-            TWITTER_KEY, 
-            TWITTER_SECRET, 
-            get_option($admin_twitter_oauth_token), 
-            get_option($admin_twitter_oauth_token_secret)
-        );
-
-        $status = admin_return_post_tweet($post_id, $results['data']['url']);
-        $statues = $connection->post("statuses/update", ["status" => $status]);
-
-        if($connection->getLastHttpCode() == 200) {
-            return true;
-        } else {
-            return false;
-        }
+    if($connection->getLastHttpCode() == 200) {
+        return true;
     } else {
         return false;
     }
