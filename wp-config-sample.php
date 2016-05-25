@@ -25,7 +25,16 @@ define('CLOUDFLARE_ZONE', 'xxx');
 define('DBI_AWS_ACCESS_KEY_ID', 'xxx');
 define('DBI_AWS_SECRET_ACCESS_KEY', 'xxx');
 
+define('TWITTER_KEY', 'xxx');
+define('TWITTER_SECRET', 'xxx');
+define('TWITTER_CALLBACK', 'xxx');
+
+define('BITLY_CLIENT_ID', 'xxx');
+define('BITLY_CLIENT_SECRET', 'xxx');
+define('BITLY_REDIRECT', 'xxx');
+
 define('LIVE_BLOG_URL', 'xxx');
+define('DISABLE_WP_CRON', 'true');
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** MySQL database username */
