@@ -25,7 +25,9 @@ function admin_tweet_submit_box() {
 
             $tweet = admin_return_post_tweet($post->ID);
 
-            echo '<textarea name="' . $admin_tweet_meta . '" style="width: 100%; margin-top: 10px; min-height: 75px;">' . $tweet . '</textarea>';
+            echo '<textarea id="admin-auto-tweet-text" name="' . $admin_tweet_meta . '" style="width: 100%; margin-top: 10px; min-height: 75px;">' . $tweet . '</textarea>';
+
+            echo '<p style="margin: 3px 0;">Count: <span id="admin-auto-tweet-count">' . strlen($tweet) . '</span></p>';
         } else {
             echo 'Already tweeted';
         }
@@ -58,11 +60,27 @@ function admin_save_post_tweet_pref($post_id) {
     if (!isset($_POST[$admin_tweet_meta])) {
         delete_post_meta($post_id, $admin_tweet_meta);
     } else {
-        update_post_meta($post_id, $admin_tweet_meta, $_POST[$admin_tweet_meta]);
+        $tweet = $_POST[$admin_tweet_meta];
+        $tweet_length = strlen($tweet);
+
+        if($tweet_length > 140) {
+            $_SESSION['admin_auto_tweet_too_long'] = '<div class="notice notice-error is-dismissible"><p>Your auto tweet is too long!</p></div>';
+        } else {
+            update_post_meta($post_id, $admin_tweet_meta, $_POST[$admin_tweet_meta]);
+        }
     }
 
     return $post_id;
 }
+
+function admin_auto_tweet_length_error() {
+    if(!empty($_SESSION['admin_auto_tweet_too_long'])) {
+        print $_SESSION['admin_auto_tweet_too_long'];
+    }
+
+    unset($_SESSION['admin_auto_tweet_too_long']);
+}
+
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 use Abraham\TwitterOAuth\TwitterOAuth;
@@ -201,7 +219,6 @@ function admin_send_tweet($post_id) {
     );
 
     $status = admin_return_post_tweet($post_id);
-    echo $status; exit;
     $statues = $connection->post("statuses/update", ["status" => $status]);
 
     if($connection->getLastHttpCode() == 200) {
@@ -260,4 +277,8 @@ function admin_test_connections() {
     }
 }
 
-admin_test_connections();
+function my_enqueue( $hook ) {
+    wp_enqueue_script( 'admin_auto_tweet_script', get_template_directory_uri() . '/js/auto-tweet.js', array('jquery'));
+}
+
+add_action('admin_enqueue_scripts', 'my_enqueue');
