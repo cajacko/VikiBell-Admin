@@ -246,19 +246,27 @@ function admin_test_connections() {
     global $admin_twitter_oauth_token, $admin_twitter_oauth_token_secret, $admin_bitly_access_token;
 
     if(!isset($_SESSION['twitter_set'])) {
-        $connection = new TwitterOAuth(
-            TWITTER_KEY, 
-            TWITTER_SECRET, 
-            get_option($admin_twitter_oauth_token), 
-            get_option($admin_twitter_oauth_token_secret)
-        );
+        $token = get_option($admin_twitter_oauth_token);
+        $secret = get_option($admin_twitter_oauth_token_secret);
+        $error_message = '<div class="notice notice-error is-dismissible"><p>You are not connected to twitter. <a href="/?twitter-login">Connect here</a></p></div>';
 
-        $statuses = $connection->get("search/tweets", ["q" => "twitterapi", "count" => 1, ]);
+        if($token && $secret) {
+            $connection = new TwitterOAuth(
+                TWITTER_KEY, 
+                TWITTER_SECRET, 
+                $token, 
+                $secret
+            );
 
-        if($connection->getLastHttpCode() != 200) {
-            print '<div class="notice notice-error is-dismissible"><p>You are not connected to twitter. <a href="/?twitter-login">Connect here</a></p></div>';
+            $statuses = $connection->get("search/tweets", ["q" => "twitterapi", "count" => 1, ]);
+
+            if($connection->getLastHttpCode() != 200) {
+                print $error_message;
+            } else {
+                $_SESSION['twitter_set'] = true;
+            }
         } else {
-            $_SESSION['twitter_set'] = true;
+            print $error_message;
         }
     }
 
