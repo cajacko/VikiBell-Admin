@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"args",
+				"func_get_args"
+			],
+			[
 				"str_re",
 				"str_replace"
 			],
@@ -140,11 +144,13 @@
 	"buffers":
 	[
 		{
-			"file": "wp-content/themes/admin/functions.php",
+			"contents": "Searching 929 files for \"'publish'\"\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/class.jetpack-sync.php:\n  336  		$defaults = array(\n  337  			'post_types' => array( 'post', 'page' ),\n  338: 			'post_stati' => array( 'publish' ),\n  339  		);\n  340  \n  ...\n  587  		$defaults = array(\n  588  			'post_types' => array( 'post', 'page' ),                            // For what post types will we sync comments?\n  589: 			'post_stati' => array( 'publish' ),                                 // For what post stati will we sync comments?\n  590  			'comment_types' => array( '', 'comment', 'trackback', 'pingback' ), // What comment types will we sync?\n  591  			'comment_stati' => array( 'approved' ),                             // What comment stati will we sync?\n  ...\n  984  			\"SELECT count(*)\n  985  				FROM {$wpdb->posts}\n  986: 				WHERE post_status = 'publish' AND post_password = ''\"\n  987  		);\n  988  	}\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/json-endpoints.php:\n  373  		'exclude_tree' => '(int) Excludes the specified post and all of its descendants from the response. Applies only to hierarchical post types.',\n  374  		'status'   => array(\n  375: 			'publish' => 'Return only published posts.',\n  376  			'private' => 'Return only private posts.',\n  377  			'draft'   => 'Return only draft posts.',\n  ...\n  548  		'publicize_message' => '(string) Custom message to be publicized to external services.',\n  549  		'status'    => array(\n  550: 			'publish' => 'Publish the post.',\n  551  			'private' => 'Privately publish the post.',\n  552  			'draft'   => 'Save the post as a draft.',\n  ...\n  615  		'publicize_message' => '(string) Custom message to be publicized to external services.',\n  616  		'status'    => array(\n  617: 			'publish' => 'Publish the post.',\n  618  			'private' => 'Privately publish the post.',\n  619  			'draft'   => 'Save the post as a draft.',\n  ...\n  685  		'publicize_message' => '(string) Custom message to be publicized to external services.',\n  686  		'status'    => array(\n  687: 			'publish' => 'Publish the post.',\n  688  			'private' => 'Privately publish the post.',\n  689  			'draft'   => 'Save the post as a draft.',\n  ...\n  757  		'publicize_message' => '(string) Custom message to be publicized to external services.',\n  758  		'status'    => array(\n  759: 			'publish' => 'Publish the post.',\n  760  			'private' => 'Privately publish the post.',\n  761  			'draft'   => 'Save the post as a draft.',\n  ...\n  822  		'publicize_message' => '(string) Custom message to be publicized to external services.',\n  823  		'status'    => array(\n  824: 			'publish' => 'Publish the post.',\n  825  			'private' => 'Privately publish the post.',\n  826  			'draft'   => 'Save the post as a draft.',\n  ...\n  888  		'publicize_message' => '(string) Custom message to be publicized to external services.',\n  889  		'status'    => array(\n  890: 			'publish' => 'Publish the post.',\n  891  			'private' => 'Privately publish the post.',\n  892  			'draft'   => 'Save the post as a draft.',\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/json-endpoints/class.wpcom-json-api-get-post-counts-v1-1-endpoint.php:\n    3  class WPCOM_JSON_API_GET_Post_Counts_V1_1_Endpoint extends WPCOM_JSON_API_Endpoint {\n    4  \n    5: 	private $whitelist = array( 'publish' );\n    6  \n    7  	/**\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/json-endpoints/class.wpcom-json-api-list-posts-endpoint.php:\n   39  		// determine statuses\n   40  		$status = $args['status'];\n   41: 		$status = ( $status ) ? explode( ',', $status ) : array( 'publish' );\n   42  		if ( is_user_logged_in() ) {\n   43  			$statuses_whitelist = array(\n   44: 				'publish',\n   45  				'pending',\n   46  				'draft',\n   ..\n   53  		} else {\n   54  			// logged-out users can see only published posts\n   55: 			$statuses_whitelist = array( 'publish', 'any' );\n   56  			$status = array_intersect( $status, $statuses_whitelist );\n   57  \n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/json-endpoints/class.wpcom-json-api-list-posts-v1-1-endpoint.php:\n   43  \n   44  		// determine statuses\n   45: 		$status = ( ! empty( $args['status'] ) ) ? explode( ',', $args['status'] ) : array( 'publish' );\n   46  		if ( is_user_logged_in() ) {\n   47  			$statuses_whitelist = array(\n   48: 				'publish',\n   49  				'pending',\n   50  				'draft',\n   ..\n   57  		} else {\n   58  			// logged-out users can see only published posts\n   59: 			$statuses_whitelist = array( 'publish', 'any' );\n   60  			$status = array_intersect( $status, $statuses_whitelist );\n   61  \n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/json-endpoints/class.wpcom-json-api-post-endpoint.php:\n   17  		'guid'      => '(string) The GUID for the post.',\n   18  		'status'    => array(\n   19: 			'publish' => 'The post is published.',\n   20  			'draft'   => 'The post is saved as a draft.',\n   21  			'pending' => 'The post is pending editorial approval.',\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/json-endpoints/class.wpcom-json-api-post-v1-1-endpoint.php:\n   17  		'guid'              => '(string) The GUID for the post.',\n   18  		'status'            => array(\n   19: 			'publish'           => 'The post is published.',\n   20  			'draft'             => 'The post is saved as a draft.',\n   21  			'pending'           => 'The post is pending editorial approval.',\n   ..\n  494  				$other_urls = array();\n  495  \n  496: 				if ( 'publish' !== $post->post_status ) {\n  497  					$other_urls = $this->get_post_permalink_suggestions( $post->ID, $post->post_title );\n  498  				}\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/json-endpoints/class.wpcom-json-api-update-post-endpoint.php:\n   70  			}\n   71  \n   72: 			if ( 'publish' === $input['status'] ) {\n   73  				if ( ! current_user_can( $post_type->cap->publish_posts ) ) {\n   74  					if ( current_user_can( $post_type->cap->edit_posts ) ) {\n   ..\n  108  			}\n  109  \n  110: 			if ( ( isset( $input['status'] ) && 'publish' === $input['status'] ) && 'publish' !== $post->post_status && !current_user_can( 'publish_post', $post->ID ) ) {\n  111  				$input['status'] = 'pending';\n  112  			}\n  ...\n  116  			// Make sure that drafts get the current date when transitioning to publish if not supplied in the post.\n  117  			$date_in_past = ( strtotime($post->post_date_gmt) < time() );\n  118: 			if ( 'publish' === $new_status && 'draft' === $last_status && ! isset( $input['date_gmt'] ) && $date_in_past ) {\n  119  				$input['date_gmt'] = gmdate( 'Y-m-d H:i:s' );\n  120  			}\n  ...\n  403  		if ( defined( 'IS_WPCOM' ) && IS_WPCOM ) {\n  404  			if (\n  405: 				( $new && 'publish' == $input['status'] )\n  406  				|| (\n  407  					! $new && isset( $last_status )\n  408: 					&& 'publish' != $last_status\n  409  					&& isset( $new_status )\n  410: 					&& 'publish' == $new_status\n  411  				)\n  412  			) {\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/json-endpoints/class.wpcom-json-api-update-post-v1-1-endpoint.php:\n   39  		}\n   40  \n   41: 		// 'future' is an alias for 'publish' for now\n   42  		if ( 'future' === $input['status'] ) {\n   43: 			$input['status'] = 'publish';\n   44  		}\n   45  \n   ..\n   75  			}\n   76  \n   77: 			if ( 'publish' === $input['status'] ) {\n   78  				if ( ! current_user_can( $post_type->cap->publish_posts ) ) {\n   79  					if ( current_user_can( $post_type->cap->edit_posts ) ) {\n   ..\n  113  			}\n  114  \n  115: 			if ( ( isset( $input['status'] ) && 'publish' === $input['status'] ) && 'publish' !== $post->post_status && !current_user_can( 'publish_post', $post->ID ) ) {\n  116  				$input['status'] = 'pending';\n  117  			}\n  ...\n  121  			// Make sure that drafts get the current date when transitioning to publish if not supplied in the post.\n  122  			$date_in_past = ( strtotime($post->post_date_gmt) < time() );\n  123: 			if ( 'publish' === $new_status && 'draft' === $last_status && ! isset( $input['date_gmt'] ) && $date_in_past ) {\n  124  				$input['date_gmt'] = gmdate( 'Y-m-d H:i:s' );\n  125  			}\n  ...\n  416  		if ( defined( 'IS_WPCOM' ) && IS_WPCOM ) {\n  417  			if (\n  418: 				( $new && 'publish' == $input['status'] )\n  419  				|| (\n  420  					! $new && isset( $last_status )\n  421: 					&& 'publish' != $last_status\n  422  					&& isset( $new_status )\n  423: 					&& 'publish' == $new_status\n  424  				)\n  425  			) {\n  ...\n  617  			$return['media_errors'] = $media_results['errors'];\n  618  \n  619: 		if ( 'publish' !== $post->post_status ) {\n  620  			$return['other_URLs'] = (object) $this->get_post_permalink_suggestions( $post_id, $input['title'] );\n  621  		}\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/json-endpoints/class.wpcom-json-api-update-post-v1-2-endpoint.php:\n   14  		}\n   15  \n   16: 		// 'future' is an alias for 'publish' for now\n   17  		if ( isset( $input['status'] ) && 'future' === $input['status'] ) {\n   18: 			$input['status'] = 'publish';\n   19  		}\n   20  \n   ..\n   50  			}\n   51  \n   52: 			if ( 'publish' === $input['status'] ) {\n   53  				if ( ! current_user_can( $post_type->cap->publish_posts ) ) {\n   54  					if ( current_user_can( $post_type->cap->edit_posts ) ) {\n   ..\n   88  			}\n   89  \n   90: 			if ( ( isset( $input['status'] ) && 'publish' === $input['status'] ) && 'publish' !== $post->post_status && !current_user_can( 'publish_post', $post->ID ) ) {\n   91  				$input['status'] = 'pending';\n   92  			}\n   ..\n   96  			// Make sure that drafts get the current date when transitioning to publish if not supplied in the post.\n   97  			$date_in_past = ( strtotime($post->post_date_gmt) < time() );\n   98: 			if ( 'publish' === $new_status && 'draft' === $last_status && ! isset( $input['date_gmt'] ) && $date_in_past ) {\n   99  				$input['date_gmt'] = gmdate( 'Y-m-d H:i:s' );\n  100  			}\n  ...\n  416  		if ( defined( 'IS_WPCOM' ) && IS_WPCOM ) {\n  417  			if (\n  418: 				( $new && 'publish' == $input['status'] )\n  419  				|| (\n  420  					!$new && isset( $last_status )\n  421: 					&& 'publish' != $last_status\n  422  					&& isset( $new_status )\n  423: 					&& 'publish' == $new_status\n  424  				)\n  425  			) {\n  ...\n  617  			$return['media_errors'] = $media_results['errors'];\n  618  \n  619: 		if ( ! $new && 'publish' !== $post->post_status && isset( $input['title'] ) ) {\n  620  			$return['other_URLs'] = (object) $this->get_post_permalink_suggestions( $post_id, $input['title'] );\n  621  		}\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/after-the-deadline/atd-autoproofread.js:\n   46  		/* Okay, the user has tried to publish/update already but there are still errors. Ask them what to do */\n   47  		var message;\n   48: 		if ( original_post_status === 'publish' ) {\n   49  			message = AtD.getLang('dialog_confirm_post_publish', 'The proofreader has suggestions for this post. Are you sure you want to publish it?\\n\\nPress OK to publish your post, or Cancel to view the suggestions and edit your post.');\n   50  		} else {\n   ..\n   86  	/* check if auto-check is enabled && if #content exists */\n   87  	if ( typeof AtD_check_when !== 'undefined' && $('#content').length &&\n   88: 		( ( orig_status !== 'publish' && AtD_check_when.onpublish ) ||\n   89: 		( ( orig_status === 'publish' || orig_status === 'schedule' ) && AtD_check_when.onupdate ) ) ) {\n   90  			$('#publish').bind( 'click.AtD_submit_check', AtD_submit_check );\n   91  	}\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/contact-form/admin.php:\n  263  		return $actions;\n  264  \n  265: 	unset( $views['publish'] );\n  266  \n  267  	preg_match( '|post_type=feedback\\'( class=\"current\")?\\>(.*)\\<span class=|', $views['all'], $match );\n  ...\n  376  			action: 'grunion_ajax_spam',\n  377  			post_id: '<?php echo $post_id; ?>',\n  378: 			make_it: 'publish',\n  379  			sub_menu: jQuery('.subsubsub .current').attr('href'),\n  380  			_ajax_nonce: '<?php echo wp_create_nonce( 'grunion-post-status-' . $post_id ); ?>'\n  ...\n  394  \n  395  <?php\n  396: 			} elseif ( $post->post_status == 'publish' ) {\n  397  				echo '<span class=\"spam\" id=\"feedback-spam-' . $post_id;\n  398  				echo '\"><a title=\"';\n  ...\n  651  		$post->post_status = 'spam';\n  652  		$status = wp_insert_post( $post );\n  653: 		wp_transition_post_status( 'spam', 'publish', $post );\n  654  \n  655  		/** This action is already documented in modules/contact-form/admin.php */\n  656  		do_action( 'contact_form_akismet', 'spam', $akismet_values );\n  657  	} elseif ( $_POST['make_it'] == 'ham' ) {\n  658: 		$post->post_status = 'publish';\n  659  		$status = wp_insert_post( $post );\n  660: 		wp_transition_post_status( 'publish', 'spam', $post );\n  661  \n  662  		/** This action is already documented in modules/contact-form/admin.php */\n  ...\n  717  			wp_mail( $to, $subject, $message, $headers );\n  718  		}\n  719: 	} elseif( $_POST['make_it'] == 'publish' ) {\n  720  		if ( ! current_user_can($post_type_object->cap->delete_post, $post_id) ) {\n  721  			wp_die( __( 'You are not allowed to move this item out of the Trash.', 'jetpack' ) );\n  ...\n  752  	}\n  753  \n  754: 	if ( isset( $status['publish'] ) ) {\n  755  		$status_html .= '<li><a href=\"edit.php?post_type=feedback\"';\n  756  		if ( $current_menu == 'messages' ) {\n  ...\n  759  \n  760  		$status_html .= '>' . __( 'Messages', 'jetpack' ) . ' <span class=\"count\">';\n  761: 		$status_html .= '(' . number_format( $status['publish'] ) . ')';\n  762  		$status_html .= '</span></a> |</li>';\n  763  	}\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/contact-form/grunion-contact-form.php:\n  770  			'posts_per_page'   => -1,\n  771  			'post_type'        => 'feedback',\n  772: 			'post_status'      => 'publish',\n  773  			'order'            => 'ASC',\n  774  			'fields'           => 'ids',\n  ...\n  865  			'posts_per_page'   => 100000,\n  866  			'post_type'        => 'feedback',\n  867: 			'post_status'      => 'publish',\n  868  			'suppress_filters' => false,\n  869  		) );\n  ...\n 1909  		$feedback_time   = current_time( 'mysql' );\n 1910  		$feedback_title  = \"{$comment_author} - {$feedback_time}\";\n 1911: 		$feedback_status = $is_spam === TRUE ? 'spam' : 'publish';\n 1912  \n 1913  		foreach ( (array) $akismet_values as $av_key => $av_value ) {\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/custom-css/custom-css.php:\n  365  				'posts_per_page' => 1,\n  366  				'post_type' => 'safecss',\n  367: 				'post_status' => 'publish',\n  368  				'orderby' => 'date',\n  369  				'order' => 'DESC'\n  ...\n  432  			$post['post_content'] = $css;\n  433  			$post['post_title'] = 'safecss';\n  434: 			$post['post_status'] = 'publish';\n  435  			$post['post_type'] = 'safecss';\n  436  			$post['post_content_filtered'] = $compressed_css;\n  ...\n  954  \n  955  	static function admin() {\n  956: 		add_meta_box( 'submitdiv', __( 'Publish', 'jetpack' ), array( __CLASS__, 'publish_box' ), 'editcss', 'side' );\n  957  		add_action( 'custom_css_submitbox_misc_actions', array( __CLASS__, 'content_width_settings' ) );\n  958  \n  ...\n 1418  			$post['post_content'] = $css;\n 1419  			$post['post_title'] = 'safecss';\n 1420: 			$post['post_status'] = 'publish';\n 1421  			$post['post_type'] = 'safecss';\n 1422  \n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/custom-post-types/nova.php:\n  852  			// $_POST is already slashed\n  853  			$post_details = array(\n  854: 				'post_status'  => 'publish',\n  855  				'post_type'    => self::MENU_ITEM_POST_TYPE,\n  856  				'post_content' => $_POST['nova_content'][$key],\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/infinite-scroll/infinity.php:\n 1131  			$sticky = array_unique( array_merge( $sticky, $post__not_in ) );\n 1132  \n 1133: 		$post_status = array( 'publish' );\n 1134  		if ( current_user_can( 'read_private_posts' ) )\n 1135  			array_push( $post_status, 'private' );\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/likes.php:\n 1086  				$post_status = $post->post_status;\n 1087  			}\n 1088: 			if ( 'publish' != $post_status ) {\n 1089  				$enabled = false;\n 1090  			}\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/notes.php:\n  104  		Jetpack_Sync::sync_posts( __FILE__, array(\n  105  			'post_types' => $filt_post_types,\n  106: 			'post_stati' => array( 'publish' ),\n  107  		) );\n  108  		Jetpack_Sync::sync_comments( __FILE__, array(\n  109  			'post_types' => $filt_post_types,\n  110: 			'post_stati' => array( 'publish' ),\n  111  			'comment_stati' => array( 'approve', 'approved', '1', 'hold', 'unapproved', 'unapprove', '0', 'spam', 'trash' ),\n  112  		) );\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/omnisearch/omnisearch-posts.php:\n  106  		$html .= '<abbr title=\"' . esc_attr( $t_time ) . '\">' . esc_html( $h_time ) . '</abbr>';\n  107  		$html .= '<br />';\n  108: 		if ( 'publish' == $post->post_status ) {\n  109  			$html .= esc_html__('Published', 'jetpack');\n  110  		} elseif ( 'future' == $post->post_status ) {\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/publicize/publicize-jetpack.php:\n  408  	function save_publicized( $new_status, $old_status, $post ) {\n  409  		// Only do this when a post transitions to being published\n  410: 		if ( 'publish' == $new_status && 'publish' != $old_status ) {\n  411  			update_post_meta( $post->ID, $this->POST_DONE . 'all', true );\n  412  		}\n  ...\n  675  	*/\n  676  	function publicize_checkbox_default( $checked, $post_id, $name, $connection ) {\n  677: 		if ( 'publish' == get_post_status( $post_id ) )\n  678  			return false;\n  679  \n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/publicize/publicize.php:\n  317  \n  318  		// only work with certain statuses (avoids inherits, auto drafts etc)\n  319: 		if ( !in_array( $post->post_status, array( 'publish', 'draft', 'future' ) ) ) {\n  320  			$submit_post = false;\n  321  		}\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/publicize/ui.php:\n  547  					// far as Publicize is concerned. Jetpack uses this approach. All published posts in Jetpack\n  548  					// have Publicize disabled.\n  549: 					$all_done = get_post_meta( $post->ID, $this->publicize->POST_DONE . 'all', true ) || ( $this->in_jetpack && 'publish' == $post->post_status );\n  550  \n  551  					// We don't allow Publicizing to the same external id twice, to prevent spam\n  ...\n  585  							$skip = (\n  586  								(\n  587: 									in_array( $post->post_status, array( 'publish', 'draft', 'future' ) )\n  588  									&&\n  589  									get_post_meta( $post->ID, $this->publicize->POST_SKIP . $unique_id, true )\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/shortlinks.php:\n   65  	$type = '';\n   66  \n   67: 	if ( $allow_slugs && 'publish' == $post->post_status && 'post' == $post->post_type && strlen( $post->post_name ) <= 8 && false === strpos( $post->post_name, '%' )\n   68  		&& false === strpos( $post->post_name, '-' ) ) {\n   69  		$id = $post->post_name;\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/sitemaps/sitemaps.php:\n  276  	// use direct query instead because get_posts was acting too heavy for our needs\n  277  	//$posts = get_posts( array( 'numberposts'=>1000, 'post_type'=>$post_types, 'post_status'=>'published' ) );\n  278: 	$posts = $wpdb->get_results( \"SELECT ID, post_type, post_modified_gmt, comment_count FROM $wpdb->posts WHERE post_status='publish' AND post_type IN ({$post_types_in}) ORDER BY post_modified_gmt DESC LIMIT 1000\" );\n  279  	if ( empty( $posts ) ) {\n  280  		status_header( 404 );\n  ...\n  501  			LEFT JOIN $wpdb->terms AS t ON tt.term_id = t.term_id\n  502  		WHERE\n  503: 			post_status='publish' AND post_type IN ( {$post_types_in_string} ) AND post_date_gmt > (%s - INTERVAL 2 DAY)\n  504  		GROUP BY p.ID\n  505  		ORDER BY p.post_date_gmt DESC LIMIT %d\", $cur_datetime, $limit );\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/subscriptions.php:\n  101  		}\n  102  \n  103: 		if ( 'publish' === $post->post_status && strlen( (string) $post->post_password ) < 1 ) {\n  104  			/**\n  105  			 * Filter whether posts can be emailed to subscribers.\n  ...\n  159  		wp_nonce_field( 'disable_subscribe', 'disable_subscribe_nonce' );\n  160  		// only show checkbox if post hasn't been published and is a 'post' post type.\n  161: 		if ( get_post_status( $post->ID ) !== 'publish' && get_post_type( $post->ID ) == 'post' ) : ?>\n  162  			<div class=\"misc-pub-section\">\n  163  				<label for=\"_jetpack_dont_email_post_to_subs\"><?php _e( 'Jetpack Subscriptions:', 'jetpack' ); ?></label><br>\n  ...\n  184  	function maybe_send_subscription_email( $new_status, $old_status, $post ) {\n  185  		// Only do things on publish\n  186: 		if ( 'publish' !== $new_status ) {\n  187  			return;\n  188  		}\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/theme-tools/random-redirect.php:\n   62  \n   63  	if ( isset( $random_cat_id ) ) {\n   64: 		$random_id = $wpdb->get_var( $wpdb->prepare( \"SELECT DISTINCT ID FROM $wpdb->posts AS p INNER JOIN $wpdb->term_relationships AS tr ON (p.ID = tr.object_id AND tr.term_taxonomy_id = %s) INNER JOIN  $wpdb->term_taxonomy AS tt ON(tr.term_taxonomy_id = tt.term_taxonomy_id AND taxonomy = 'category') WHERE p.post_type = %s AND post_password = '' AND post_status = 'publish' %s ORDER BY RAND() LIMIT 1\", $random_cat_id, $post_type, $random_author_query ) );\n   65  	} else {\n   66: 		$random_id = $wpdb->get_var( $wpdb->prepare( \"SELECT ID FROM $wpdb->posts WHERE post_type = %s AND post_password = '' AND post_status = 'publish' %s ORDER BY RAND() LIMIT 1\", $post_type, $random_author_query ) );\n   67  	}\n   68  	\n\n/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack/modules/widgets/top-posts.php:\n  491  		$posts = $post_query->query( array(\n  492  			'posts_per_page' => 1,\n  493: 			'post_status' => 'publish',\n  494  			'post_type' => array( 'post', 'page' ),\n  495  			'no_found_rows' => true,\n  ...\n  516  \n  517  			// hide private and password protected posts\n  518: 			if ( 'publish' != $post->post_status || ! empty( $post->post_password ) || empty( $post->ID ) )\n  519  				continue;\n  520  \n\n88 matches across 27 files\n",
 			"settings":
 			{
-				"buffer_size": 561,
-				"line_ending": "Unix"
+				"buffer_size": 22974,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
 			}
 		}
 	],
@@ -189,10 +195,23 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/themes/admin"
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/themes/admin/functions"
 	],
 	"file_history":
 	[
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/themes/admin/functions/filters.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/themes/admin/functions/post_guids.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/themes/admin/functions/hooks.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/themes/admin/functions/updating_blog_site.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/themes/admin/functions/media.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/themes/admin/functions.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-config.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-config-sample.php",
+		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/themes/admin/style.css",
 		"/Users/charlie/Documents/Code/Projects/electron/electron-quick-start/package.json",
 		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/javascripts/modules/google_tag_manager.js",
 		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/javascripts/modules/fit_to_parent.jsx",
@@ -311,26 +330,20 @@
 		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/.jscsrc",
 		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/public/index.php",
 		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/config.php",
-		"/Users/charlie/Library/Application Support/Sublime Text 3/Packages/User/SCSS.sublime-settings",
-		"/Users/charlie/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/.jshintrc",
-		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/.csscomb.json",
-		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Front End/composer.json",
-		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Live/wp-content/themes/vikibell/post-formats/content.php",
-		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Live/wp-content/themes/vikibell/functions/general.php",
-		"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/Live/wp-content/themes/vikibell/post-formats/content-video.php",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/helpers/emails.js",
-		"/Users/charlie/Documents/Code/Projects/Improv Stories/config.js"
+		"/Users/charlie/Library/Application Support/Sublime Text 3/Packages/User/SCSS.sublime-settings"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
 		"height": 106.0,
 		"where_history":
 		[
+			"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack",
+			"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins",
+			"/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin/wp-content/plugins/jetpack",
 			""
 		]
 	},
@@ -339,6 +352,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"'publish'",
+			"save_post",
+			"publish",
+			"twitter",
+			"tiwtter",
 			"variables",
 			"]",
 			"[",
@@ -492,13 +510,372 @@
 			[
 				{
 					"buffer": 0,
-					"file": "wp-content/themes/admin/functions.php",
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 561,
+						"buffer_size": 22974,
 						"regions":
 						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										260,
+										269
+									],
+									[
+										484,
+										493
+									],
+									[
+										898,
+										907
+									],
+									[
+										1253,
+										1262
+									],
+									[
+										1547,
+										1556
+									],
+									[
+										1832,
+										1841
+									],
+									[
+										2117,
+										2126
+									],
+									[
+										2402,
+										2411
+									],
+									[
+										2687,
+										2696
+									],
+									[
+										2972,
+										2981
+									],
+									[
+										3407,
+										3416
+									],
+									[
+										3722,
+										3731
+									],
+									[
+										3823,
+										3832
+									],
+									[
+										3998,
+										4007
+									],
+									[
+										4381,
+										4390
+									],
+									[
+										4482,
+										4491
+									],
+									[
+										4657,
+										4666
+									],
+									[
+										4997,
+										5006
+									],
+									[
+										5422,
+										5431
+									],
+									[
+										5677,
+										5686
+									],
+									[
+										6009,
+										6018
+									],
+									[
+										6258,
+										6267
+									],
+									[
+										6294,
+										6303
+									],
+									[
+										6642,
+										6651
+									],
+									[
+										6913,
+										6922
+									],
+									[
+										7020,
+										7029
+									],
+									[
+										7097,
+										7106
+									],
+									[
+										7360,
+										7369
+									],
+									[
+										7455,
+										7464
+									],
+									[
+										7526,
+										7535
+									],
+									[
+										7775,
+										7784
+									],
+									[
+										7811,
+										7820
+									],
+									[
+										8159,
+										8168
+									],
+									[
+										8430,
+										8439
+									],
+									[
+										8537,
+										8546
+									],
+									[
+										8614,
+										8623
+									],
+									[
+										8756,
+										8765
+									],
+									[
+										9126,
+										9135
+									],
+									[
+										9250,
+										9259
+									],
+									[
+										9321,
+										9330
+									],
+									[
+										9570,
+										9579
+									],
+									[
+										9606,
+										9615
+									],
+									[
+										9954,
+										9963
+									],
+									[
+										10225,
+										10234
+									],
+									[
+										10331,
+										10340
+									],
+									[
+										10408,
+										10417
+									],
+									[
+										10560,
+										10569
+									],
+									[
+										11059,
+										11068
+									],
+									[
+										11510,
+										11519
+									],
+									[
+										11582,
+										11591
+									],
+									[
+										11921,
+										11930
+									],
+									[
+										12162,
+										12171
+									],
+									[
+										12400,
+										12409
+									],
+									[
+										12646,
+										12655
+									],
+									[
+										12909,
+										12918
+									],
+									[
+										13000,
+										13009
+									],
+									[
+										13232,
+										13241
+									],
+									[
+										13478,
+										13487
+									],
+									[
+										13765,
+										13774
+									],
+									[
+										14089,
+										14098
+									],
+									[
+										14300,
+										14309
+									],
+									[
+										14548,
+										14557
+									],
+									[
+										14860,
+										14869
+									],
+									[
+										15054,
+										15063
+									],
+									[
+										15255,
+										15264
+									],
+									[
+										15571,
+										15580
+									],
+									[
+										15857,
+										15866
+									],
+									[
+										16223,
+										16232
+									],
+									[
+										16522,
+										16531
+									],
+									[
+										16829,
+										16838
+									],
+									[
+										16988,
+										16997
+									],
+									[
+										17407,
+										17416
+									],
+									[
+										17834,
+										17843
+									],
+									[
+										17862,
+										17871
+									],
+									[
+										18094,
+										18103
+									],
+									[
+										18429,
+										18438
+									],
+									[
+										18888,
+										18897
+									],
+									[
+										19120,
+										19129
+									],
+									[
+										19432,
+										19441
+									],
+									[
+										20118,
+										20127
+									],
+									[
+										20382,
+										20391
+									],
+									[
+										20725,
+										20734
+									],
+									[
+										21104,
+										21113
+									],
+									[
+										21465,
+										21474
+									],
+									[
+										22071,
+										22080
+									],
+									[
+										22326,
+										22335
+									],
+									[
+										22646,
+										22655
+									],
+									[
+										22826,
+										22835
+									]
+								],
+								"scope": ""
+							}
 						},
 						"selection":
 						[
@@ -568,12 +945,19 @@
 								"bh_curly_close",
 								"bh_curly_content"
 							],
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"default_dir": "/Users/charlie/Documents/Code/Projects/Viki Bell/Blog/admin",
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ 	].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 723.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -667,7 +1051,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 334.0,
+	"side_bar_width": 360.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
