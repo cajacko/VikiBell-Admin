@@ -25,10 +25,18 @@ define('CLOUDFLARE_ZONE', 'xxx');
 define('DBI_AWS_ACCESS_KEY_ID', 'xxx');
 define('DBI_AWS_SECRET_ACCESS_KEY', 'xxx');
 
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define('DB_NAME', 'database_name_here');
+define('TWITTER_KEY', 'xxx');
+define('TWITTER_SECRET', 'xxx');
+define('TWITTER_CALLBACK', 'xxx');
 
+define('BITLY_CLIENT_ID', 'xxx');
+define('BITLY_CLIENT_SECRET', 'xxx');
+define('BITLY_REDIRECT', 'xxx');
+
+define('LIVE_BLOG_URL', 'xxx');
+define('DISABLE_WP_CRON', 'true');
+
+// ** MySQL settings - You can get this info from your web host ** //
 /** MySQL database username */
 define('DB_USER', 'username_here');
 
@@ -37,6 +45,12 @@ define('DB_PASSWORD', 'password_here');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
+
+if('xxx' === $_SERVER['HTTP_HOST']) {
+    define('DB_NAME', 'xxx');
+} else {
+    define('DB_NAME', 'xxx_local');
+}
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
