@@ -175,11 +175,12 @@ function admin_return_post_tweet($post_id) {
     if(strlen($tweet) > 10 && strlen($tweet) <= $tweet_limit) {
         return $tweet;
     } else {
-        require_once(__DIR__ . '/../vendor/bitly.php');
+        require_once(__DIR__ . '/../vendor/bitly.php');    
 
         $params = array();
         $params['access_token'] = get_option($admin_bitly_access_token);
-        $params['longUrl'] = LIVE_BLOG_URL . 'posts/' . get_post_field('post_name', $post_id);
+        $post = get_post($post_id);
+        $params['longUrl'] = LIVE_BLOG_URL . 'posts/' . $post->post_name;
         $results = bitly_get('shorten', $params);
 
          if(isset($results['data']['url'])) {
