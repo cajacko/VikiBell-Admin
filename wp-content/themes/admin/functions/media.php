@@ -9,7 +9,7 @@ function admin_setup_media() {
      * can be progressively loaded at higher 
      * resolutions.
      */
-    for($i = 600; $i > 300; $i = $i - 50) {
+    for($i = 2400; $i > 300; $i = $i - 50) {
         add_image_size( 'width-' . $i, $i );
     }
 }
