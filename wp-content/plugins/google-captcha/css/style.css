@@ -1,0 +1,23 @@
+/*
+* styles for settings page
+*/
+#gglcptch_v1_notice {
+	border-color: #00a0d2 !important;
+}
+#gglcptch-keys input[type=text] {
+	max-width: 350px;
+	width: 100%;
+	display: inline-block;
+}
+.gglcptch_verified {
+	color: #03AA03;
+}
+.gglcptch_error_msg {
+	color: #dc3232;
+}
+@media only screen and ( max-width: 782px ) {
+	#gglcptch-keys input[type=text] {
+		width: 90%;
+		max-width: initial;
+	}
+}

@@ -11,3 +11,5 @@ require_once('functions/preview.php');
 require_once('functions/publish_meta_box.php');
 require_once('functions/filters.php');
 require_once('functions/hooks.php');
+require_once('functions/login_form.php');
+

@@ -1,0 +1,420 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Google Сaptcha\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-25 11:33+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: BestWebSoft team <wp@bestwebsoft.com>\n"
+"Language-Team: Cloudzeroxyz <cloudzeroxyz@gmail.com>\n"
+"Language: es_419\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: google-captcha.php:34 google-captcha.php:422
+msgid "Google Captcha Settings"
+msgstr "Googe Captcha Ajustes"
+
+#: google-captcha.php:202
+msgid "Warning"
+msgstr ""
+
+#: google-captcha.php:202
+msgid ""
+"It has been found more than one reCAPTCHA in current form. In this case "
+"reCAPTCHA will not work properly. Please remove all unnecessary reCAPTCHA "
+"blocks."
+msgstr ""
+
+#: google-captcha.php:206
+#, fuzzy
+msgid "Error: You have entered an incorrect reCAPTCHA value."
+msgstr "Error: Ha introducido un valor incorrecto de CAPTCHA."
+
+#: google-captcha.php:327
+msgid "Normal"
+msgstr ""
+
+#: google-captcha.php:328
+msgid "Compact"
+msgstr ""
+
+#: google-captcha.php:334
+msgid "Site key"
+msgstr ""
+
+#: google-captcha.php:339
+msgid "Secret Key"
+msgstr ""
+
+#: google-captcha.php:347
+msgid "Login form"
+msgstr "Formulario de acceso"
+
+#: google-captcha.php:348
+msgid "Registration form"
+msgstr "Formulario de registro"
+
+#: google-captcha.php:349
+msgid "Reset password form"
+msgstr "Formulario de restablecimiento de contraseña"
+
+#: google-captcha.php:350
+msgid "Comments form"
+msgstr "Formulario de comentarios"
+
+#: google-captcha.php:369
+#, fuzzy
+msgid "Enter site key"
+msgstr "Introduce la clave privada"
+
+#: google-captcha.php:370 google-captcha.php:376
+msgid "WARNING: The captcha will not display while you don't fill key fields."
+msgstr ""
+"ADVERTENCIA: El Captcha no se mostrará mientras usted no llene los campos "
+"clave."
+
+#: google-captcha.php:375
+#, fuzzy
+msgid "Enter secret key"
+msgstr "Introduce la clave privada"
+
+#: google-captcha.php:401
+msgid "Settings saved"
+msgstr "Configuración guardada"
+
+#: google-captcha.php:407
+#, fuzzy
+msgid "All plugin settings were restored."
+msgstr "página de configuración de plugin"
+
+#: google-captcha.php:424 google-captcha.php:1128 google-captcha.php:1150
+msgid "Settings"
+msgstr "Ajustes"
+
+#: google-captcha.php:425
+msgid "Custom code"
+msgstr ""
+
+#: google-captcha.php:426
+msgid "Go PRO"
+msgstr ""
+
+#: google-captcha.php:431
+msgid ""
+"Only one reCAPTCHA can be displayed on the page, it's related to reCAPTCHA "
+"version 1 features."
+msgstr ""
+
+#: google-captcha.php:446
+#, fuzzy, php-format
+msgid ""
+"If you would like to add a Google Captcha (reCAPTCHA) to your page or post, "
+"please use %s button"
+msgstr ""
+"Si quisiera añadir el Google Captcha para su formulario, simplemente copia y "
+"pega este código corto en tu post o página:"
+
+#: google-captcha.php:452
+#, php-format
+msgid ""
+"You can add the Google Captcha (reCAPTCHA) to your page or post by clicking "
+"on %s button in the content edit block using the Visual mode. If the button "
+"isn't displayed or you would like to add the Google Captcha (reCAPTCHA) to "
+"your own form , please use the shortcode %s"
+msgstr ""
+
+#: google-captcha.php:460
+msgid "Authentication"
+msgstr "Autentificación"
+
+#: google-captcha.php:461
+#, fuzzy, php-format
+msgid "Before you are able to do something, you must to register %shere%s"
+msgstr "Antes de que pueda hacer algo, debe registrar %s aquí %s"
+
+#: google-captcha.php:462
+#, fuzzy
+msgid "Enter site key and secret key, that you get after registration."
+msgstr ""
+"Introduzca las claves pública y privada, que se obtiene después de "
+"Registrarse."
+
+#: google-captcha.php:477
+msgid "Test Keys"
+msgstr ""
+
+#: google-captcha.php:480
+msgid "Options"
+msgstr "Opciones"
+
+#: google-captcha.php:483
+msgid "Enable reCAPTCHA for"
+msgstr ""
+
+#: google-captcha.php:487
+msgid "WordPress default"
+msgstr ""
+
+#: google-captcha.php:496
+msgid "This option is available only for network or for main blog"
+msgstr ""
+
+#: google-captcha.php:504
+#, fuzzy
+msgid "Plugins"
+msgstr "Página de Plugins"
+
+#: google-captcha.php:512 google-captcha.php:517
+#, php-format
+msgid "You should %s to use this functionality"
+msgstr ""
+
+#: google-captcha.php:513
+#, fuzzy
+msgid "activate"
+msgstr "Tema Activado"
+
+#: google-captcha.php:513
+msgid "for network"
+msgstr ""
+
+#: google-captcha.php:518
+msgid "download"
+msgstr ""
+
+#: google-captcha.php:522
+msgid "Check off for adding captcha to forms on their settings pages."
+msgstr ""
+
+#: google-captcha.php:533 google-captcha.php:610
+msgid "Close"
+msgstr ""
+
+#: google-captcha.php:545 google-captcha.php:646
+msgid "Unlock premium options by upgrading to Pro version"
+msgstr ""
+
+#: google-captcha.php:548 google-captcha.php:649
+msgid "Learn More"
+msgstr ""
+
+#: google-captcha.php:554
+#, php-format
+msgid ""
+"If you would like to add Google Captcha (reCAPTCHA) to a custom form see %s"
+msgstr ""
+
+#: google-captcha.php:554 google-captcha.php:1151
+msgid "FAQ"
+msgstr "Preguntas Frecuentes"
+
+#: google-captcha.php:559
+msgid "Hide reCAPTCHA in Comments form for"
+msgstr ""
+
+#: google-captcha.php:571
+msgid "reCAPTCHA version"
+msgstr ""
+
+#: google-captcha.php:574 google-captcha.php:575 google-captcha.php:576
+#: google-captcha.php:577
+msgid "version"
+msgstr ""
+
+#: google-captcha.php:583 google-captcha.php:596
+msgid "reCAPTCHA theme"
+msgstr ""
+
+#: google-captcha.php:584 google-captcha.php:597 google-captcha.php:628
+msgid "for version"
+msgstr ""
+
+#: google-captcha.php:614
+msgid "reCAPTCHA language"
+msgstr ""
+
+#: google-captcha.php:621
+msgid "Use the current site language"
+msgstr ""
+
+#: google-captcha.php:621
+msgid "Using"
+msgstr ""
+
+#: google-captcha.php:627
+msgid "reCAPTCHA size"
+msgstr ""
+
+#: google-captcha.php:656
+msgid "Save Changes"
+msgstr "Guardar Cambios"
+
+#: google-captcha.php:710 google-captcha.php:1167
+msgid "To use Google Captcha you must get the keys from"
+msgstr "Para utilizar Google Captcha debe obtener las claves de"
+
+#: google-captcha.php:711 google-captcha.php:1168
+msgid "here"
+msgstr "aquí"
+
+#: google-captcha.php:712 google-captcha.php:1169
+msgid "and enter them on the"
+msgstr "e introducirlas en"
+
+#: google-captcha.php:714 google-captcha.php:1171
+msgid "plugin setting page"
+msgstr "página de configuración de plugin"
+
+#: google-captcha.php:900 google-captcha.php:948
+msgid "Error"
+msgstr ""
+
+#: google-captcha.php:900 google-captcha.php:948
+#, fuzzy
+msgid "You have entered an incorrect reCAPTCHA value."
+msgstr "Error: Ha introducido un valor incorrecto de CAPTCHA."
+
+#: google-captcha.php:978 google-captcha.php:1007 google-captcha.php:1033
+msgid "ERROR"
+msgstr ""
+
+#: google-captcha.php:978 google-captcha.php:1007
+#, fuzzy
+msgid "You have entered an incorrect reCAPTCHA value"
+msgstr "Error: Ha introducido un valor incorrecto de CAPTCHA."
+
+#: google-captcha.php:1033
+#, fuzzy
+msgid ""
+"You have entered an incorrect reCAPTCHA value. Click the BACK button on your "
+"browser, and try again."
+msgstr ""
+"Error: Ha introducido un valor incorrecto de CAPTCHA. Haga clic en el botón "
+"Regresar de su navegador y vuelva a intentarlo."
+
+#: google-captcha.php:1064
+msgid "Please, complete the captcha and submit \"Test verification\""
+msgstr ""
+
+#: google-captcha.php:1068
+msgid "Test verification"
+msgstr ""
+
+#: google-captcha.php:1082 google-captcha.php:1091
+msgid "The user response was missing."
+msgstr ""
+
+#: google-captcha.php:1084
+msgid "The Secret Key is missing."
+msgstr ""
+
+#: google-captcha.php:1087 google-captcha.php:1096
+msgid "The Secret Key is invalid"
+msgstr ""
+
+#: google-captcha.php:1088 google-captcha.php:1097
+msgid "Check your domain configuration"
+msgstr ""
+
+#: google-captcha.php:1089 google-captcha.php:1098
+#, fuzzy
+msgid "and enter it again"
+msgstr "e introducirlas en"
+
+#: google-captcha.php:1092 google-captcha.php:1100
+msgid "The user response is invalid."
+msgstr ""
+
+#: google-captcha.php:1109
+msgid "The verification is successfully completed."
+msgstr ""
+
+#: google-captcha.php:1152
+msgid "Support"
+msgstr "Soporte"
+
+#~ msgid "powered by"
+#~ msgstr "impulsado por"
+
+#, fuzzy
+#~ msgid "Activate"
+#~ msgstr "Tema Activado"
+
+#~ msgid "Contact form"
+#~ msgstr "Formulario de contacto"
+
+#~ msgid "Activate contact form"
+#~ msgstr "Activar formulario de contacto"
+
+#~ msgid "Download contact form"
+#~ msgstr "Descargar formulario de contacto"
+
+#~ msgid "Google Captcha"
+#~ msgstr "Google Captcha"
+
+#~ msgid "Enable Google Captcha for:"
+#~ msgstr "Habilitar Google Captcha para:"
+
+#~ msgid "Hide captcha for:"
+#~ msgstr "Ocultar captcha para:"
+
+#~ msgid "Theme:"
+#~ msgstr "Tema:"
+
+#~ msgid "requires"
+#~ msgstr "requiere"
+
+#~ msgid ""
+#~ "or higher, that is why it has been deactivated! Please upgrade WordPress "
+#~ "and try again."
+#~ msgstr ""
+#~ "o superior, es por eso que ha sido desactivado! Por favor, actualice "
+#~ "WordPress y vuelva a intentarlo."
+
+#~ msgid "Back to the WordPress"
+#~ msgstr "Volver a WordPress"
+
+#~ msgid "If you enjoy our plugin, please give it 5 stars on WordPress"
+#~ msgstr ""
+#~ "Si te gusta nuestro plugin, por favor, dale 5 estrellas en WordPress"
+
+#~ msgid "Rate the plugin"
+#~ msgstr "Valorar el plugin"
+
+#~ msgid "If there is something wrong about it, please contact us"
+#~ msgstr "Si hay algo malo en ello, por favor ponte en contacto con nosotros"
+
+#~ msgid "Public Key"
+#~ msgstr "Clave Pública"
+
+#~ msgid "Private Key"
+#~ msgstr "Clave Privada"
+
+#~ msgid "Enter public key"
+#~ msgstr "Introduce la clave pública"
+
+#~ msgid "Red"
+#~ msgstr "Rojo"
+
+#~ msgid "White"
+#~ msgstr "Blanco"
+
+#~ msgid "Blackglass"
+#~ msgstr "Cristal Negro"
+
+#~ msgid "Clean"
+#~ msgstr "Limpio"
+
+#~ msgid "Themes"
+#~ msgstr "Temas"
+
+#~ msgid "WARNING: The captcha will not display while you not fill key fields."
+#~ msgstr ""
+#~ "ADVERTENCIA: El Captcha no se mostrará mientras no llena los campos clave."
